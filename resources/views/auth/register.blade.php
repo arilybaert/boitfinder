@@ -18,6 +18,11 @@
 
                 <x-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus />
             </div>
+            <div>
+                {{-- <x-label for="role" /> --}}
+
+                <x-input id="role" class="block mt-1 w-full" type="text" name="role" value="artist" required autofocus type="hidden" />
+            </div>
 
             <!-- Email Address -->
             <div class="mt-4">

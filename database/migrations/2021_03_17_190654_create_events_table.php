@@ -20,7 +20,8 @@ class CreateEventsTable extends Migration
             $table->string('coverphoto')->nullable();
 
 
-            $table->foreignId('genre_id')->references('id')->on('genres');
+            $table->foreignId('genre_id')->references('id')->on('genres')->nullable();
+            $table->foreignId('user_id')->references('id')->on('users')->nullable();
 
             $table->timestamps();
         });

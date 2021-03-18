@@ -21,24 +21,24 @@ class CreateUsersTable extends Migration
 
             // location
             $table->string('address')->nullable();
-            $table->string('city')->nullable();
             $table->string('zipcode')->nullable();
+            $table->string('city')->nullable();
 
             // contact
             $table->string('website')->nullable();
             $table->string('telephone')->nullable();
 
-            $table->string('description')->nullable();
+            $table->text('description')->nullable();
             $table->string('coverphoto')->nullable();
 
             // event specific
             $table->integer('capacity')->nullable();
 
             // band specific
-            $table->string('genre_description')->nullable();
-            $table->string('rider')->nullable();
+            $table->text('genre_description')->nullable();
+            $table->string('rider')->nullable()->nullable();
 
-            $table->foreignId('pa_id')->references('id')->on('pa');
+            $table->foreignId('pa_id')->nullable()->references('id')->on('pas');
 
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');

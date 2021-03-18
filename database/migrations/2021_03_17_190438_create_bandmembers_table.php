@@ -19,7 +19,7 @@ class CreateBandmembersTable extends Migration
             $table->string('function')->nullable();
             $table->string('photo')->nullable();
 
-            $table->foreignId('user_id')->references('id')->on('users');
+            $table->foreignId('user_id')->nullable()->references('id')->on('users');
 
             $table->timestamps();
         });

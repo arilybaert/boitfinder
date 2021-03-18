@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreatePaTable extends Migration
+class CreateGenresUsersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,12 @@ class CreatePaTable extends Migration
      */
     public function up()
     {
-        Schema::create('pa', function (Blueprint $table) {
+        Schema::create('genres_users', function (Blueprint $table) {
             $table->id();
-            $table->string('name')->nullable();
-            $table->string('brand')->nullable();
             $table->timestamps();
+
+            $table->foreignId('genre_id')->references('id')->on('genres');
+            $table->foreignId('user_id')->references('id')->on('users');
         });
     }
 
@@ -28,6 +29,6 @@ class CreatePaTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('pa');
+        Schema::dropIfExists('genres_users');
     }
 }

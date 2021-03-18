@@ -15,6 +15,12 @@ class CreateApplicantsTable extends Migration
     {
         Schema::create('applicants', function (Blueprint $table) {
             $table->id();
+            $table->string('status')->nullable();
+            $table->text('message')->nullable();
+
+            $table->foreignId('event_id')->nullable()->references('id')->on('events');
+            $table->foreignId('user_id')->nullable()->references('id')->on('users');
+
             $table->timestamps();
         });
     }

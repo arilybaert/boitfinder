@@ -1,6 +1,10 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\EventController;
+use App\Http\Controllers\ArtistController;
+use App\Http\Controllers\AdminController;
 
 /*
 |--------------------------------------------------------------------------
@@ -12,10 +16,10 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-Route::get('/', function () {
-    return view('welcome');
-});
+// Auth::routes();
+Route::get('/admin', [AdminController::class, 'getIndex'])->name('admin')->middleware('admin');
+Route::get('/artist', [ArtistController::class, 'getIndex'])->name('artist')->middleware('artist');
+Route::get('/event', [EventController::class, 'getIndex'])->name('event')->middleware('event');
 
 Route::get('/dashboard', function () {
     return view('dashboard');

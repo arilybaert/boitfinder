@@ -6,6 +6,7 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class User extends Authenticatable
 {
@@ -20,8 +21,25 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'role',
+        'address',
+        'city',
+        'zipcode',
+        'website',
+        'telephone',
+        'description',
+        'coverphoto',
+        'capacity',
+        'genre_description',
+        'rider',
+        'pa_id',
+        'genre_description',
+        'email_verified_at',
     ];
-
+    public function pa(): BelongsTo
+    {
+        return $this->belongsTo(Pa::class);
+    }
     /**
      * The attributes that should be hidden for arrays.
      *
