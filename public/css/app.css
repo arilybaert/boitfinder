@@ -5,6 +5,7 @@
   height: 60px;
   box-shadow: 0px 2px 7px 1px rgba(0, 0, 0, 0.42);
   color: #990000;
+  margin-bottom: 2.5rem;
 }
 .o-header h1 {
   font-size: 19pt;
@@ -34,6 +35,135 @@
   display: flex;
   justify-content: flex-start;
   align-items: center;
+}
+
+.o-filters .m-filter-button .a-filter-button {
+  border: none;
+  border-radius: 5px;
+  background-color: #990000;
+  color: white;
+  padding: 0.2rem;
+  font-weight: bold;
+  font-size: 11pt;
+  width: 100%;
+}
+.o-filters .o-filter-item {
+  margin-top: 2rem;
+}
+.o-filters .o-filter-item .m-filter-icon .a-filter-icon {
+  font-size: 17pt;
+}
+.o-filters .o-filter-item .a-filter-item-title {
+  font-size: 17pt;
+  margin-bottom: 0;
+}
+.o-filters .o-filter-item .m-filter-input-date {
+  display: flex;
+  margin-top: 1rem;
+}
+.o-filters .o-filter-item .m-filter-input-date .a-filter-input-date {
+  display: inline;
+  width: 50%;
+  margin: 0;
+  padding: 0;
+  font-size: 11pt;
+  color: #990000;
+}
+.o-filters .o-filter-item .m-filter-input-date .a-filter-input-date:first-child {
+  border: 1px solid #990000;
+  border-bottom-left-radius: 5px;
+  border-top-left-radius: 5px;
+  border-right: 0;
+}
+.o-filters .o-filter-item .m-filter-input-date .a-filter-input-date:last-child {
+  border: 1px solid #990000;
+  border-bottom-right-radius: 5px;
+  border-top-right-radius: 5px;
+}
+.o-filters .o-filter-item .o-filter-input-checkbox {
+  margin-top: 1rem;
+  /* Hide the browser's default checkbox */
+  /* Create a custom checkbox */
+  /* On mouse-over, add a grey background color */
+  /* When the checkbox is checked, add a blue background */
+  /* Create the checkmark/indicator (hidden when not checked) */
+  /* Show the checkmark when checked */
+  /* Style the checkmark/indicator */
+}
+.o-filters .o-filter-item .o-filter-input-checkbox .container {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 1rem;
+  cursor: pointer;
+  font-size: 11pt;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+.o-filters .o-filter-item .o-filter-input-checkbox .container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+.o-filters .o-filter-item .o-filter-input-checkbox .checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 23px;
+  width: 23px;
+  background-color: white;
+  border: 1px solid #990000;
+  border-radius: 5px;
+}
+.o-filters .o-filter-item .o-filter-input-checkbox .container:hover input ~ .checkmark {
+  background-color: #ccc;
+  background-color: #990000;
+  border: 1px solid white;
+}
+.o-filters .o-filter-item .o-filter-input-checkbox .container input:checked ~ .checkmark {
+  background-color: #990000;
+}
+.o-filters .o-filter-item .o-filter-input-checkbox .checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+.o-filters .o-filter-item .o-filter-input-checkbox .container input:checked ~ .checkmark:after {
+  display: block;
+}
+.o-filters .o-filter-item .o-filter-input-checkbox .container .checkmark:after {
+  left: 9px;
+  top: 5px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  transform: rotate(45deg);
+}
+
+.o-event-cards .o-event-card {
+  background-color: white;
+  border: 1px solid #990000;
+  border-radius: 9px;
+  text-align: center;
+}
+.o-event-cards .o-event-card .m-event-card-image-container .a-event-card-image {
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.o-event-cards .o-event-card h2 {
+  font-size: 17pt;
+}
+.o-event-cards .o-event-card h3 {
+  font-size: 15pt;
+}
+.o-event-cards .o-event-card p {
+  font-size: 9pt;
 }
 
 body {

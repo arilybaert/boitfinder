@@ -1,0 +1,153 @@
+.o-filters {
+    .m-filter-button {
+        .a-filter-button {
+            border: none;
+            border-radius: $radius-small;
+            background-color: $secondary-color;
+            color: white;
+            padding: 0.2rem;
+            font-weight: bold;
+            font-size: $font-small;
+            width: 100%;
+        }
+    }
+
+    .o-filter-item {
+        margin-top: 2rem;
+        .m-filter-icon {
+            .a-filter-icon {
+                font-size: $font-large;
+            }
+        }
+        .a-filter-item-title {
+            font-size: $font-large;
+            margin-bottom: 0;
+        }
+        .m-filter-input-date {
+            display: flex;
+            margin-top: 1rem;
+            .a-filter-input-date {
+                display: inline;
+                width: 50%;
+                margin: 0;
+                padding: 0;
+                font-size: $font-small;
+                color: $secondary-color;
+            }
+            .a-filter-input-date:first-child {
+                border: 1px solid $secondary-color;
+                border-bottom-left-radius: $radius-small;
+                border-top-left-radius: $radius-small;
+                border-right: 0;
+            }
+            .a-filter-input-date:last-child {
+                border: 1px solid $secondary-color;
+                border-bottom-right-radius: $radius-small;
+                border-top-right-radius: $radius-small;
+            }
+        }
+
+        // custom checkbox style
+        .o-filter-input-checkbox {
+            margin-top: 1rem;
+
+            .container {
+                display: block;
+                position: relative;
+                padding-left: 35px;
+                margin-bottom: 1rem;
+                cursor: pointer;
+                font-size: $font-small;
+                -webkit-user-select: none;
+                -moz-user-select: none;
+                -ms-user-select: none;
+                user-select: none;
+              }
+
+              /* Hide the browser's default checkbox */
+              .container input {
+                position: absolute;
+                opacity: 0;
+                cursor: pointer;
+                height: 0;
+                width: 0;
+              }
+
+              /* Create a custom checkbox */
+              .checkmark {
+                position: absolute;
+                top: 0;
+                left: 0;
+                height: 23px;
+                width: 23px;
+                background-color: white;
+                border: 1px solid $secondary-color;
+                border-radius: $radius-small;
+              }
+
+              /* On mouse-over, add a grey background color */
+              .container:hover input ~ .checkmark {
+                background-color: #ccc;
+                background-color: $secondary-color;
+                border: 1px solid white;
+              }
+
+              /* When the checkbox is checked, add a blue background */
+              .container input:checked ~ .checkmark {
+                background-color: $secondary-color;
+              }
+
+              /* Create the checkmark/indicator (hidden when not checked) */
+              .checkmark:after {
+                content: "";
+                position: absolute;
+                display: none;
+              }
+
+              /* Show the checkmark when checked */
+              .container input:checked ~ .checkmark:after {
+                display: block;
+              }
+
+              /* Style the checkmark/indicator */
+              .container .checkmark:after {
+                left: 9px;
+                top: 5px;
+                width: 5px;
+                height: 10px;
+                border: solid white;
+                border-width: 0 3px 3px 0;
+                -webkit-transform: rotate(45deg);
+                -ms-transform: rotate(45deg);
+                transform: rotate(45deg);
+              }
+        }
+
+
+    }
+}
+
+.o-event-cards {
+    .o-event-card {
+        background-color: white;
+        border: 1px solid $secondary-color;
+        border-radius: $radius-medium;
+        text-align: center;
+        .m-event-card-image-container {
+            .a-event-card-image {
+                width: 100%;
+                object-fit: cover;
+            }
+        }
+        h2 {
+            font-size: $font-large;
+        }
+        h3 {
+            font-size: $font-medium;
+        }
+        p {
+            font-size: 9pt;
+        }
+    }
+
+}

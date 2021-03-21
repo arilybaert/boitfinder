@@ -1,13 +1,14 @@
 .o-header  {
     background-color: $quinary-bg-color;
-    border-radius: 9px;
+    border-radius: $radius-medium;
     margin-top: 2rem;
     height: 60px;
     box-shadow: 0px 2px 7px 1px rgba(0,0,0,0.42);
     color: $secondary-color;
+    margin-bottom: 2.5rem;
 
     h1 {
-        font-size: 19pt;
+        font-size: $font-x-large;
         margin-bottom: 0;
     }
 
@@ -17,12 +18,12 @@
         align-items: center;
 
         h2 {
-            font-size: 11pt;
+            font-size: $font-small;
             margin: 0;
         }
 
         .a-header-icon {
-            font-size: 17pt;
+            font-size: $font-large;
             margin-bottom: 10px;
         }
     }
