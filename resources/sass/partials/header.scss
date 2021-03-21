@@ -1,0 +1,40 @@
+.o-header  {
+    background-color: $quinary-bg-color;
+    border-radius: 9px;
+    margin-top: 2rem;
+    height: 60px;
+    box-shadow: 0px 2px 7px 1px rgba(0,0,0,0.42);
+    color: $secondary-color;
+
+    h1 {
+        font-size: 19pt;
+        margin-bottom: 0;
+    }
+
+    .m-header-menu {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        h2 {
+            font-size: 11pt;
+            margin: 0;
+        }
+
+        .a-header-icon {
+            font-size: 17pt;
+            margin-bottom: 10px;
+        }
+    }
+
+}
+.o-header > div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.o-header :first-child {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}

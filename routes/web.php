@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\ArtistController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\GigController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,10 +17,15 @@ use App\Http\Controllers\AdminController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-// Auth::routes();
+
+// User Specific Routes
 Route::get('/admin', [AdminController::class, 'getIndex'])->name('admin')->middleware('admin');
 Route::get('/artist', [ArtistController::class, 'getIndex'])->name('artist')->middleware('artist');
 Route::get('/event', [EventController::class, 'getIndex'])->name('event')->middleware('event');
+
+// Gig Routes
+Route::get('/', [GigController::class, 'getIndex'])->name('Home');
+
 
 Route::get('/dashboard', function () {
     return view('dashboard');
