@@ -2,17 +2,17 @@
 
 namespace Database\Factories;
 
-use App\Models\Event;
+use App\Models\EventsGenre;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-class EventFactory extends Factory
+class EventsGenreFactory extends Factory
 {
     /**
      * The name of the factory's corresponding model.
      *
      * @var string
      */
-    protected $model = Event::class;
+    protected $model = EventsGenre::class;
 
     /**
      * Define the model's default state.
@@ -22,9 +22,7 @@ class EventFactory extends Factory
     public function definition()
     {
         return [
-            'name' => $this->faker->state(),
-            'description' => $this->faker->paragraphs($nb = 0, $asText = true),
-            'date' => $this->faker->dateTimeBetween('now', '+2 years')
+            //
         ];
     }
 }

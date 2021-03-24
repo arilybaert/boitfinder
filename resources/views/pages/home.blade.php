@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="row">
-        <div class="col-4 o-filters">
+        <div class="col-3 o-filters">
             <form action="" method="post">
 
                 {{-- submit button --}}
@@ -93,7 +93,8 @@
                         </label>
                     </div>
                 </div>
-                {{-- Microphones --}}
+
+                {{-- Genres --}}
 
                 <div class="row o-filter-item">
                     <div class="col-2 m-filter-icon">
@@ -139,28 +140,66 @@
                 </div>
             </form>
         </div>
-        <div class="col-8 o-event-cards">
+        <div class="col-9 o-event-cards">
             <div class="row">
 
                 <div class="col-4 o-event-card">
-                    <div class="m-event-card-image-container">
-                        <img src="{{ asset('src/img/event/cover/cover-1.jpg')}}" alt="" class="a-event-card-image">
-                    </div>
-                    <h2>
-                        Jazz Night
-                    </h2>
-                    <h3>
-                        The Missy Sippy
-                    </h3>
-                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Porro laborum reiciendis similique veniam! Placeat necessitatibus asperiores nihil eligendi pariatur molestias ipsa officia qui ipsam tenetur eos, explicabo nostrum illo enim?</p>
-                    <div class="m-event-card-genres">
-                        Jazz, House, Retro
-                    </div>
-                    <div class="m-event-card-date">
-                        22/05/2021
+                    <div class="m-event-card">
+                        <div class="m-event-card-image-container">
+                            <img src="{{ asset('src/img/event/cover/cover-1.jpg')}}" alt="" class="a-event-card-image">
+                        </div>
+                        <h2>
+                            Jazz Night
+                        </h2>
+                        <h3>
+                            The Missy Sippy
+                        </h3>
+                        <div class="a-border-bottom"></div>
+                        <p>
+                            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Porro laborum reiciendis similique veniam! Placeat necessitatibus asperiores nihil eligendi pariatur molestias ipsa officia qui ipsam tenetur eos, explicabo nostrum illo enim?
+                        </p>
+                        <div class="a-border-bottom"></div>
+
+                        <div class="m-event-card-genres">
+                            <i class="fas fa-music a-card-icon"></i>
+
+                            Jazz, House, Retro
+                        </div>
+                        <div class="m-event-card-date">
+                            <i class="far fa-calendar-alt a-card-icon"></i>
+                            22/05/2021
+                        </div>
                     </div>
                 </div>
 
+                <div class="col-4 o-event-card">
+                    <div class="m-event-card">
+                        <div class="m-event-card-image-container">
+                            <img src="{{ asset('src/img/event/cover/cover-1.jpg')}}" alt="" class="a-event-card-image">
+                        </div>
+                        <h2>
+                            Jazz Night
+                        </h2>
+                        <h3>
+                            The Missy Sippy
+                        </h3>
+                        <div class="a-border-bottom"></div>
+                        <p>
+                            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Porro laborum reiciendis similique veniam! Placeat necessitatibus asperiores nihil eligendi pariatur molestias ipsa officia qui ipsam tenetur eos, explicabo nostrum illo enim?
+                        </p>
+                        <div class="a-border-bottom"></div>
+
+                        <div class="m-event-card-genres">
+                            <i class="fas fa-music a-card-icon"></i>
+
+                            Jazz, House, Retro
+                        </div>
+                        <div class="m-event-card-date">
+                            <i class="far fa-calendar-alt a-card-icon"></i>
+                            22/05/2021
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

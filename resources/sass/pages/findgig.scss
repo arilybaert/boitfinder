@@ -127,26 +127,64 @@
     }
 }
 
+// EVENT CARDS
+
 .o-event-cards {
     .o-event-card {
-        background-color: white;
-        border: 1px solid $secondary-color;
-        border-radius: $radius-medium;
-        text-align: center;
-        .m-event-card-image-container {
-            .a-event-card-image {
-                width: 100%;
-                object-fit: cover;
+        .m-event-card {
+            background-color: white;
+            border: 2px solid $secondary-color;
+            border-radius: $radius-medium;
+            text-align: center;
+            // padding: 0;
+            overflow: hidden;
+
+            .m-event-card-image-container {
+
+                .a-event-card-image {
+                    width: 100%;
+                    object-fit: cover;
+                }
             }
-        }
-        h2 {
-            font-size: $font-large;
-        }
-        h3 {
-            font-size: $font-medium;
-        }
-        p {
-            font-size: 9pt;
+            h2 {
+                font-size: $font-medium;
+                font-weight: bold;
+                color: $primary-color;
+                padding-bottom: 0.5rem;
+                margin-top: 1rem;
+            }
+            h3 {
+                color: $primary-color;
+
+
+                font-size: $font-small;
+                font-family: 'Ayuthaya';
+            }
+            p {
+                font-size: 9pt;
+                text-align: left;
+                color: $secondary-color;
+                padding: 0.7rem;
+            }
+            .a-border-bottom {
+                background-color: $primary-color;
+                height: 1px;
+                width: 60%;
+                margin: 1rem auto;
+            }
+            .a-card-icon {
+                color: $primary-color;
+                font-size: $font-medium;
+                margin-right: 0.5rem;
+            }
+            .m-event-card-genres {
+                font-size: $font-small;
+                color: $secondary-color;
+                margin-bottom: 1rem;
+            }
+            .m-event-card-date {
+                margin-bottom: 2rem;
+            }
         }
     }
 

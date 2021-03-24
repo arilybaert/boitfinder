@@ -10,6 +10,7 @@ use App\Models\MicrophonesUser;
 use App\Models\Genre;
 use App\Models\GenresUser;
 use App\Models\Event;
+use App\Models\EventsGenre;
 use App\Models\Applicant;
 use Illuminate\Database\Seeder;
 
@@ -232,6 +233,21 @@ class DatabaseSeeder extends Seeder
             ]);
         }
 
+        //
+        // Event_Genres
+        //
+        $events = Event::all();
+        $all_genres = [];
+        $genres = Genre::all();
+        foreach ($genres as $genre) {
+            array_push($all_genres, $genre->id);
+        }
+        foreach ($events as $event) {
+            $events_genre = EventsGenre::factory()->create([
+                'event_id' => $event->id,
+                'genre_id' => $all_genres[array_rand($all_genres)],
+            ]);
+        }
 
     }
 }

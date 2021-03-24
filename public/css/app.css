@@ -145,25 +145,54 @@
   transform: rotate(45deg);
 }
 
-.o-event-cards .o-event-card {
+.o-event-cards .o-event-card .m-event-card {
   background-color: white;
-  border: 1px solid #990000;
+  border: 2px solid #990000;
   border-radius: 9px;
   text-align: center;
+  overflow: hidden;
 }
-.o-event-cards .o-event-card .m-event-card-image-container .a-event-card-image {
+.o-event-cards .o-event-card .m-event-card .m-event-card-image-container .a-event-card-image {
   width: 100%;
   -o-object-fit: cover;
      object-fit: cover;
 }
-.o-event-cards .o-event-card h2 {
-  font-size: 17pt;
-}
-.o-event-cards .o-event-card h3 {
+.o-event-cards .o-event-card .m-event-card h2 {
   font-size: 15pt;
+  font-weight: bold;
+  color: #FC9627;
+  padding-bottom: 0.5rem;
+  margin-top: 1rem;
 }
-.o-event-cards .o-event-card p {
+.o-event-cards .o-event-card .m-event-card h3 {
+  color: #FC9627;
+  font-size: 11pt;
+  font-family: "Ayuthaya";
+}
+.o-event-cards .o-event-card .m-event-card p {
   font-size: 9pt;
+  text-align: left;
+  color: #990000;
+  padding: 0.7rem;
+}
+.o-event-cards .o-event-card .m-event-card .a-border-bottom {
+  background-color: #FC9627;
+  height: 1px;
+  width: 60%;
+  margin: 1rem auto;
+}
+.o-event-cards .o-event-card .m-event-card .a-card-icon {
+  color: #FC9627;
+  font-size: 15pt;
+  margin-right: 0.5rem;
+}
+.o-event-cards .o-event-card .m-event-card .m-event-card-genres {
+  font-size: 11pt;
+  color: #990000;
+  margin-bottom: 1rem;
+}
+.o-event-cards .o-event-card .m-event-card .m-event-card-date {
+  margin-bottom: 2rem;
 }
 
 body {
