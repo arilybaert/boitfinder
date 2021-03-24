@@ -23,7 +23,7 @@ class EventFactory extends Factory
     {
         return [
             'name' => $this->faker->state(),
-            'description' => $this->faker->text($maxNbChars = 5000)   ,
+            'description' => $this->faker->text($maxNbChars = 2000)   ,
             'date' => $this->faker->dateTimeBetween('now', '+2 years')
         ];
     }
