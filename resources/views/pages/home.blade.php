@@ -142,64 +142,47 @@
         </div>
         <div class="col-9 o-event-cards">
             <div class="row">
+                @foreach ($events as $event)
+                    <a class="col-4 o-event-card" href="{{route('event', $event->id)}}">
+                        <div class="m-event-card">
+                            <div class="m-event-card-image-container">
+                                <img src="{{ asset($event->coverphoto)}}" alt="" class="a-event-card-image">
+                            </div>
+                            <h2>
+                                {{$event->name}}
+                            </h2>
+                            <h3>
+                                {{$event->user->name}}
+                            </h3>
+                            <div class="a-border-bottom"></div>
+                            <p>
+                                <?php
+                                if(strlen($event->description)<=150)
+                                    {
+                                        echo $event->description;
+                                    }
+                                    else
+                                    {
+                                        $y=substr($event->description,0,200) . '...';
+                                        echo $y;
+                                    };
+                                ?>
+                            </p>
+                            <div class="a-border-bottom"></div>
 
-                <div class="col-4 o-event-card">
-                    <div class="m-event-card">
-                        <div class="m-event-card-image-container">
-                            <img src="{{ asset('src/img/event/cover/cover-1.jpg')}}" alt="" class="a-event-card-image">
+                            <div class="m-event-card-genres">
+                                <i class="fas fa-music a-card-icon"></i>
+                                {{$event->genre->name}}
+                            </div>
+                            <div class="m-event-card-date">
+                                <i class="far fa-calendar-alt a-card-icon"></i>
+                                {{ date("d/m/Y",strtotime($event->date)) }}
+                            </div>
                         </div>
-                        <h2>
-                            Jazz Night
-                        </h2>
-                        <h3>
-                            The Missy Sippy
-                        </h3>
-                        <div class="a-border-bottom"></div>
-                        <p>
-                            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Porro laborum reiciendis similique veniam! Placeat necessitatibus asperiores nihil eligendi pariatur molestias ipsa officia qui ipsam tenetur eos, explicabo nostrum illo enim?
-                        </p>
-                        <div class="a-border-bottom"></div>
+                    </a>
+                @endforeach
 
-                        <div class="m-event-card-genres">
-                            <i class="fas fa-music a-card-icon"></i>
 
-                            Jazz, House, Retro
-                        </div>
-                        <div class="m-event-card-date">
-                            <i class="far fa-calendar-alt a-card-icon"></i>
-                            22/05/2021
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-4 o-event-card">
-                    <div class="m-event-card">
-                        <div class="m-event-card-image-container">
-                            <img src="{{ asset('src/img/event/cover/cover-1.jpg')}}" alt="" class="a-event-card-image">
-                        </div>
-                        <h2>
-                            Jazz Night
-                        </h2>
-                        <h3>
-                            The Missy Sippy
-                        </h3>
-                        <div class="a-border-bottom"></div>
-                        <p>
-                            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Porro laborum reiciendis similique veniam! Placeat necessitatibus asperiores nihil eligendi pariatur molestias ipsa officia qui ipsam tenetur eos, explicabo nostrum illo enim?
-                        </p>
-                        <div class="a-border-bottom"></div>
-
-                        <div class="m-event-card-genres">
-                            <i class="fas fa-music a-card-icon"></i>
-
-                            Jazz, House, Retro
-                        </div>
-                        <div class="m-event-card-date">
-                            <i class="far fa-calendar-alt a-card-icon"></i>
-                            22/05/2021
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
     </div>

@@ -25,6 +25,7 @@ Route::get('/event', [EventController::class, 'getIndex'])->name('event')->middl
 
 // Gig Routes
 Route::get('/', [GigController::class, 'getIndex'])->name('Home');
+Route::get('/event/{event}', [GigController::class, 'getEvent'])->name('event');
 
 
 Route::get('/dashboard', function () {

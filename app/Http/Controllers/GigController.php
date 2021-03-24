@@ -13,10 +13,16 @@ class GigController extends Controller
         $pas = Pa::all();
         $events = Event::all();
 
-        dd($events);
+        // dd($events);
         return view('pages.home', [
             'pas' => $pas,
-            'event' => $events
+            'events' => $events
+        ]);
+    }
+    public function getEvent(Event $event)
+    {
+        return view('pages.eventDetail', [
+            'event' => $event
         ]);
     }
 }

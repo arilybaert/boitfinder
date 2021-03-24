@@ -20,4 +20,8 @@ class Event extends Model
     {
         return $this->belongsTo(Genre::class);
     }
+    public function user(): BelongsTo
+    {
+        return $this->belongsTo(User::class);
+    }
 }

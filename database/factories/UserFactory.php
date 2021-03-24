@@ -29,7 +29,7 @@ class UserFactory extends Factory
             'telephone' => $this->faker->e164PhoneNumber,
             'website' => 'www.cafemoose.be',
 
-            'description' => $this->faker->paragraphs($nb = 3, $asText = true),
+            'description' => $this->faker->text($maxNbChars = 600)   ,
 
             'capacity' => $this->faker->numberBetween($min = 100, $max = 1000),
             'password' => bcrypt('secret'),

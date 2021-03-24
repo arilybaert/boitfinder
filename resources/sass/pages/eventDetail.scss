@@ -1,0 +1,19 @@
+.o-event-detail-cover {
+    padding: 0;
+    position: relative;
+    .a-event-detail-cover {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+        border-radius: $radius-medium;
+    }
+    h2 {
+        position: absolute;
+        left: 20px;
+        bottom: 20px;
+        margin: 0;
+        color: white;
+        font-size: $font-x-x-large;
+        font-family: 'Georigia';
+    }
+}

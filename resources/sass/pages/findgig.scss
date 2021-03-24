@@ -136,13 +136,14 @@
             border: 2px solid $secondary-color;
             border-radius: $radius-medium;
             text-align: center;
-            // padding: 0;
+            margin-bottom: 1.2rem;
             overflow: hidden;
 
             .m-event-card-image-container {
 
                 .a-event-card-image {
                     width: 100%;
+                    height: 150px;
                     object-fit: cover;
                 }
             }
@@ -183,9 +184,23 @@
                 margin-bottom: 1rem;
             }
             .m-event-card-date {
+                font-size: $font-small;
                 margin-bottom: 2rem;
+                color: $secondary-color;
+
             }
         }
+    }
+
+    .o-event-card:link {
+        text-decoration: none;
+    }
+    .o-event-card img {
+        transition: all 0.3s;
+        transform: scale(1);
+    }
+    .o-event-card:hover img {
+        transform: scale(1.1);
     }
 
 }

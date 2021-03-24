@@ -150,10 +150,12 @@
   border: 2px solid #990000;
   border-radius: 9px;
   text-align: center;
+  margin-bottom: 1.2rem;
   overflow: hidden;
 }
 .o-event-cards .o-event-card .m-event-card .m-event-card-image-container .a-event-card-image {
   width: 100%;
+  height: 150px;
   -o-object-fit: cover;
      object-fit: cover;
 }
@@ -192,7 +194,40 @@
   margin-bottom: 1rem;
 }
 .o-event-cards .o-event-card .m-event-card .m-event-card-date {
+  font-size: 11pt;
   margin-bottom: 2rem;
+  color: #990000;
+}
+.o-event-cards .o-event-card:link {
+  text-decoration: none;
+}
+.o-event-cards .o-event-card img {
+  transition: all 0.3s;
+  transform: scale(1);
+}
+.o-event-cards .o-event-card:hover img {
+  transform: scale(1.1);
+}
+
+.o-event-detail-cover {
+  padding: 0;
+  position: relative;
+}
+.o-event-detail-cover .a-event-detail-cover {
+  width: 100%;
+  height: 200px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 9px;
+}
+.o-event-detail-cover h2 {
+  position: absolute;
+  left: 20px;
+  bottom: 20px;
+  margin: 0;
+  color: white;
+  font-size: 41pt;
+  font-family: "Georigia";
 }
 
 body {
