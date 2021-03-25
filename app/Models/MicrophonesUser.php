@@ -14,12 +14,12 @@ class MicrophonesUser extends Model
         'microphone_id',
     ];
 
-    public function genre(): BelongsTo
+    public function microphone(): BelongsTo
     {
-        return $this->belongsTo(Genre::class);
+        return $this->belongsTo(Microphone::class);
     }
     public function user(): BelongsTo
     {
-        return $this->belongsTo(Genre::class);
+        return $this->belongsTo(User::class);
     }
 }

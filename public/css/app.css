@@ -250,6 +250,14 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.41);
+}
+@media only screen and (min-width: 1200px) {
+  .o-event-detail .o-media-buttons .m-media-buttons {
+    height: 125px;
+    width: 125px;
+    font-size: 41pt;
+  }
 }
 @media only screen and (max-width: 1199px) {
   .o-event-detail .o-media-buttons .m-media-buttons {
@@ -277,6 +285,7 @@
   background-color: #FC9627;
   border-radius: 9px;
   padding: 1.5rem;
+  box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.41);
 }
 .o-event-detail .o-information h4 {
   font-size: 15pt;
@@ -286,6 +295,39 @@
   padding: 0;
   display: flex;
   justify-content: center;
+}
+.o-event-detail .o-apply-button {
+  position: relative;
+  height: 400px;
+  border-top-left-radius: 9px;
+  border-top-right-radius: 9px;
+  overflow: hidden;
+  margin-top: 2rem;
+}
+.o-event-detail .o-apply-button .a-apply-button {
+  position: absolute;
+  top: 0;
+  border: none;
+  color: white;
+  background-color: #990000;
+  border-radius: 9px;
+  width: 100%;
+  height: 50px;
+  font-size: 17pt;
+  font-weight: bold;
+  box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.41);
+}
+.o-event-detail .o-apply-button .a-apply-color-1 {
+  background-color: #B17090;
+}
+.o-event-detail .o-apply-button .a-apply-color-2 {
+  background-color: #00789D;
+}
+.o-event-detail .o-apply-button .a-apply-color-3 {
+  background-color: #F56C28;
+}
+.o-event-detail .o-apply-button .a-apply-color-4 {
+  background-color: #FC9627;
 }
 
 .o-event-detail-main h3 {
@@ -299,6 +341,12 @@
 .o-event-detail-main .m-event-detail-tags h4 {
   font-size: 15pt;
   font-weight: bold;
+  text-align: center;
+}
+.o-event-detail-main .m-event-detail-tags h5 {
+  font-size: 11pt;
+  text-align: center;
+  margin-bottom: 0.5rem;
 }
 .o-event-detail-main .m-event-detail-tags .a-event-detail-tags-icon {
   font-size: 17pt;
