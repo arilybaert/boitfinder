@@ -1,12 +1,13 @@
 .o-event-detail-cover {
     padding: 0;
     position: relative;
+    background-color: $secondary-color;
     .a-event-detail-cover {
         width: 100%;
         height: 200px;
         object-fit: cover;
-        border-radius: $radius-medium;
-    }
+        border-bottom-left-radius: $radius-medium;
+        border-bottom-right-radius: $radius-medium;    }
     h2 {
         position: absolute;
         left: 20px;
@@ -17,6 +18,43 @@
         font-family: $font-secondary;
     }
 }
+
+.m-event-details {
+    background-color: $secondary-color;
+    color: white;
+    border-bottom-left-radius: $radius-medium ;
+    border-bottom-right-radius: $radius-medium ;
+    overflow: hidden;
+    transition: height 0.5s;
+    -webkit-transition: height 0.5s;
+    height: 116px;
+    padding-top: 1rem;
+    h3 {
+        margin-bottom: 1.5rem;
+    }
+    .m-event-detail-tags {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        h4 {
+            font-size: $font-small;
+            font-weight: bold;
+            text-align: center;
+        }
+        h5 {
+            font-size: $font-small;
+            text-align: center;
+            margin-bottom: 0.5rem;
+
+        }
+        .a-event-detail-tags-icon {
+            font-size: $font-large;
+        }
+    }
+    .m-event-detail-tags > * {
+        margin-bottom: 1rem;
+    }
+}
 .o-event-detail {
     color: $secondary-color;
     .m-information:not(:first-child) {
@@ -25,58 +63,21 @@
     h3 {
         margin-top: 2rem;
         margin-bottom: 0.7rem;
-
+        font-family: $font-secondary;
     }
-    .o-media-buttons {
-        display: flex;
-        justify-content: space-between;
-        .m-media-buttons {
-            border-radius: 50%;
-            background-color: $primary-color;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            box-shadow: $box-shadow;
-        }
-        @media only screen and (min-width: 1200px) {
-            .m-media-buttons {
-                height: 125px;
-                width: 125px;
-                font-size: $font-x-x-large;
-            }
-        }
-        @media only screen and (max-width: 1199px) {
-            .m-media-buttons {
-                height: 100px;
-                width: 100px;
-                font-size: $font-x-large;
-            }
-        }
-        @media only screen and (max-width: 990px) {
-            .m-media-buttons {
-                height: 72px;
-                width: 72px;
-                font-size: $font-x-large;
-
-            }
-        }
-        @media only screen and (max-width: 767px) {
-            .m-media-buttons {
-                height: 53px;
-                width: 53px;
-                font-size: $font-medium;
-
-            }
-        }
+    p {
+        color: $tertiary-color;
+        padding-right: 1rem;
     }
     .o-information {
+        margin-top: 2rem;
         color: white;
-        background-color: $primary-color;
+        background-color: $secondary-color;
         border-radius: $radius-medium;
-        padding: 1.5rem;
+        padding: 1rem;
         box-shadow: $box-shadow;
         h4 {
-            font-size: $font-medium;
+            font-size: $font-small;
             font-weight: bold;
         }
         .m-information-icon {
@@ -85,20 +86,54 @@
             justify-content: center;
         }
     }
+
+    // apply buttton
+    .o-apply-button:hover {
+        height: 110px;
+    }
+    .test {
+        width: 100%;
+        padding: 0;
+    }
+    @media only screen and (min-width: 1400px) {
+        .o-apply-button {
+          width: 366.667px;
+        }
+      }
+    @media only screen and (max-width: 1399px) {
+        .o-apply-button {
+          width: 316.667px;
+        }
+      }
+    @media only screen and (max-width: 1199px) {
+        .o-apply-button {
+          width: 266.667px;
+        }
+      }
+    @media only screen and (max-width: 991px) {
+        .o-apply-button {
+            width: 200px;
+        }
+      }
     .o-apply-button {
-        position: relative;
-        height: 400px;
+        background-color: $tertiary-color;
+        position: fixed;
+        bottom: 0;
+        height: 100px;
         border-top-left-radius: $radius-medium;
         border-top-right-radius: $radius-medium;
         overflow: hidden;
+        transition: height 0.5s;
+        -webkit-transition: height 0.5s;
         margin-top: 2rem;
+        font-family: $font-secondary;
 
         .a-apply-button {
             position: absolute;
             top: 0;
             border: none;
             color: white;
-            background-color: $secondary-color;
+            background-color: $tertiary-color;
             border-radius: $radius-medium;
             width: 100%;
             height: 50px;
@@ -106,6 +141,7 @@
             font-weight: bold;
             box-shadow: $box-shadow;
         }
+
         .a-apply-color-1 {
             background-color: $secondary-bg-color;
 
@@ -124,30 +160,63 @@
     }
 }
 
-.o-event-detail-main {
-    h3 {
-        margin-bottom: 1.7rem;
-    }
-    .m-event-detail-tags {
+// apply popup
+.o-apply-form {
+    background-color: $transparent-bg-color;
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: none;
+    .m-apply-form {
+        height: 100%;
         display: flex;
-        flex-direction: column;
         align-items: center;
-        h4 {
-            font-size: $font-medium;
-            font-weight: bold;
-            text-align: center;
-        }
-        h5 {
-            font-size: $font-small;
-            text-align: center;
-            margin-bottom: 0.5rem;
+        form {
+            background-color: $primary-bg-color;
+            width: 100%;
+            border-radius: $radius-large;
+            overflow: hidden;
+            box-shadow: $box-shadow;
 
+            h2 {
+                background-color: $secondary-color;
+                color: white;
+                font-family: $font-secondary;
+                padding: 1rem;
+                text-align: center;
+                font-size: $font-large;
+                font-weight: bold;
+            }
+            label {
+                display: block;
+                color: $tertiary-color;
+                font-weight: bold;
+                margin: 1rem 0rem;
+            }
+            textarea {
+                margin: 0 auto;
+                width: 100%;
+                height: 150px;
+                border-radius: $radius-medium;
+                border: 1px solid $secondary-color;
+                color: $tertiary-color;
+            }
+            button {
+                background-color: $tertiary-color;
+                color: white;
+                border: none;
+                border-radius: $radius-medium;
+                box-shadow: $box-shadow;
+                width: 100%;
+                height: 40px;
+                font-weight: bold;
+                margin: 1rem 0rem;
+
+            }
         }
-        .a-event-detail-tags-icon {
-            font-size: $font-large;
-        }
-    }
-    .m-event-detail-tags > * {
-        margin-bottom: 1rem;
     }
 }

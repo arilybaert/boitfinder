@@ -3802,6 +3802,36 @@ __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
 __webpack_require__(/*! alpinejs */ "./node_modules/alpinejs/dist/alpine.js");
 
+console.log('hey there ;)');
+var formdiv = document.getElementById('o-form');
+var applyBtn = document.getElementById('a-applyBtn');
+var applyForm = document.getElementById('o-apply-form');
+document.addEventListener('click', function (event) {
+  var isClickInsideFormdiv = formdiv.contains(event.target);
+  var isClickInsideApplyForm = applyForm.contains(event.target);
+
+  if (!isClickInsideFormdiv && isClickInsideApplyForm) {
+    document.getElementById('o-apply-form').style.display = "none";
+  }
+});
+applyBtn.addEventListener('click', function () {
+  document.getElementById('o-apply-form').style.display = "block";
+});
+
+if (document.getElementsByClassName("m-event-details")) {
+  var auto = document.getElementById("m-event-details");
+  auto.addEventListener("mouseover", autoOver);
+  auto.addEventListener("mouseout", autoOut);
+}
+
+function autoOver() {
+  this.style.height = this.scrollHeight + "px";
+}
+
+function autoOut() {
+  this.style.height = "116px";
+}
+
 /***/ }),
 
 /***/ "./resources/js/bootstrap.js":

@@ -22,23 +22,29 @@
     </head>
     <body>
         <div class="container">
-            <div class="row o-header">
-                <div class="col-4">
-                    <h1 class="a-site-title">
-                        GigFinder
-                    </h1>
-                </div>
-                <div class="col-5 offset-3 m-header-menu">
-                    <h2>
-                        Find Gig
-                    </h2>
-                    <h2>
-                        Find Artist
-                    </h2>
-                    <h2>
-                        Login
-                    </h2>
-                    <i class="fas fa-sort-down a-header-icon"></i>
+            <div class="row">
+                <div class="o-header">
+                    <div class="row m-header">
+                        <div class="col-4 m-header-menu">
+                            <h2>
+                                Find Gig
+                            </h2>
+                            <h2>
+                                Find Artist
+                            </h2>
+                        </div>
+                        <div class="col-4 m-site-logo">
+                            <img src="{{ asset('src/img/logo/gigfinder_logo.png') }}" alt="">
+                        </div>
+                        <div class="col-4 m-header-menu">
+                            <h2>
+                                Profile
+                            </h2>
+                            <h2>
+                                Login
+                            </h2>
+                        </div>
+                    </div>
                 </div>
             </div>
 

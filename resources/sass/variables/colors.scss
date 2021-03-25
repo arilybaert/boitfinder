@@ -1,13 +1,15 @@
 $primary-color: #FC9627;
-$secondary-color: #990000;
+$secondary-color: #E75124;
+$tertiary-color: #990000;
 
-$primary-bg-color: #FFECD6;
+$primary-bg-color: #FFDFCF;
 
 $secondary-bg-color: #B17090;
 $tertiary-bg-color: #00789D;
 $quaternary-bg-color: #F56C28;
 $quinary-bg-color: #FC9627;
 
+$transparent-bg-color: rgba(117,112,144,0.5);
 $radius-small: 5px;
 $radius-medium: 9px;
 $radius-large: 15px;
@@ -19,6 +21,6 @@ $font-medium: 15pt;
 $font-small: 11pt;
 
 $font-primary: Arial, sans-serif;
-$font-secondary: 'Georigia';
+$font-secondary: 'Cooper Black';
 
-$box-shadow: 0px 2px 10px 0px rgba(0,0,0,0.41);
+$box-shadow: 0px 7px 10px 1px rgba(0,0,0,0.54);

@@ -1,9 +1,11 @@
 .o-filters {
+    margin-top: 4rem;
+
     .m-filter-button {
         .a-filter-button {
             border: none;
             border-radius: $radius-small;
-            background-color: $secondary-color;
+            background-color: $tertiary-color;
             color: white;
             padding: 0.2rem;
             font-weight: bold;
@@ -13,6 +15,8 @@
     }
 
     .o-filter-item {
+
+        color: $tertiary-color;
         margin-top: 2rem;
         .m-filter-icon {
             .a-filter-icon {
@@ -22,6 +26,7 @@
         .a-filter-item-title {
             font-size: $font-large;
             margin-bottom: 0;
+            font-family: $font-secondary;
         }
         .m-filter-input-date {
             display: flex;
@@ -130,6 +135,7 @@
 // EVENT CARDS
 
 .o-event-cards {
+    margin-top: 4rem;
     .o-event-card {
         .m-event-card {
             background-color: white;
