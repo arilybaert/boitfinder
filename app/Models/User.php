@@ -45,6 +45,10 @@ class User extends Authenticatable
     {
         return $this->hasMany(MicrophonesUser::class);
     }
+    public function genres(): HasMany
+    {
+        return $this->hasMany(GenresUser::class);
+    }
     /**
      * The attributes that should be hidden for arrays.
      *

@@ -156,16 +156,16 @@
             h2 {
                 font-size: $font-medium;
                 font-weight: bold;
+                font-family: $font-secondary;
                 color: $primary-color;
                 padding-bottom: 0.5rem;
                 margin-top: 1rem;
             }
             h3 {
                 color: $primary-color;
-
-
+                color: $tertiary-color;
                 font-size: $font-small;
-                font-family: 'Ayuthaya';
+                font-weight: bold;
             }
             p {
                 font-size: 9pt;

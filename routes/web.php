@@ -23,10 +23,13 @@ Route::get('/admin', [AdminController::class, 'getIndex'])->name('admin')->middl
 Route::get('/artist', [ArtistController::class, 'getIndex'])->name('artist')->middleware('artist');
 Route::get('/event', [EventController::class, 'getIndex'])->name('event')->middleware('event');
 
-// Gig Routes
-Route::get('/', [GigController::class, 'getIndex'])->name('Home');
-Route::get('/event/{event}', [GigController::class, 'getEvent'])->name('event');
+// Find Gig Routes
+Route::get('/', [GigController::class, 'getIndex'])->name('home');
+Route::get('/find/event', [GigController::class, 'getFindEvent'])->name('find.event');
+Route::get('/find/event/{event}', [GigController::class, 'getEvent'])->name('event');
 
+// Find Artist Routes
+Route::get('/find/artist', [ArtistController::class, 'getFindArtist'])->name('find.artist');
 
 Route::get('/dashboard', function () {
     return view('dashboard');

@@ -173,14 +173,16 @@
 .o-event-cards .o-event-card .m-event-card h2 {
   font-size: 15pt;
   font-weight: bold;
+  font-family: "Cooper Black";
   color: #FC9627;
   padding-bottom: 0.5rem;
   margin-top: 1rem;
 }
 .o-event-cards .o-event-card .m-event-card h3 {
   color: #FC9627;
+  color: #990000;
   font-size: 11pt;
-  font-family: "Ayuthaya";
+  font-weight: bold;
 }
 .o-event-cards .o-event-card .m-event-card p {
   font-size: 9pt;
@@ -350,6 +352,7 @@
   -webkit-transition: height 0.5s;
   margin-top: 2rem;
   font-family: "Cooper Black";
+  box-shadow: 0px 7px 10px 1px rgba(0, 0, 0, 0.54);
 }
 .o-event-detail .o-apply-button .a-apply-button {
   position: absolute;
@@ -418,7 +421,7 @@
 .o-apply-form .m-apply-form form textarea {
   margin: 0 auto;
   width: 100%;
-  height: 150px;
+  height: 170px;
   border-radius: 9px;
   border: 1px solid #E75124;
   color: #990000;
@@ -432,7 +435,81 @@
   width: 100%;
   height: 40px;
   font-weight: bold;
-  margin: 1rem 0rem;
+  margin: 1.5rem 0rem;
+}
+
+.o-artist-cards {
+  margin-top: 4rem;
+}
+.o-artist-cards .m-artist-card {
+  background-color: white;
+  border: 2px solid #E75124;
+  border-radius: 9px;
+  padding: 1.2rem 0rem;
+  margin-bottom: 1.2rem;
+  text-align: center;
+}
+.o-artist-cards .m-artist-card .m-artist-card-image-container {
+  -o-object-fit: contain;
+     object-fit: contain;
+  overflow: hidden;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  margin: 0 auto;
+  box-shadow: 0px 7px 10px 1px rgba(0, 0, 0, 0.54);
+}
+.o-artist-cards .m-artist-card img {
+  width: 100%;
+  height: 100%;
+}
+.o-artist-cards .m-artist-card h2 {
+  font-size: 15pt;
+  font-weight: bold;
+  font-family: "Cooper Black";
+  color: #FC9627;
+  padding-bottom: 0.5rem;
+  margin-top: 1rem;
+}
+.o-artist-cards .m-artist-card h3 {
+  color: #FC9627;
+  color: #990000;
+  font-size: 11pt;
+  font-weight: bold;
+}
+.o-artist-cards .m-artist-card h5 {
+  color: #FC9627;
+  color: #990000;
+  font-size: 11pt;
+}
+.o-artist-cards .m-artist-card p {
+  font-size: 9pt;
+  text-align: left;
+  color: #E75124;
+  padding: 0.7rem;
+}
+.o-artist-cards .m-artist-card .a-border-bottom {
+  background-color: #FC9627;
+  height: 1px;
+  width: 60%;
+  margin: 1rem auto;
+}
+.o-artist-cards .m-artist-card .a-card-icon {
+  color: #FC9627;
+  font-size: 15pt;
+  margin-right: 0.5rem;
+}
+.o-artist-cards .m-artist-card .m-event-card-genres {
+  font-size: 11pt;
+  color: #E75124;
+  margin-bottom: 1rem;
+}
+.o-artist-cards .o-artist-card img {
+  transition: all 0.3s;
+  transform: scale(1);
+}
+.o-artist-cards .o-artist-card:hover img {
+  transform: scale(1.1);
 }
 
 body {

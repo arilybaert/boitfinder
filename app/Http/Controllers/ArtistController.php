@@ -3,11 +3,19 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\User;
 
 class ArtistController extends Controller
 {
-    public function getIndex()
+        // Find event
+    public function getFindArtist()
     {
-        return view('artist.home');
+        $artists = User::where('role', 'artist')->get();
+
+        // dd($artists);
+        // dd($events);
+        return view('pages.find-artist', [
+            'artists' => $artists,
+        ]);
     }
 }

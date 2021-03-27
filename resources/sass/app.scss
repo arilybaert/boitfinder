@@ -1,7 +1,8 @@
 @import 'variables/colors.scss';
 @import 'partials/header.scss';
 @import 'pages/findgig.scss';
-@import 'pages/eventDetail.scss';
+@import 'pages/event-detail.scss';
+@import 'pages/find-artist.scss';
 
 body {
     background-color: $primary-bg-color;

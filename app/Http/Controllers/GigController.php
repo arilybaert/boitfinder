@@ -8,7 +8,14 @@ use Illuminate\Http\Request;
 
 class GigController extends Controller
 {
+    // Redirect home to find event
     public function getIndex()
+    {
+        return redirect()->route('find.event');
+    }
+
+    // Find event
+    public function getFindEvent()
     {
         $pas = Pa::all();
         $events = Event::all();
@@ -19,9 +26,10 @@ class GigController extends Controller
             'events' => $events
         ]);
     }
+    // Find event detail
     public function getEvent(Event $event)
     {
-        return view('pages.eventDetail', [
+        return view('pages.event-detail', [
             'event' => $event
         ]);
     }

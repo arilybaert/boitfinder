@@ -33,9 +33,9 @@
                                 Find Artist
                             </h2>
                         </div>
-                        <div class="col-4 m-site-logo">
+                        <a href="{{ route('home') }}"class="col-4 m-site-logo">
                             <img src="{{ asset('src/img/logo/gigfinder_logo.png') }}" alt="">
-                        </div>
+                        </a>
                         <div class="col-4 m-header-menu">
                             <h2>
                                 Profile

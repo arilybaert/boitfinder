@@ -21,16 +21,14 @@ applyBtn.addEventListener('click', function() {
 
 if (document.getElementsByClassName("m-event-details")) {
     const auto = document.getElementById("m-event-details");
-
     auto.addEventListener("mouseover", autoOver);
     auto.addEventListener("mouseout", autoOut);
+}
 
-  }
-
-  function autoOver() {
+function autoOver() {
     this.style.height = this.scrollHeight + "px";
-  }
+}
 
-  function autoOut() {
+function autoOut() {
     this.style.height = "116px";
-  }
+}
