@@ -146,7 +146,7 @@
         <div class="row">
 
             @foreach ($artists as $artist)
-                <div class="col-4 o-artist-card">
+                <a href="{{route('artist', $artist->id)}}" class="col-4 o-artist-card">
                     <div class="m-artist-card">
                         <div class="m-artist-card-image-container">
                             <img src="{{ asset($artist->coverphoto)}} " alt="">
@@ -179,7 +179,7 @@
                         @endforeach
                         </div>
                     </div>
-                </div>
+                </a>
             @endforeach
 
 

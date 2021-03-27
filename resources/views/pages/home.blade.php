@@ -1,6 +1,6 @@
 @extends('layouts.app')
-
 @section('content')
+
     <div class="row">
         <div class="col-3 o-filters">
             <form action="" method="post">

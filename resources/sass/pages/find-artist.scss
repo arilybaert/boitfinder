@@ -1,5 +1,9 @@
 .o-artist-cards {
     margin-top: 4rem;
+    .o-artist-card:link {
+        text-decoration: none;
+    }
+
     .m-artist-card {
         background-color: white;
         border: 2px solid $secondary-color;
@@ -73,3 +77,4 @@
         transform: scale(1.1);
     }
 }
+

@@ -1,0 +1,240 @@
+.o-artist-detail-cover {
+    padding: 0;
+    position: relative;
+    background-color: $secondary-color;
+    .a-artist-detail-cover {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+        border-bottom-left-radius: $radius-medium;
+        border-bottom-right-radius: $radius-medium;    }
+    h2 {
+        position: absolute;
+        left: 20px;
+        bottom: 16px;
+        margin: 0;
+        color: white;
+        font-size: $font-x-x-large;
+        font-family: $font-secondary;
+    }
+}
+
+.m-artist-details {
+    background-color: $secondary-color;
+    color: white;
+    border-bottom-left-radius: $radius-medium ;
+    border-bottom-right-radius: $radius-medium ;
+    overflow: hidden;
+    transition: height 0.5s;
+    -webkit-transition: height 0.5s;
+    height: 128px;
+    padding-top: 1rem;
+    h3 {
+        margin-bottom: 1.5rem;
+    }
+    .m-artist-members {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 1rem ;
+        }
+        h4 {
+            font-size: $font-small;
+            font-weight: bold;
+            text-align: center;
+            height: 40px;
+        }
+        h5 {
+            font-size: $font-small;
+            text-align: center;
+            margin-bottom: 0.5rem;
+
+        }
+        .a-artist-detail-tags-icon {
+            font-size: $font-large;
+        }
+    }
+    .m-artist-detail-tags > * {
+        margin-bottom: 1rem;
+    }
+}
+.o-artist-detail {
+    color: $secondary-color;
+    .m-information:not(:first-child) {
+        margin-top: 1rem;
+    }
+    h3 {
+        margin-top: 2rem;
+        margin-bottom: 0.7rem;
+        font-family: $font-secondary;
+    }
+    p {
+        color: $tertiary-color;
+        padding-right: 1rem;
+    }
+    .o-information {
+        margin-top: 2rem;
+        color: white;
+        background-color: $secondary-color;
+        border-radius: $radius-medium;
+        padding: 1rem;
+        box-shadow: $box-shadow;
+        margin-bottom: 7rem;
+        h4 {
+            font-size: $font-small;
+            font-weight: bold;
+        }
+        .m-information-icon {
+            padding: 0;
+            display: flex;
+            justify-content: center;
+        }
+    }
+    button {
+        background-color: $primary-color;
+        color: white;
+        border-radius: $radius-medium;
+        border: none;
+        height: 40px;
+        margin-bottom: 3rem;
+        margin-top: 2rem;
+    }
+    // apply buttton
+    .o-apply-button:hover {
+        height: 110px;
+    }
+    .test {
+        width: 100%;
+        padding: 0;
+    }
+    @media only screen and (min-width: 1400px) {
+        .o-apply-button {
+          width: 366.667px;
+        }
+      }
+    @media only screen and (max-width: 1399px) {
+        .o-apply-button {
+          width: 316.667px;
+        }
+      }
+    @media only screen and (max-width: 1199px) {
+        .o-apply-button {
+          width: 266.667px;
+        }
+      }
+    @media only screen and (max-width: 991px) {
+        .o-apply-button {
+            width: 200px;
+        }
+      }
+    .o-apply-button {
+        background-color: $tertiary-color;
+        position: fixed;
+        bottom: 0;
+        height: 100px;
+        border-top-left-radius: $radius-medium;
+        border-top-right-radius: $radius-medium;
+        overflow: hidden;
+        transition: height 0.5s;
+        -webkit-transition: height 0.5s;
+        margin-top: 2rem;
+        font-family: $font-secondary;
+        box-shadow: $box-shadow;
+
+        .a-apply-button {
+            position: absolute;
+            top: 0;
+            border: none;
+            color: white;
+            background-color: $tertiary-color;
+            border-radius: $radius-medium;
+            width: 100%;
+            height: 50px;
+            font-size: $font-large;
+            font-weight: bold;
+            box-shadow: $box-shadow;
+        }
+
+        .a-apply-color-1 {
+            background-color: $secondary-bg-color;
+
+        }
+        .a-apply-color-2 {
+            background-color: $tertiary-bg-color;
+
+        }
+        .a-apply-color-3 {
+            background-color: $quaternary-bg-color;
+
+        }
+        .a-apply-color-4 {
+            background-color: $quinary-bg-color;
+        }
+    }
+}
+
+// // apply popup
+// .o-apply-form {
+//     background-color: $transparent-bg-color;
+//     height: 100%;
+//     width: 100%;
+//     position: fixed;
+//     top: 0;
+//     left: 0;
+//     right: 0;
+//     bottom: 0;
+//     display: none;
+//     .m-apply-form {
+//         height: 100%;
+//         display: flex;
+//         align-items: center;
+//         form {
+//             background-color: $primary-bg-color;
+//             width: 100%;
+//             border-radius: $radius-large;
+//             overflow: hidden;
+//             box-shadow: $box-shadow;
+
+//             h2 {
+//                 background-color: $secondary-color;
+//                 color: white;
+//                 font-family: $font-secondary;
+//                 padding: 1rem;
+//                 text-align: center;
+//                 font-size: $font-large;
+//                 font-weight: bold;
+//             }
+//             label {
+//                 display: block;
+//                 color: $tertiary-color;
+//                 font-weight: bold;
+//                 margin: 1rem 0rem;
+//             }
+//             textarea {
+//                 margin: 0 auto;
+//                 width: 100%;
+//                 height: 170px;
+//                 border-radius: $radius-medium;
+//                 border: 1px solid $secondary-color;
+//                 color: $tertiary-color;
+//             }
+//             button {
+//                 background-color: $tertiary-color;
+//                 color: white;
+//                 border: none;
+//                 border-radius: $radius-medium;
+//                 box-shadow: $box-shadow;
+//                 width: 100%;
+//                 height: 40px;
+//                 font-weight: bold;
+//                 margin: 1.5rem 0rem;
+
+//             }
+//         }
+//     }
+// }

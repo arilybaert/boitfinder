@@ -18,4 +18,12 @@ class ArtistController extends Controller
             'artists' => $artists,
         ]);
     }
+
+    public function getArtist(User $artist)
+    {
+
+        return view('pages.artist-detail', [
+            'artist' => $artist
+        ]);
+    }
 }
