@@ -64,8 +64,8 @@
                         </p>
                     </div>
                 </div>
-                <div class="row">
-                    <button class="col-4 offset-4">
+                <div class="row ">
+                    <button class="col-4 offset-4 a-rider-button">
                         Download rider
                     </button>
                 </div>
@@ -125,12 +125,44 @@
                     </div>
                 </div>
 
+                {{-- <div class="row">
+                    <audio id="player" src="{{asset('src/audio/user-1/1-03 Nude.mp3')}}"></audio>
+                    <div>
+                    <button onclick="document.getElementById('player').play()">Play</button>
+                    <button onclick="document.getElementById('player').pause()">Pause</button>
+                    <button onclick="document.getElementById('player').volume += 0.1">Vol +</button>
+                    <button onclick="document.getElementById('player').volume -= 0.1">Vol -</button>
+                    </div>
+
+                </div> --}}
 
                 <div class="row o-apply-button">
-                            <button class="a-apply-button" id="a-applyBtn">Apply now</button>
-                            <div class="col-3 a-apply-color-1"></div>
-                            <div class="col-3 a-apply-color-2"></div>
-                            <div class="col-3 a-apply-color-3"></div>
+                            <button class="a-apply-button" id="a-applyBtn">Our music</button>
+                            <div class="col-3 a-apply-color-1 o-song">
+                                <div class="m-img-container a-button"">
+                                    <audio  classname="a-player" src="{{asset('src/audio/user-1/1-03 Nude.mp3')}}"></audio>
+                                    <img src="{{asset('src/audio/user-1/cover/cover-1.png')}}" alt="" class="a-spinning-cover">
+                                    <i class="fas fa-play"></i>
+                                    <i class="fas fa-pause"></i>
+                                </div>
+
+                            </div>
+                            <div class="col-3 a-apply-color-2 o-song">
+                                <div class="m-img-container a-button">
+                                    <audio classname="a-player"src="{{asset('src/audio/user-1/1-01 15 Step.mp3')}}"></audio>
+                                    <img src="{{asset('src/audio/user-1/cover/cover-1.png')}}" alt="" class="a-spinning-cover">
+                                    <i class="fas fa-play"></i>
+                                    <i class="fas fa-pause"></i>
+                                </div>
+                            </div>
+                            <div class="col-3 a-apply-color-3 o-song">
+                                <div class="m-img-container a-button">
+                                    <audio classname="a-player"src="{{asset('src/audio/user-1/1-10 Videotape.mp3')}}"></audio>
+                                    <img src="{{asset('src/audio/user-1/cover/cover-1.png')}}" alt="" class="a-spinning-cover">
+                                    <i class="fas fa-play"></i>
+                                    <i class="fas fa-pause"></i>
+                                </div>
+                            </div>
                             <div class="col-3 a-apply-color-4"></div>
 
 

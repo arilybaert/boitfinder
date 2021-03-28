@@ -539,7 +539,7 @@
   display: flex;
   justify-content: center;
 }
-.o-artist-detail button {
+.o-artist-detail .a-rider-button {
   background-color: #FC9627;
   color: white;
   border-radius: 9px;
@@ -549,7 +549,7 @@
   margin-top: 2rem;
 }
 .o-artist-detail .o-apply-button:hover {
-  height: 110px;
+  height: 140px;
 }
 .o-artist-detail .test {
   width: 100%;
@@ -602,7 +602,52 @@
   font-weight: bold;
   box-shadow: 0px 7px 10px 1px rgba(0, 0, 0, 0.54);
 }
-.o-artist-detail .o-apply-button .a-apply-color-1 {
+@-webkit-keyframes rotation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(359deg);
+  }
+}
+@keyframes rotation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(359deg);
+  }
+}
+.o-artist-detail .o-apply-button .o-song .m-img-container {
+  margin-top: 4.3rem;
+  width: 100%;
+  height: -webkit-min-content;
+  height: -moz-min-content;
+  height: min-content;
+  position: relative;
+}
+.o-artist-detail .o-apply-button .o-song .m-img-container img {
+  width: 100%;
+  height: auto;
+  margin: 0 auto;
+  border-radius: 50%;
+}
+.o-artist-detail .o-apply-button .o-song .m-img-container .a-rotate {
+  -webkit-animation: rotation 4s infinite linear;
+          animation: rotation 4s infinite linear;
+}
+.o-artist-detail .o-apply-button .o-song .m-img-container i {
+  top: 50%;
+  left: 50%;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  color: white;
+  opacity: 0.8;
+}
+.o-artist-detail .o-apply-button .o-song .m-img-container i:last-child {
+  display: none;
+}
+.o-artist-detail .o-apply-button .o-song .a-apply-color-1 {
   background-color: #B17090;
 }
 .o-artist-detail .o-apply-button .a-apply-color-2 {

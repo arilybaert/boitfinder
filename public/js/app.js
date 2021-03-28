@@ -3802,7 +3802,7 @@ __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
 __webpack_require__(/*! alpinejs */ "./node_modules/alpinejs/dist/alpine.js");
 
-console.log('hey there ;)');
+console.log('hey there ;)'); // apply form on event page
 
 if (document.getElementById('o-form')) {
   var formdiv = document.getElementById('o-form');
@@ -3819,7 +3819,7 @@ if (document.getElementById('o-form')) {
   applyBtn.addEventListener('click', function () {
     document.getElementById('o-apply-form').style.display = "block";
   });
-} // event
+} // event details + artist band members HOVER EXPAND
 
 
 if (document.getElementById("m-event-details")) {
@@ -3847,6 +3847,50 @@ function autoOut() {
 
 function autoArtistOut() {
   this.style.height = "128px";
+}
+
+if (document.getElementsByClassName("a-player")) {
+  var players = document.getElementsByTagName("audio");
+  var buttons = document.querySelectorAll(".a-button");
+  var play = document.querySelectorAll(".fa-play");
+  var pause = document.querySelectorAll(".fa-pause");
+  var img = document.querySelectorAll(".a-spinning-cover");
+
+  var player = function player(i) {
+    buttons.forEach(function (button, index) {
+      // pause ALL other players EXCEPT the one clicked
+      if (players[index] != players[i]) {
+        players[index].pause();
+      } // reset style ALL play en pause buttons
+
+
+      play[index].style.display = "block";
+      pause[index].style.display = "none";
+      img[i].classList.remove('a-rotate');
+    }); // Pause if users clicks on the song that is playing
+
+    if (!players[i].paused) {
+      players[i].pause(); // toggle clicked play and pause button
+
+      play[i].style.display = "block";
+      pause[i].style.display = "none";
+      img[i].classList.remove('a-rotate');
+    } else {
+      players[i].play(); // toggle clicked play and pause button
+
+      play[i].style.display = "none";
+      pause[i].style.display = "block";
+      img[i].classList.add('a-rotate');
+    }
+
+    console.log(players[i].paused);
+  };
+
+  buttons.forEach(function (button, index) {
+    button.addEventListener('click', function () {
+      return player(index);
+    });
+  });
 }
 
 /***/ }),
