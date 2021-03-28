@@ -33,6 +33,11 @@ Route::get('/find/artist', [ArtistController::class, 'getFindArtist'])->name('fi
 Route::get('/find/artist/{artist}', [ArtistController::class, 'getArtist'])->name('artist');
 Route::get('/find/artist/rider/download', [ArtistController::class, 'getRider'])->name('download.rider');
 
+// AUTH
+// Route::get('/login', [ArtistController::class, 'getFindArtist'])->name('login');
+Route::get('/register', [ArtistController::class, 'getFindArtist'])->name('register');
+Route::get('/profile', [ArtistController::class, 'getFindArtist'])->name('profile');
+
 
 Route::get('/dashboard', function () {
     return view('dashboard');

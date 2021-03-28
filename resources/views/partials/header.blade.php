@@ -26,23 +26,51 @@
                 <div class="o-header">
                     <div class="row m-header">
                         <div class="col-4 m-header-menu">
-                            <h2>
-                                Find Gig
-                            </h2>
-                            <h2>
-                                Find Artist
-                            </h2>
+                            <a href="{{ route('find.event')}} ">
+                                <h2>
+                                    Find Gig
+                                </h2>
+                            </a>
+                            <a href="{{ route('find.artist')}} ">
+                                <h2>
+                                    Find Artist
+                                </h2>
+                            </a>
                         </div>
                         <a href="{{ route('home') }}"class="col-4 m-site-logo">
                             <img src="{{ asset('src/img/logo/gigfinder_logo.png') }}" alt="">
                         </a>
                         <div class="col-4 m-header-menu">
-                            <h2>
-                                Profile
-                            </h2>
-                            <h2>
-                                Login
-                            </h2>
+                            @if (Auth::check())
+                                <a href="{{ route('profile')}} ">
+                                    <h2>
+                                        Profile
+                                    </h2>
+                                </a>
+                            @else
+                                <a href="{{ route('register')}} ">
+                                    <h2>
+                                        Register
+                                    </h2>
+                                </a>
+                            @endif
+
+
+                            @if (!Auth::check())
+                                <a href="{{ route('login')}} ">
+                                    <h2>
+                                        Login
+                                    </h2>
+                                </a>
+                            @else
+                                <form action="{{ route('logout')}}" method="post">
+                                    @csrf
+                                    <button>
+                                        Logout
+                                    </button>
+                                </form>
+                            @endif
+
                         </div>
                     </div>
                 </div>

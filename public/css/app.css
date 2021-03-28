@@ -21,9 +21,24 @@
   justify-content: space-evenly;
   align-items: center;
 }
-.o-header .m-header-menu h2 {
+.o-header .m-header-menu a,
+.o-header .m-header-menu a:link {
+  color: white;
+  text-decoration: none;
+}
+.o-header .m-header-menu a h2,
+.o-header .m-header-menu a:link h2 {
   font-size: 11pt;
   margin: 0;
+}
+.o-header .m-header-menu button:hover,
+.o-header .m-header-menu a:hover {
+  text-decoration: underline;
+}
+.o-header .m-header-menu button {
+  border: none;
+  background-color: #E75124;
+  color: white;
 }
 
 .o-header > div {
@@ -38,6 +53,48 @@
   height: auto;
   margin-top: -81px;
   z-index: 1;
+}
+
+.o-login {
+  margin-top: 4rem;
+  box-shadow: 0px 7px 10px 1px rgba(0, 0, 0, 0.54);
+  border-radius: 15pt;
+  overflow: hidden;
+}
+.o-login .m-login-header {
+  background-color: #990000;
+  color: white;
+  font-family: "Cooper Black";
+  text-align: center;
+  padding: 0.5rem;
+  margin-bottom: 2rem;
+}
+.o-login .m-login-header h2 {
+  margin: 0;
+}
+.o-login .m-form-group {
+  margin-bottom: 1rem;
+  text-align: right;
+}
+.o-login .m-form-group input {
+  width: 100%;
+  height: 2.3rem;
+  border: none;
+  border: 2px solid #FC9627;
+  border-radius: 5px;
+}
+.o-login .m-form-group label {
+  font-family: "Cooper Black";
+}
+.o-login .m-form-group button {
+  width: 100%;
+  font-family: "Cooper Black";
+  color: #990000;
+  background-color: #FC9627;
+  border: none;
+  border-radius: 5px;
+  height: 2.3rem;
+  margin-bottom: 1rem;
 }
 
 .o-filters {
