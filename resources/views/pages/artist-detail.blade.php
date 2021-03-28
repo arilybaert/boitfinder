@@ -65,9 +65,9 @@
                     </div>
                 </div>
                 <div class="row ">
-                    <button class="col-4 offset-4 a-rider-button">
+                    <a href="{{route('download.rider')}}" class="col-4 offset-4 a-rider-button">
                         Download rider
-                    </button>
+                    </a>
                 </div>
             </div>
             {{-- artist contact information --}}

@@ -3802,7 +3802,7 @@ __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
 __webpack_require__(/*! alpinejs */ "./node_modules/alpinejs/dist/alpine.js");
 
-console.log('hey there ;)'); // apply form on event page
+console.log('B==D '); // apply form on event page
 
 if (document.getElementById('o-form')) {
   var formdiv = document.getElementById('o-form');
@@ -3866,7 +3866,7 @@ if (document.getElementsByClassName("a-player")) {
 
       play[index].style.display = "block";
       pause[index].style.display = "none";
-      img[i].classList.remove('a-rotate');
+      img[index].classList.remove('a-rotate');
     }); // Pause if users clicks on the song that is playing
 
     if (!players[i].paused) {
@@ -3882,8 +3882,6 @@ if (document.getElementsByClassName("a-player")) {
       pause[i].style.display = "block";
       img[i].classList.add('a-rotate');
     }
-
-    console.log(players[i].paused);
   };
 
   buttons.forEach(function (button, index) {

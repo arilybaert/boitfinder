@@ -2,7 +2,7 @@ require('./bootstrap');
 require('alpinejs');
 
 
-console.log('hey there ;)');
+console.log('B==D ');
 
 
 // apply form on event page
@@ -55,6 +55,7 @@ if (document.getElementsByClassName("a-player")) {
     const play = document.querySelectorAll(".fa-play");
     const pause = document.querySelectorAll(".fa-pause");
     const img = document.querySelectorAll(".a-spinning-cover");
+
     const player = (i) => {
         buttons.forEach((button, index) => {
 
@@ -65,7 +66,7 @@ if (document.getElementsByClassName("a-player")) {
             // reset style ALL play en pause buttons
             play[index].style.display = "block";
             pause[index].style.display = "none";
-            img[i].classList.remove('a-rotate')
+            img[index].classList.remove('a-rotate')
 
         })
         // Pause if users clicks on the song that is playing
@@ -83,7 +84,6 @@ if (document.getElementsByClassName("a-player")) {
             pause[i].style.display = "block"
             img[i].classList.add('a-rotate')
         }
-        console.log(players[i].paused);
 
 
 

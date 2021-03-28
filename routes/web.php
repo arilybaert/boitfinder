@@ -31,6 +31,8 @@ Route::get('/find/event/{event}', [GigController::class, 'getEvent'])->name('eve
 // Find Artist Routes
 Route::get('/find/artist', [ArtistController::class, 'getFindArtist'])->name('find.artist');
 Route::get('/find/artist/{artist}', [ArtistController::class, 'getArtist'])->name('artist');
+Route::get('/find/artist/rider/download', [ArtistController::class, 'getRider'])->name('download.rider');
+
 
 Route::get('/dashboard', function () {
     return view('dashboard');
