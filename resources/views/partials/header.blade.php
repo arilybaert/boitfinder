@@ -48,7 +48,7 @@
                         </div>
                         <div class="col-4 m-header-menu">
                             @if (Auth::check())
-                                <a href="{{ route('profile')}} ">
+                                <a href="{{ route('event.profile.events')}} ">
                                     <h2>
                                         Profile
                                     </h2>

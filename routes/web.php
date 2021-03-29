@@ -23,6 +23,19 @@ Route::get('/admin', [AdminController::class, 'getIndex'])->name('admin')->middl
 Route::get('/artist', [ArtistController::class, 'getIndex'])->name('artist')->middleware('artist');
 Route::get('/event', [EventController::class, 'getIndex'])->name('event')->middleware('event');
 
+// Event Profile Routes
+Route::get('/event/profile/events', [EventController::class, 'getEvents'])->name('event.profile.events');
+Route::get('/event/profile/applicants/{event}', [EventController::class, 'getEventApplicants'])->name('event.applicants');
+Route::get('/event/edit/{event}', [EventController::class, 'editEvent'])->name('event.edit');
+Route::get('/event/create/event', [EventController::class, 'createEvent'])->name('event.create');
+
+Route::get('/event/profile/edit', [EventController::class, 'editProfileEvent'])->name('edit.profile.event');
+
+Route::get('/event/password/change', [EventController::class, 'changePassword'])->name('event.password.change');
+
+Route::get('/event/media/', [EventController::class, 'getEventMedia'])->name('event.media');
+
+
 // Find Gig Routes
 Route::get('/', [GigController::class, 'getIndex'])->name('home');
 Route::get('/find/event', [GigController::class, 'getFindEvent'])->name('find.event');
@@ -33,10 +46,7 @@ Route::get('/find/artist', [ArtistController::class, 'getFindArtist'])->name('fi
 Route::get('/find/artist/{artist}', [ArtistController::class, 'getArtist'])->name('artist');
 Route::get('/find/artist/rider/download', [ArtistController::class, 'getRider'])->name('download.rider');
 
-// AUTH
-// Route::get('/login', [ArtistController::class, 'getFindArtist'])->name('login');
-Route::get('/register', [ArtistController::class, 'getFindArtist'])->name('register');
-Route::get('/profile', [ArtistController::class, 'getFindArtist'])->name('profile');
+
 
 
 Route::get('/dashboard', function () {

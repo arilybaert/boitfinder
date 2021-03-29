@@ -1,9 +1,14 @@
 @import 'variables/colors.scss';
-@import 'partials/header.scss';
+
 @import 'pages/findgig.scss';
 @import 'pages/event-detail.scss';
 @import 'pages/artist-detail.scss';
 @import 'pages/find-artist.scss';
+@import 'pages/login.scss';
+
+@import 'partials/header.scss';
+@import 'partials/profile-events.scss';
+
 
 body {
     background-color: $primary-bg-color;
