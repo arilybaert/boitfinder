@@ -32,7 +32,7 @@
         </div>
         <div class="row m-form-group">
             <div class="col-4">
-                <label for="password" class="a-register-label col-12 col-md-4 ">{{ __('Password') }}</label>
+                <label for="password">{{ __('Password') }}</label>
             </div>
 
             <div class="col-5">
