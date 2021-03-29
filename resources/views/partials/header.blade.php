@@ -37,9 +37,15 @@
                                 </h2>
                             </a>
                         </div>
-                        <a href="{{ route('home') }}"class="col-4 m-site-logo">
-                            <img src="{{ asset('src/img/logo/gigfinder_logo.png') }}" alt="">
-                        </a>
+                        <div class="col-4">
+                            <div class="o-site-logo">
+                                <div class="m-site-logo">
+                                    <a href="{{ route('home') }}"class="">
+                                        <img src="{{ asset('src/img/logo/gigfinder_logo.png') }}" alt="">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
                         <div class="col-4 m-header-menu">
                             @if (Auth::check())
                                 <a href="{{ route('profile')}} ">

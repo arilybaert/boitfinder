@@ -47,16 +47,18 @@
     align-items: center;
 }
 
-.m-site-logo {
-    // display: flex;
-    // align-items: center;
-    // justify-content: center;
-    img {
-        position: absolute;
-        width: 307px;
-        height: auto;
-        margin-top: -81px;
-        z-index: 1;
+.o-site-logo {
+    width: 100%;
+    height: 100%;
+    .m-site-logo {
+        position: relative;
+        img {
+            width: 307px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -54%)
+        }
     }
 }
 

@@ -47,12 +47,19 @@
   align-items: center;
 }
 
-.m-site-logo img {
-  position: absolute;
+.o-site-logo {
+  width: 100%;
+  height: 100%;
+}
+.o-site-logo .m-site-logo {
+  position: relative;
+}
+.o-site-logo .m-site-logo img {
   width: 307px;
-  height: auto;
-  margin-top: -81px;
-  z-index: 1;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -54%);
 }
 
 .o-login {
