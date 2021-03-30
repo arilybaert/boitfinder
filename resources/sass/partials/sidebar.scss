@@ -1,0 +1,26 @@
+.m-profile-sidebar {
+    height: 50vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border-right: 1px solid $tertiary-color;
+
+    a,
+    a:link {
+        text-decoration: none;
+    }
+    a:hover {
+        text-decoration: underline;
+    }
+    h3 {
+        font-family: $font-secondary;
+        color: $tertiary-color;
+    }
+    .a-active-event {
+        background-color: white;
+        padding: 0.5rem 0.7rem;
+        box-sizing: border-box;
+        border-radius: $radius-small;
+        border: 1px solid $tertiary-color;
+    }
+}

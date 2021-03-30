@@ -2,14 +2,8 @@
 @section('content')
 
 <form method="POST" class="row o-profile-events">
-    <div class="col-3">
-        <div class="m-profile-sidebar">
-            <h3>Events</h3>
-            <h3>Edit profile</h3>
-            <h3>Password</h3>
-            <h3>Manage Media</h3>
-        </div>
-    </div>
+    <x-sidebar/>
+
     <div class="col-9">
         {{-- event header  --}}
         <div class="row o-events-header">

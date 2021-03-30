@@ -817,17 +817,6 @@
 .o-profile-events {
   margin-top: 4rem;
 }
-.o-profile-events .m-profile-sidebar {
-  height: 50vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  border-right: 1px solid #990000;
-}
-.o-profile-events .m-profile-sidebar h3 {
-  font-family: "Cooper Black";
-  color: #990000;
-}
 .o-profile-events .o-events-header {
   color: #990000;
   font-family: "Cooper Black";
@@ -997,6 +986,32 @@
   border: solid white;
   border-width: 0 3px 3px 0;
   transform: rotate(45deg);
+}
+
+.m-profile-sidebar {
+  height: 50vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border-right: 1px solid #990000;
+}
+.m-profile-sidebar a,
+.m-profile-sidebar a:link {
+  text-decoration: none;
+}
+.m-profile-sidebar a:hover {
+  text-decoration: underline;
+}
+.m-profile-sidebar h3 {
+  font-family: "Cooper Black";
+  color: #990000;
+}
+.m-profile-sidebar .a-active-event {
+  background-color: white;
+  padding: 0.5rem 0.7rem;
+  box-sizing: border-box;
+  border-radius: 5px;
+  border: 1px solid #990000;
 }
 
 body {
