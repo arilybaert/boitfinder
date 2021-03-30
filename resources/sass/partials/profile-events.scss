@@ -1,8 +1,22 @@
 .o-profile-events {
 
+    margin-top: 4rem;
+    .m-profile-sidebar {
+        height: 50vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        border-right: 1px solid $tertiary-color;
+
+        h3 {
+            font-family: $font-secondary;
+            color: $tertiary-color;
+        }
+    }
     // evetn header
     .o-events-header {
         color: $tertiary-color;
+        font-family: $font-secondary;
         h2 {
             font-size: $font-large;
             font-weight: bold;
@@ -21,9 +35,12 @@
             justify-content: flex-end;
         }
     }
-
+    .o-events-header__alt {
+        margin-top: 2rem;
+    }
     // event cards
     .o-event {
+        margin-top: 1rem;
         background-color: white;
         padding: 0;
         border-radius: $radius-small;
@@ -40,14 +57,19 @@
         h4 {
             font-size: $font-medium;
             font-weight: bold;
+            text-align: center;
+
         }
         h5 {
             font-size: $font-small;
         }
-        a {
+        a,
+        a:link {
             border-radius: $radius-small;
             color: white;
             background-color: $tertiary-color;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
         }
 
     }
@@ -57,4 +79,122 @@
         justify-content: center;
     }
 
+}
+.o-create-event {
+    text-align: right;
+    .m-form-group {
+        margin-top: 1rem;
+    }
+    input {
+        width: 100%;
+        border: none;
+        border-radius: $radius-small;
+        height: 40px;
+        border: 1px solid $primary-color;
+    }
+    textarea {
+        width: 100%;
+        border: none;
+        border-radius: $radius-small;
+        height: 200px;
+        border: 1px solid $primary-color;
+    }
+    label {
+        font-weight: bold;
+        color: $tertiary-color;
+    }
+}
+.m-submit {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    button {
+        background-color: $primary-color;
+        color: white;
+        border-radius: $radius-small;
+        border: none;
+        padding: 0.5rem 2rem;
+    }
+    button:hover {
+        border: 2px solid $primary-color;
+        background-color: $primary-bg-color;
+        color: $primary-color;
+    }
+}
+      // custom checkbox style
+.o-filter-input-checkbox {
+    margin-top: 1rem;
+    text-align: left;
+
+
+    .container {
+        display: block;
+        position: relative;
+        padding-left: 35px;
+        margin-bottom: 1rem;
+        cursor: pointer;
+        font-size: $font-small;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+      }
+
+      /* Hide the browser's default checkbox */
+      .container input {
+        position: absolute;
+        opacity: 0;
+        cursor: pointer;
+        height: 0;
+        width: 0;
+      }
+
+      /* Create a custom checkbox */
+      .checkmark {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 23px;
+        width: 23px;
+        background-color: white;
+        border: 1px solid $secondary-color;
+        border-radius: $radius-small;
+      }
+
+      /* On mouse-over, add a grey background color */
+      .container:hover input ~ .checkmark {
+        background-color: #ccc;
+        background-color: $secondary-color;
+        border: 1px solid white;
+      }
+
+      /* When the checkbox is checked, add a blue background */
+      .container input:checked ~ .checkmark {
+        background-color: $secondary-color;
+      }
+
+      /* Create the checkmark/indicator (hidden when not checked) */
+      .checkmark:after {
+        content: "";
+        position: absolute;
+        display: none;
+      }
+
+      /* Show the checkmark when checked */
+      .container input:checked ~ .checkmark:after {
+        display: block;
+      }
+
+      /* Style the checkmark/indicator */
+      .container .checkmark:after {
+        left: 9px;
+        top: 5px;
+        width: 5px;
+        height: 10px;
+        border: solid white;
+        border-width: 0 3px 3px 0;
+        -webkit-transform: rotate(45deg);
+        -ms-transform: rotate(45deg);
+        transform: rotate(45deg);
+      }
 }

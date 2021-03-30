@@ -814,8 +814,23 @@
   transform: translate(-50%, -54%);
 }
 
+.o-profile-events {
+  margin-top: 4rem;
+}
+.o-profile-events .m-profile-sidebar {
+  height: 50vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border-right: 1px solid #990000;
+}
+.o-profile-events .m-profile-sidebar h3 {
+  font-family: "Cooper Black";
+  color: #990000;
+}
 .o-profile-events .o-events-header {
   color: #990000;
+  font-family: "Cooper Black";
 }
 .o-profile-events .o-events-header h2 {
   font-size: 17pt;
@@ -833,7 +848,11 @@
   display: flex;
   justify-content: flex-end;
 }
+.o-profile-events .o-events-header__alt {
+  margin-top: 2rem;
+}
 .o-profile-events .o-event {
+  margin-top: 1rem;
   background-color: white;
   padding: 0;
   border-radius: 5px;
@@ -852,19 +871,132 @@
 .o-profile-events .o-event h4 {
   font-size: 15pt;
   font-weight: bold;
+  text-align: center;
 }
 .o-profile-events .o-event h5 {
   font-size: 11pt;
 }
-.o-profile-events .o-event a {
+.o-profile-events .o-event a,
+.o-profile-events .o-event a:link {
   border-radius: 5px;
   color: white;
   background-color: #990000;
+  text-decoration: none;
+  padding: 0.5rem 1rem;
 }
 .o-profile-events .o-event > .col-2 {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.o-create-event {
+  text-align: right;
+}
+.o-create-event .m-form-group {
+  margin-top: 1rem;
+}
+.o-create-event input {
+  width: 100%;
+  border: none;
+  border-radius: 5px;
+  height: 40px;
+  border: 1px solid #FC9627;
+}
+.o-create-event textarea {
+  width: 100%;
+  border: none;
+  border-radius: 5px;
+  height: 200px;
+  border: 1px solid #FC9627;
+}
+.o-create-event label {
+  font-weight: bold;
+  color: #990000;
+}
+
+.m-submit {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.m-submit button {
+  background-color: #FC9627;
+  color: white;
+  border-radius: 5px;
+  border: none;
+  padding: 0.5rem 2rem;
+}
+.m-submit button:hover {
+  border: 2px solid #FC9627;
+  background-color: #FFDFCF;
+  color: #FC9627;
+}
+
+.o-filter-input-checkbox {
+  margin-top: 1rem;
+  text-align: left;
+  /* Hide the browser's default checkbox */
+  /* Create a custom checkbox */
+  /* On mouse-over, add a grey background color */
+  /* When the checkbox is checked, add a blue background */
+  /* Create the checkmark/indicator (hidden when not checked) */
+  /* Show the checkmark when checked */
+  /* Style the checkmark/indicator */
+}
+.o-filter-input-checkbox .container {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 1rem;
+  cursor: pointer;
+  font-size: 11pt;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+.o-filter-input-checkbox .container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+.o-filter-input-checkbox .checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 23px;
+  width: 23px;
+  background-color: white;
+  border: 1px solid #E75124;
+  border-radius: 5px;
+}
+.o-filter-input-checkbox .container:hover input ~ .checkmark {
+  background-color: #ccc;
+  background-color: #E75124;
+  border: 1px solid white;
+}
+.o-filter-input-checkbox .container input:checked ~ .checkmark {
+  background-color: #E75124;
+}
+.o-filter-input-checkbox .checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+.o-filter-input-checkbox .container input:checked ~ .checkmark:after {
+  display: block;
+}
+.o-filter-input-checkbox .container .checkmark:after {
+  left: 9px;
+  top: 5px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  transform: rotate(45deg);
 }
 
 body {

@@ -27,6 +27,8 @@ class EventController extends Controller
     public function createEvent()
     {
 
+
+        return view('pages.create-event');
     }
     // edit user-event profile
     public function editProfileEvent()
