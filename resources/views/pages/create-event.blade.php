@@ -2,7 +2,7 @@
 @section('content')
 
 <form method="POST" class="row o-profile-events">
-    <x-sidebar/>
+    <x-sidebar type="event"/>
 
     <div class="col-9">
         {{-- event header  --}}
@@ -79,18 +79,18 @@
             </div>
             <div class="col-6">
                 <div class="row m-form-group">
-                    <div class="col-3">
+                    <div class="col-4">
                         <label for="description">Description</label>
                     </div>
-                    <div class="col-9">
+                    <div class="col-8">
                         <textarea name="description" id=""></textarea>
                     </div>
                 </div>
                 <div class="row m-form-group">
-                    <div class="col-3">
+                    <div class="col-4">
                         <label for="coverphoto">Coverphoto</label>
                     </div>
-                    <div class="col-9">
+                    <div class="col-8">
                         <input type="file" name="" id="">
                     </div>
                 </div>

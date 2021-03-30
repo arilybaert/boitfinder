@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\ArtistController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\Auth\ChangePasswordController;
 use App\Http\Controllers\GigController;
 
 /*
@@ -32,6 +33,7 @@ Route::get('/event/create/event', [EventController::class, 'createEvent'])->name
 Route::get('/event/profile/edit', [EventController::class, 'editProfileEvent'])->name('edit.profile.event');
 
 Route::get('/event/password/change', [EventController::class, 'changePassword'])->name('event.password.change');
+Route::post('/event/password/change', [ChangePasswordController::class, 'changePassword'])->name('event.password.submit');
 
 Route::get('/event/media/', [EventController::class, 'getEventMedia'])->name('event.media');
 

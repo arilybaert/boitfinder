@@ -1,7 +1,22 @@
 .o-create-event {
+
     text-align: right;
+    .o-alert {
+        text-align: left
+    }
     .m-form-group {
         margin-top: 1rem;
+        button {
+            width: 100%;
+            border: none;
+            border-radius: $radius-small;
+            height: 40px;
+            border: 1px solid $primary-color;
+            background-color: $primary-color;
+            color: $tertiary-color;
+            font-weight: bold;
+            font-family: $font-secondary;
+        }
     }
     input {
         width: 100%;
@@ -23,6 +38,7 @@
     }
 }
 .m-submit {
+    margin-top: 1rem;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -31,7 +47,7 @@
         color: white;
         border-radius: $radius-small;
         border: none;
-        padding: 0.5rem 2rem;
+        padding: 0.5rem 2.5rem;
     }
     button:hover {
         border: 2px solid $primary-color;

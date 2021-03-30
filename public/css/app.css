@@ -882,8 +882,22 @@
 .o-create-event {
   text-align: right;
 }
+.o-create-event .o-alert {
+  text-align: left;
+}
 .o-create-event .m-form-group {
   margin-top: 1rem;
+}
+.o-create-event .m-form-group button {
+  width: 100%;
+  border: none;
+  border-radius: 5px;
+  height: 40px;
+  border: 1px solid #FC9627;
+  background-color: #FC9627;
+  color: #990000;
+  font-weight: bold;
+  font-family: "Cooper Black";
 }
 .o-create-event input {
   width: 100%;
@@ -905,6 +919,7 @@
 }
 
 .m-submit {
+  margin-top: 1rem;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -914,7 +929,7 @@
   color: white;
   border-radius: 5px;
   border: none;
-  padding: 0.5rem 2rem;
+  padding: 0.5rem 2.5rem;
 }
 .m-submit button:hover {
   border: 2px solid #FC9627;
@@ -1001,6 +1016,7 @@
 }
 .m-profile-sidebar a:hover {
   text-decoration: underline;
+  color: #990000;
 }
 .m-profile-sidebar h3 {
   font-family: "Cooper Black";
