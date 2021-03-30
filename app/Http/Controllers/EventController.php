@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Event;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Carbon\Carbon;
 
 class EventController extends Controller
 {
@@ -13,9 +16,17 @@ class EventController extends Controller
     // show all events from event-user
     public function getEvents()
     {
+        $now = Carbon::now();
+        if (Auth::check()){
+            $user_id = Auth::id();
+            $future_events = Event::where('user_id', $user_id)->where('date', '>', $now)->get();
+            $passed_events = Event::where('user_id', $user_id)->where('date', '<', $now)->get();
+        }
+
 
         return view('pages.profile-event', [
-
+            'future_events' => $future_events,
+            'passed_events' => $passed_events,
         ]);
     }
     // edit event

@@ -15,47 +15,29 @@
         </div>
 
         {{-- upcoming events  --}}
-        <div class="row o-event">
-            <div class="col-2 o-cover-img">
-                <img src="{{ asset('src/img/event/cover/cover-0.jpg')}} " alt="">
+        @foreach ($future_events as $future_event)
+            <div class="row o-event">
+                <div class="col-2 o-cover-img">
+                    <img src="{{ asset($future_event->coverphoto)}} " alt="">
+                </div>
+                <div class="col-2">
+                    <h4>{{$future_event->name}}</h4>
+                </div>
+                <div class="col-2">
+                    <h5>{{date('d-m-Y', strtotime($future_event->date))}}</h5>
+                </div>
+                <div class="col-2">
+                    <h4>{{$future_event->applicants->count()}}</h4>
+                </div>
+                <div class="col-2">
+                    <a href="">Applicants</a>
+                </div>
+                <div class="col-2">
+                    <a href="">Edit</a>
+                </div>
             </div>
-            <div class="col-2">
-                <h4>Jazz Night</h4>
-            </div>
-            <div class="col-2">
-                <h5>16/05/2021</h5>
-            </div>
-            <div class="col-2">
-                <h4>2</h4>
-            </div>
-            <div class="col-2">
-                <a href="">Applicants</a>
-            </div>
-            <div class="col-2">
-                <a href="">Edit</a>
-            </div>
-        </div>
+        @endforeach
 
-        <div class="row o-event">
-            <div class="col-2 o-cover-img">
-                <img src="{{ asset('src/img/event/cover/cover-0.jpg')}} " alt="">
-            </div>
-            <div class="col-2">
-                <h4>Jazz Night</h4>
-            </div>
-            <div class="col-2">
-                <h5>16/05/2021</h5>
-            </div>
-            <div class="col-2">
-                <h4>2</h4>
-            </div>
-            <div class="col-2">
-                <a href="">Applicants</a>
-            </div>
-            <div class="col-2">
-                <a href="">Edit</a>
-            </div>
-        </div>
 
         {{-- event header  --}}
         <div class="row o-events-header o-events-header__alt">
@@ -65,47 +47,29 @@
         </div>
 
         {{-- upcoming events  --}}
-        <div class="row o-event">
-            <div class="col-2 o-cover-img">
-                <img src="{{ asset('src/img/event/cover/cover-0.jpg')}} " alt="">
+        @foreach ($passed_events as $passed_event)
+            <div class="row o-event">
+                <div class="col-2 o-cover-img">
+                    <img src="{{ asset($passed_event->coverphoto)}} " alt="">
+                </div>
+                <div class="col-2">
+                    <h4>{{$passed_event->name}}</h4>
+                </div>
+                <div class="col-2">
+                    <h5>{{date('d-m-Y', strtotime($passed_event->date))}}</h5>
+                </div>
+                <div class="col-2">
+                    <h4>{{$passed_event->applicants->count()}}</h4>
+                </div>
+                <div class="col-2">
+                    <a href="">Applicants</a>
+                </div>
+                <div class="col-2">
+                    <a href="">Edit</a>
+                </div>
             </div>
-            <div class="col-2">
-                <h4>Jazz Night</h4>
-            </div>
-            <div class="col-2">
-                <h5>16/05/2021</h5>
-            </div>
-            <div class="col-2">
-                <h4>2</h4>
-            </div>
-            <div class="col-2">
-                <a href="">Applicants</a>
-            </div>
-            <div class="col-2">
-                <a href="">Edit</a>
-            </div>
-        </div>
+        @endforeach
 
-        <div class="row o-event">
-            <div class="col-2 o-cover-img">
-                <img src="{{ asset('src/img/event/cover/cover-0.jpg')}} " alt="">
-            </div>
-            <div class="col-2">
-                <h4>Jazz Night</h4>
-            </div>
-            <div class="col-2">
-                <h5>16/05/2021</h5>
-            </div>
-            <div class="col-2">
-                <h4>2</h4>
-            </div>
-            <div class="col-2">
-                <a href="">Applicants</a>
-            </div>
-            <div class="col-2">
-                <a href="">Edit</a>
-            </div>
-        </div>
     </div>
 </div>
 @endsection

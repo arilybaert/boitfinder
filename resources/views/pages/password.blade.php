@@ -11,7 +11,7 @@
             </div>
         </div>
         <div class="row o-create-event">
-            <div class="col-12" style="text-align: left">
+            <div class="col-12 o-alert">
                 @if (session('error'))
                 <div class="alert alert-danger">
                     {{ session('error') }}
