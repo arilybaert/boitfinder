@@ -29,6 +29,7 @@ Route::get('/event', [EventController::class, 'getIndex'])->name('event')->middl
 */
 Route::get('/event/profile/events', [EventController::class, 'getEvents'])->name('event.profile.events');
 Route::get('/event/profile/applicants/{event}', [EventController::class, 'getEventApplicants'])->name('event.applicants');
+Route::get('/event/accept/artist/{event}/{accepted_applicant}', [EventController::class, 'acceptApplicant'])->name('artist.accept');
 
 // edit profile
 Route::get('/event/edit/{event}', [EventController::class, 'editEvent'])->name('event.edit');

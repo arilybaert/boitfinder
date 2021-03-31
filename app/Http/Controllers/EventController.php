@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Applicant;
+use App\Models\User;
 use App\Models\Event;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -36,6 +38,18 @@ class EventController extends Controller
         return view('pages.applicants', [
         'event' => $event
         ]);
+    }
+    public function acceptApplicant(Event $event, User $accepted_applicant)
+    {
+        foreach ($event->applicants as $applicant) {
+            if($applicant->user->id == $accepted_applicant->id) {
+                $applicant->update([['status' => 'accepted']]);
+            } else {
+                $applicant->update(['status' => 'rejected']);
+            };
+
+        }
+        return back();
     }
     // edit event
     public function editEvent()

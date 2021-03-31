@@ -36,14 +36,15 @@
 
             @foreach($event->applicants as $applicant)
                 <div class="col-4 o-applicant-card">
-                    <div class="m-applicant-card">
+                    <div class="m-applicant-card {{$applicant->status === 'rejected' ? 'a-disable' : '' }}">
                         <div class="m-img-container">
                             <img src="{{asset($applicant->user->coverphoto)}}" alt="">
                         </div>
                         <h2>{{$applicant->user->name}}</h2>
                         <h3>{{$applicant->user->city}}</h3>
                         <p>{{$applicant->message}}</p>
-                        <a href="{{route('artist', $applicant->user->id)}}">View</a>
+                        <a href="{{route('artist', $applicant->user->id)}}" class="a-view" >View</a>
+                        <a href="{{route('artist.accept', [$event->id, $applicant->user->id])}}" class="a-accept"  onclick="return confirm('Are you sure?')" >Accept</a>
                     </div>
                 </div>
             @endforeach

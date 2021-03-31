@@ -1112,7 +1112,6 @@
 .o-applicant-card .m-applicant-card a:link {
   width: 100%;
   height: 40px;
-  background-color: #FC9627;
   color: white;
   border-radius: 5px;
   text-decoration: none;
@@ -1125,6 +1124,19 @@
 .o-applicant-card .m-applicant-card a:hover {
   border: 2px solid #990000;
   color: #990000;
+}
+.o-applicant-card .m-applicant-card .a-view {
+  background-color: #FC9627;
+}
+.o-applicant-card .m-applicant-card .a-accept {
+  background-color: #E75124;
+  margin-top: 1rem;
+}
+
+.a-disable {
+  filter: blur(3px) grayscale(100%);
+  opacity: 0.6;
+  pointer-events: none;
 }
 
 body {
