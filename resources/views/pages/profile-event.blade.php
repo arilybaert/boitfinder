@@ -13,6 +13,14 @@
                 <a href="{{route('event.create')}} ">Create new event</a>
             </div>
         </div>
+        <div class="row o-events-sub-header">
+            <div class="col-2 offset-4">
+                <h5>Date</h5>
+            </div>
+            <div class="col-2">
+                <h5>Applicants</h5>
+            </div>
+        </div>
 
         {{-- upcoming events  --}}
         @foreach ($future_events as $future_event)

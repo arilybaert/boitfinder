@@ -10,7 +10,6 @@
             font-size: $font-large;
             font-weight: bold;
         }
-
         a,
         a:link {
             background-color: $primary-color;
@@ -23,6 +22,14 @@
             display: flex;
             justify-content: flex-end;
         }
+    }
+    .o-events-sub-header {
+        text-align: center;
+        h5 {
+            font-family: $font-primary;
+            font-size: $font-small;
+            color: $tertiary-color;
+            }
     }
     .o-events-header__alt {
         margin-top: 2rem;
@@ -37,6 +44,7 @@
         color: $tertiary-color;
         .o-cover-img {
             padding-left: 0;
+            height: 100px;
             img {
                 width: 100%;
                 height: 100%;

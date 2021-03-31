@@ -837,6 +837,14 @@
   display: flex;
   justify-content: flex-end;
 }
+.o-profile-events .o-events-sub-header {
+  text-align: center;
+}
+.o-profile-events .o-events-sub-header h5 {
+  font-family: Arial, sans-serif;
+  font-size: 11pt;
+  color: #990000;
+}
 .o-profile-events .o-events-header__alt {
   margin-top: 2rem;
 }
@@ -850,6 +858,7 @@
 }
 .o-profile-events .o-event .o-cover-img {
   padding-left: 0;
+  height: 100px;
 }
 .o-profile-events .o-event .o-cover-img img {
   width: 100%;
