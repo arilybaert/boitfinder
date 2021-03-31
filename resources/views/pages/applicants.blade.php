@@ -1,0 +1,54 @@
+@extends('layouts.profile')
+@section('content')
+<div class="row o-profile-events">
+    <x-sidebar type="event"/>
+    <div class="col-9">
+        {{-- event header  --}}
+        <div class="row o-events-header">
+            <div class="col-6">
+                <h2>Applicants</h2>
+            </div>
+        </div>
+        {{-- sub header PATH  --}}
+        <div class="row o-events-sub-header">
+            <div class="col-12 m-events-path">
+                <a href="{{route('event.profile.events')}}">
+                     Events
+                </a>
+                <span>
+                    >
+                </span>
+                <a href="{{route('event', $event->id)}}">
+                    {{$event->name}}
+                </a>
+                <span>
+                    >
+                </span>
+                <a href="{{(route('event.applicants', $event->id))}}">
+                    Applicants
+                </a>
+            </div>
+        </div>
+
+        {{-- applicant cards  --}}
+
+        <div class="row">
+
+            @foreach($event->applicants as $applicant)
+                <div class="col-4 o-applicant-card">
+                    <div class="m-applicant-card">
+                        <div class="m-img-container">
+                            <img src="{{asset($applicant->user->coverphoto)}}" alt="">
+                        </div>
+                        <h2>{{$applicant->user->name}}</h2>
+                        <h3>{{$applicant->user->city}}</h3>
+                        <p>{{$applicant->message}}</p>
+                        <a href="{{route('artist', $applicant->user->id)}}">View</a>
+                    </div>
+                </div>
+            @endforeach
+        </div>
+
+    </div>
+</div>
+@endsection

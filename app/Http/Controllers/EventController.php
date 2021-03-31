@@ -19,14 +19,22 @@ class EventController extends Controller
         $now = Carbon::now();
         if (Auth::check()){
             $user_id = Auth::id();
-            $future_events = Event::where('user_id', $user_id)->where('date', '>', $now)->get();
-            $passed_events = Event::where('user_id', $user_id)->where('date', '<', $now)->get();
+            $future_events = Event::where('user_id', $user_id)->where('date', '>', $now)->orderBy('date', 'desc')->get();
+            $passed_events = Event::where('user_id', $user_id)->where('date', '<', $now)->orderBy('date', 'desc')->get();
         }
 
 
         return view('pages.profile-event', [
             'future_events' => $future_events,
             'passed_events' => $passed_events,
+        ]);
+    }
+    // event applicants
+    public function getEventApplicants(Event $event)
+    {
+        // dd($event);
+        return view('pages.applicants', [
+        'event' => $event
         ]);
     }
     // edit event

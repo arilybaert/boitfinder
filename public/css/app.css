@@ -646,8 +646,6 @@
   text-align: center;
 }
 .o-artist-cards .m-artist-card .m-artist-card-image-container {
-  -o-object-fit: contain;
-     object-fit: contain;
   overflow: hidden;
   width: 100px;
   height: 100px;
@@ -656,6 +654,8 @@
   box-shadow: 0px 7px 10px 1px rgba(0, 0, 0, 0.54);
 }
 .o-artist-cards .m-artist-card img {
+  -o-object-fit: contain;
+     object-fit: contain;
   width: 100%;
   height: 100%;
 }
@@ -1037,6 +1037,94 @@
   box-sizing: border-box;
   border-radius: 5px;
   border: 1px solid #990000;
+}
+
+.m-events-path {
+  display: flex;
+}
+.m-events-path a,
+.m-events-path a:link {
+  color: #990000;
+  text-decoration: none;
+}
+.m-events-path a:hover {
+  color: #FC9627;
+  text-decoration: underline;
+}
+
+.m-events-path * {
+  margin-right: 0.5rem;
+}
+
+.o-applicant-card {
+  margin-top: 2rem;
+}
+.o-applicant-card .m-applicant-card {
+  cursor: pointer;
+}
+.o-applicant-card .m-applicant-card img {
+  transition: all 0.3s;
+  transform: scale(1);
+}
+.o-applicant-card .m-applicant-card:hover img {
+  transform: scale(1.1);
+}
+.o-applicant-card .m-applicant-card {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  border-radius: 9px;
+  border: 2px solid #990000;
+  text-align: center;
+  padding: 1rem;
+  color: #990000;
+}
+.o-applicant-card .m-applicant-card .m-img-container {
+  overflow: hidden;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  margin: 0 auto;
+  margin-bottom: 1rem;
+  box-shadow: 0px 7px 10px 1px rgba(0, 0, 0, 0.54);
+  border: 2px solid #990000;
+}
+.o-applicant-card .m-applicant-card img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.o-applicant-card .m-applicant-card h2 {
+  font-size: 17pt;
+  font-family: "Cooper Black";
+}
+.o-applicant-card .m-applicant-card h3 {
+  font-size: 15pt;
+  font-weight: bold;
+}
+.o-applicant-card .m-applicant-card p {
+  text-align: left;
+  font-size: 11pt;
+}
+.o-applicant-card .m-applicant-card a,
+.o-applicant-card .m-applicant-card a:link {
+  width: 100%;
+  height: 40px;
+  background-color: #FC9627;
+  color: white;
+  border-radius: 5px;
+  text-decoration: none;
+  font-size: 15pt;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.o-applicant-card .m-applicant-card a:hover {
+  border: 2px solid #990000;
+  color: #990000;
 }
 
 body {

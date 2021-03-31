@@ -24,9 +24,13 @@ Route::get('/admin', [AdminController::class, 'getIndex'])->name('admin')->middl
 Route::get('/artist', [ArtistController::class, 'getIndex'])->name('artist')->middleware('artist');
 Route::get('/event', [EventController::class, 'getIndex'])->name('event')->middleware('event');
 
-// Event Profile Routes
+/*
+*** Event Profile Routes
+*/
 Route::get('/event/profile/events', [EventController::class, 'getEvents'])->name('event.profile.events');
 Route::get('/event/profile/applicants/{event}', [EventController::class, 'getEventApplicants'])->name('event.applicants');
+
+// edit profile
 Route::get('/event/edit/{event}', [EventController::class, 'editEvent'])->name('event.edit');
 Route::get('/event/create/event', [EventController::class, 'createEvent'])->name('event.create');
 

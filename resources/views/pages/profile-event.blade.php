@@ -38,7 +38,7 @@
                     <h4>{{$future_event->applicants->count()}}</h4>
                 </div>
                 <div class="col-2">
-                    <a href="">Applicants</a>
+                    <a href="{{route('event.applicants', $future_event->id)}} ">Applicants</a>
                 </div>
                 <div class="col-2">
                     <a href="">Edit</a>
