@@ -63,11 +63,35 @@ class EventController extends Controller
 
         return view('pages.create-event');
     }
+
     // edit user-event profile
     public function editProfileEvent()
     {
+        $user = User::where('id', Auth::id())->first();
 
-        return view('pages.profile');
+        return view('pages.profile', [
+            'user' => $user
+        ]);
+    }
+    public function saveProfileEvent(Request $r)
+    {
+        $data = [
+            'name' => $r->name,
+            'telephone' => $r->telephone,
+            'address' => $r->address,
+            'zipcode' => $r->zipcode,
+            'city' => $r->city,
+            'website' => $r->website,
+            'capacity' => $r->capacity,
+            'description' => $r->description,
+        ];
+        if($r->id){
+            $user = User::where('id', $r->id)->first();
+            $user->update($data);
+        }
+        return view('pages.profile', [
+            'user' => $user
+        ]);
     }
     // change password user-event
     public function changePassword()

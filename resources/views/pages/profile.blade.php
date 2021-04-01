@@ -1,6 +1,6 @@
 @extends('layouts.profile')
 @section('content')
-<form method="POST" class="row o-profile-events">
+<form method="POST" class="row o-profile-events" action="{{route('save.profile.event')}}">
     @csrf
 
     <x-sidebar type="profile"/>
@@ -21,7 +21,8 @@
                         <label for="name">Name</label>
                     </div>
                     <div class="col-8">
-                        <input type="text" name="name">
+                        <input type="text" name="name" value="{{ old('firstname', ($user ? $user->name : '')) }}">
+                        <input type="hidden" name="id" value="{{ ($user ? $user->id : '') }}">
                     </div>
                 </div>
                 <div class="row m-form-group">
@@ -29,7 +30,7 @@
                         <label for="telephone">Telephone</label>
                     </div>
                     <div class="col-8">
-                        <input type="text" name="telephone">
+                        <input type="text" name="telephone" value="{{ old('telephone', ($user ? $user->telephone : '')) }}">
                     </div>
                 </div>
                 <div class="row m-form-group">
@@ -37,7 +38,7 @@
                         <label for="address">Address</label>
                     </div>
                     <div class="col-8">
-                        <input type="text" name="address">
+                        <input type="text" name="address" value="{{ old('address', ($user ? $user->address : '')) }}">
                     </div>
                 </div>
                 <div class="row m-form-group">
@@ -45,7 +46,7 @@
                         <label for="zipcode">Zipcode</label>
                     </div>
                     <div class="col-8">
-                        <input type="text" name="zipcode">
+                        <input type="text" name="zipcode" value="{{ old('zipcode', ($user ? $user->zipcode : '')) }}">
                     </div>
                 </div>
                 <div class="row m-form-group">
@@ -53,7 +54,7 @@
                         <label for="city">City</label>
                     </div>
                     <div class="col-8">
-                        <input type="text" name="city">
+                        <input type="text" name="city" value="{{ old('city', ($user ? $user->city : '')) }}">
                     </div>
                 </div>
                 <div class="row m-form-group">
@@ -61,7 +62,7 @@
                         <label for="website">Website</label>
                     </div>
                     <div class="col-8">
-                        <input type="text" name="website">
+                        <input type="text" name="website" value="{{ old('website', ($user ? $user->website : '')) }}">
                     </div>
                 </div>
                 <div class="row m-form-group">
@@ -69,7 +70,7 @@
                         <label for="capacity">Capacity</label>
                     </div>
                     <div class="col-8">
-                        <input type="text" name="capacity">
+                        <input type="text" name="capacity" value="{{ old('capacity', ($user ? $user->capacity : '')) }}">
                     </div>
                 </div>
 
@@ -80,7 +81,7 @@
                         <label for="description">Description</label>
                     </div>
                     <div class="col-9">
-                        <textarea name="description" id=""></textarea>
+                        <textarea name="description" id="">{{ old('description', ($user ? $user->description : '')) }}</textarea>
                     </div>
                 </div>
                 <div class="row m-form-group">

@@ -37,6 +37,8 @@ Route::get('/event/create/event', [EventController::class, 'createEvent'])->name
 
 Route::get('/event/profile/edit', [EventController::class, 'editProfileEvent'])->name('edit.profile.event');
 
+Route::post('/event/profile/edit', [EventController::class, 'saveProfileEvent'])->name('save.profile.event');
+
 Route::get('/event/password/change', [EventController::class, 'changePassword'])->name('event.password.change');
 Route::post('/event/password/change', [ChangePasswordController::class, 'changePassword'])->name('event.password.submit');
 
