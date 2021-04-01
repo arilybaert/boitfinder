@@ -849,6 +849,16 @@
   margin-top: 2rem;
 }
 .o-profile-events .o-event {
+  cursor: pointer;
+}
+.o-profile-events .o-event img {
+  transition: all 0.3s;
+  transform: scale(1);
+}
+.o-profile-events .o-event:hover img {
+  transform: scale(1.1);
+}
+.o-profile-events .o-event {
   margin-top: 1rem;
   background-color: white;
   padding: 0;
@@ -859,6 +869,7 @@
 .o-profile-events .o-event .o-cover-img {
   padding-left: 0;
   height: 100px;
+  overflow: hidden;
 }
 .o-profile-events .o-event .o-cover-img img {
   width: 100%;
@@ -914,8 +925,11 @@
   border-radius: 5px;
   height: 40px;
   border: 1px solid #FC9627;
+  padding-left: 0.5rem;
 }
 .o-create-event textarea {
+  padding-top: 0.5rem;
+  padding-left: 0.5rem;
   width: 100%;
   border: none;
   border-radius: 5px;

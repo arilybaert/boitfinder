@@ -13,8 +13,10 @@ class Event extends Model
     protected $fillable = [
         'name',
         'date',
+        'description',
         'coverphoto',
-        'genre_id'
+        'genre_id',
+        'user_id',
     ];
 
     public function genre(): BelongsTo

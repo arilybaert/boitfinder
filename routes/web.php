@@ -34,6 +34,7 @@ Route::get('/event/accept/artist/{event}/{accepted_applicant}', [EventController
 // edit profile
 Route::get('/event/edit/{event}', [EventController::class, 'editEvent'])->name('event.edit');
 Route::get('/event/create/event', [EventController::class, 'createEvent'])->name('event.create');
+Route::post('/event/create/event', [EventController::class, 'saveEvent'])->name('event.create.save');
 
 Route::get('/event/profile/edit', [EventController::class, 'editProfileEvent'])->name('edit.profile.event');
 

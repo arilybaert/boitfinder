@@ -1,7 +1,8 @@
 @extends('layouts.profile')
 @section('content')
 
-<form method="POST" class="row o-profile-events">
+<form method="POST" class="row o-profile-events" action="{{route('event.create.save')}}">
+    @csrf
     <x-sidebar type="event"/>
 
     <div class="col-9">
@@ -31,31 +32,18 @@
                         <input type="date" name="date">
                     </div>
                 </div>
-                <div class="row m-form-group">
+                {{-- <div class="row m-form-group">
                     <div class="col-4">
                         <label for="mic">Available mics</label>
                     </div>
                     <div class="col-8 o-filter-input-checkbox">
-                        <label class="container">
-                            Vocals
-                            <input type="checkbox" checked="checked">
-                            <span class="checkmark"></span>
-                        </label>
-                        <label class="container">
-                            Stringed instruments
-                            <input type="checkbox" >
-                            <span class="checkmark"></span>
-                        </label>
-                        <label class="container">
-                            Piano
-                            <input type="checkbox" >
-                            <span class="checkmark"></span>
-                        </label>
-                        <label class="container">
-                            Drum
-                            <input type="checkbox" checked="checked">
-                            <span class="checkmark"></span>
-                        </label>
+                        @foreach ($microphones as $microphone)
+                            <label class="container">
+                                {{$microphone->name}}
+                                <input type="checkbox" name="microphones[]">
+                                <span class="checkmark"></span>
+                            </label>
+                        @endforeach
                     </div>
                 </div>
                 <div class="row m-form-group">
@@ -63,19 +51,15 @@
                         <label for="mic">Available PA</label>
                     </div>
                     <div class="col-8 o-filter-input-checkbox">
-                        <label class="container">
-                            acoustic
-                            <input type="checkbox" checked="checked">
-                            <span class="checkmark"></span>
-                        </label>
-                        <label class="container">
-                            Full band
-                            <input type="checkbox" >
-                            <span class="checkmark"></span>
-                        </label>
-
+                        @foreach ($pas as $pa)
+                            <label class="container">
+                                {{$pa->name}}
+                                <input type="checkbox" name="pas[]" value="{{$pa->id}}">
+                                <span class="checkmark"></span>
+                            </label>
+                        @endforeach
                     </div>
-                </div>
+                </div> --}}
             </div>
             <div class="col-6">
                 <div class="row m-form-group">

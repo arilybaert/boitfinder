@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Applicant;
+use App\Models\Pa;
 use App\Models\User;
 use App\Models\Event;
+use App\Models\Microphone;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Carbon\Carbon;
@@ -21,8 +22,8 @@ class EventController extends Controller
         $now = Carbon::now();
         if (Auth::check()){
             $user_id = Auth::id();
-            $future_events = Event::where('user_id', $user_id)->where('date', '>', $now)->orderBy('date', 'desc')->get();
-            $passed_events = Event::where('user_id', $user_id)->where('date', '<', $now)->orderBy('date', 'desc')->get();
+            $future_events = Event::where('user_id', $user_id)->where('date', '>', $now)->orderBy('date', 'asc')->get();
+            $passed_events = Event::where('user_id', $user_id)->where('date', '<', $now)->orderBy('date', 'asc')->get();
         }
 
 
@@ -59,9 +60,29 @@ class EventController extends Controller
     // create event
     public function createEvent()
     {
+        $pas = Pa::all();
+        $microphones = Microphone::all();
+        return view('pages.create-event', [
+            'microphones' => $microphones,
+            'pas' => $pas
+        ]);
+    }
+    // save event
+    public function saveEvent(Request $r)
+    {
+        $event_data = [
+            'name' => $r->name,
+            'date' => $r->date,
+            'description' => $r->description,
+            'user_id' => Auth::id(),
+            'genre_id' => 14
+        ];
+        $event = Event::create($event_data);
+        // $id = Event::getPdo()->lastInsertId();;
+        dd(($event->id));
 
+        // return back();
 
-        return view('pages.create-event');
     }
 
     // edit user-event profile

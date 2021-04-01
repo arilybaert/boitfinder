@@ -24,8 +24,11 @@
         border-radius: $radius-small;
         height: 40px;
         border: 1px solid $primary-color;
+        padding-left: 0.5rem;
     }
     textarea {
+        padding-top: 0.5rem;
+        padding-left: 0.5rem;
         width: 100%;
         border: none;
         border-radius: $radius-small;
