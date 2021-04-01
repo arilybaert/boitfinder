@@ -53,16 +53,19 @@ class EventController extends Controller
         return back();
     }
     // edit event
-    public function editEvent()
+    public function editEvent(Event $event)
     {
+
 
     }
     // create event
-    public function createEvent()
+    public function createEvent(Event $event)
     {
+
         $pas = Pa::all();
         $microphones = Microphone::all();
         return view('pages.create-event', [
+            'event' => $event,
             'microphones' => $microphones,
             'pas' => $pas
         ]);
@@ -77,11 +80,16 @@ class EventController extends Controller
             'user_id' => Auth::id(),
             'genre_id' => 14
         ];
-        $event = Event::create($event_data);
-        // $id = Event::getPdo()->lastInsertId();;
-        dd(($event->id));
+        if(Event::where('id',$r->id)) {
+            $event = Event::where('id', $r->id)->first();
+            $event->update($event_data);
+        } else {
+            $event = Event::create($event_data);
 
-        // return back();
+        }
+
+
+        return back();
 
     }
 

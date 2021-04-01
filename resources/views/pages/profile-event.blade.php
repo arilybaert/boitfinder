@@ -41,7 +41,7 @@
                     <a href="{{route('event.applicants', $future_event->id)}} ">Applicants</a>
                 </div>
                 <div class="col-2">
-                    <a href="">Edit</a>
+                    <a href="{{route('event.create', $future_event->id)}}">Edit</a>
                 </div>
             </div>
         @endforeach

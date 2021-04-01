@@ -31,9 +31,11 @@ Route::get('/event/profile/events', [EventController::class, 'getEvents'])->name
 Route::get('/event/profile/applicants/{event}', [EventController::class, 'getEventApplicants'])->name('event.applicants');
 Route::get('/event/accept/artist/{event}/{accepted_applicant}', [EventController::class, 'acceptApplicant'])->name('artist.accept');
 
-// edit profile
-Route::get('/event/edit/{event}', [EventController::class, 'editEvent'])->name('event.edit');
-Route::get('/event/create/event', [EventController::class, 'createEvent'])->name('event.create');
+
+// edit event
+Route::get('/event/create/event/{event?}', [EventController::class, 'createEvent'])->name('event.create');
+
+//save event
 Route::post('/event/create/event', [EventController::class, 'saveEvent'])->name('event.create.save');
 
 Route::get('/event/profile/edit', [EventController::class, 'editProfileEvent'])->name('edit.profile.event');

@@ -21,7 +21,8 @@
                         <label for="name">Name</label>
                     </div>
                     <div class="col-8">
-                        <input type="text" name="name">
+                        <input type="text" name="name" value="{{$event->name ? $event->name : ''}}">
+                        <input type="hidden" name="id" value="{{$event->id ? $event->id : ''}}">
                     </div>
                 </div>
                 <div class="row m-form-group">
@@ -29,7 +30,7 @@
                         <label for="date">Date</label>
                     </div>
                     <div class="col-8">
-                        <input type="date" name="date">
+                        <input type="date" name="date" value="{{$event->date ? date('Y-m-d', strtotime($event->date)) : ''}}">
                     </div>
                 </div>
                 {{-- <div class="row m-form-group">
@@ -67,7 +68,7 @@
                         <label for="description">Description</label>
                     </div>
                     <div class="col-8">
-                        <textarea name="description" id=""></textarea>
+                        <textarea name="description" id="">{{$event->description ? $event->description : ''}}</textarea>
                     </div>
                 </div>
                 <div class="row m-form-group">
@@ -83,7 +84,7 @@
 
     </div>
     <div class="col-9 offset-3 m-submit">
-        <button type="submit">Create</button>
+        <button type="submit">Save</button>
     </div>
 </form>
 @endsection
