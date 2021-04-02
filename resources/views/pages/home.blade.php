@@ -3,8 +3,8 @@
 
     <div class="row">
         <div class="col-3 o-filters">
-            <form action="" method="post">
-
+            <form action="{{route('find.event')}}" method="post">
+                @csrf
                 {{-- submit button --}}
 
                 <div class="row m-filter-button">
@@ -25,8 +25,8 @@
                         </h3>
                     </div>
                     <div class="col-10 offset-2 m-filter-input-date">
-                        <input type="date" name="date-from" id="" class="a-filter-input-date" placeholder="from">
-                        <input type="date" name="date-to" id="" class="a-filter-input-date" placeholder="to">
+                        <input type="date" name="date_from" id="" class="a-filter-input-date" placeholder="from">
+                        <input type="date" name="date_to" id="" class="a-filter-input-date" placeholder="to">
                     </div>
                 </div>
 

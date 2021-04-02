@@ -53,8 +53,13 @@ Route::get('/event/media/', [EventController::class, 'getEventMedia'])->name('ev
 
 
 // Find Gig Routes
+// Home (redirect to find.event)
 Route::get('/', [GigController::class, 'getIndex'])->name('home');
+// Show all gigs
 Route::get('/find/event', [GigController::class, 'getFindEvent'])->name('find.event');
+// Apply filter to gigs
+Route::post('/find/event', [GigController::class, 'postFindEvent'])->name('find.event');
+
 Route::get('/find/event/{event}', [GigController::class, 'getEvent'])->name('event');
 
 // Find Artist Routes
@@ -63,10 +68,5 @@ Route::get('/find/artist/{artist}', [ArtistController::class, 'getArtist'])->nam
 Route::get('/find/artist/rider/download', [ArtistController::class, 'getRider'])->name('download.rider');
 
 
-
-
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth'])->name('dashboard');
 
 require __DIR__.'/auth.php';
