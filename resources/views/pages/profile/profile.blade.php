@@ -4,7 +4,6 @@
     @csrf
 
     <x-sidebar type="profile"/>
-
     <div class="col-9">
         {{-- event header  --}}
         <div class="row o-events-header">
@@ -33,14 +32,16 @@
                         <input type="text" name="telephone" value="{{ old('telephone', ($user ? $user->telephone : '')) }}">
                     </div>
                 </div>
-                <div class="row m-form-group">
-                    <div class="col-4">
-                        <label for="address">Address</label>
+                @if ($user->role === 'event')
+                    <div class="row m-form-group">
+                        <div class="col-4">
+                            <label for="address">Address</label>
+                        </div>
+                        <div class="col-8">
+                            <input type="text" name="address" value="{{ old('address', ($user ? $user->address : '')) }}">
+                        </div>
                     </div>
-                    <div class="col-8">
-                        <input type="text" name="address" value="{{ old('address', ($user ? $user->address : '')) }}">
-                    </div>
-                </div>
+                @endif
                 <div class="row m-form-group">
                     <div class="col-4">
                         <label for="zipcode">Zipcode</label>
@@ -73,7 +74,16 @@
                         <input type="text" name="capacity" value="{{ old('capacity', ($user ? $user->capacity : '')) }}">
                     </div>
                 </div>
-
+                @if($user->role === 'artist')
+                    <div class="row m-form-group">
+                        <div class="col-4">
+                            <label for="rider">Rider</label>
+                        </div>
+                        <div class="col-8">
+                            <input type="file" name="rider" id="">
+                        </div>
+                    </div>
+                @endif
             </div>
             <div class="col-6">
                 <div class="row m-form-group">
@@ -84,12 +94,22 @@
                         <textarea name="description" id="">{{ old('description', ($user ? $user->description : '')) }}</textarea>
                     </div>
                 </div>
+                @if ($user->role === 'artist')
+                    <div class="row m-form-group">
+                        <div class="col-3">
+                            <label for="genre_description">Genre description</label>
+                        </div>
+                        <div class="col-9">
+                            <textarea name="genre_description" id="">{{ old('genre_description', ($user ? $user->genre_description : '')) }}</textarea>
+                        </div>
+                    </div>
+                @endif
                 <div class="row m-form-group">
                     <div class="col-3">
                         <label for="coverphoto">Coverphoto</label>
                     </div>
                     <div class="col-9">
-                        <input type="file" name="" id="">
+                        <input type="file" name="coverphoto" id="">
                     </div>
                 </div>
             </div>

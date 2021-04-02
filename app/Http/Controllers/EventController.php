@@ -27,7 +27,7 @@ class EventController extends Controller
         }
 
 
-        return view('pages.profile-event', [
+        return view('pages.profile.profile-event.profile-event', [
             'future_events' => $future_events,
             'passed_events' => $passed_events,
         ]);
@@ -64,7 +64,7 @@ class EventController extends Controller
 
         $pas = Pa::all();
         $microphones = Microphone::all();
-        return view('pages.create-event', [
+        return view('pages.profile.profile-event.create-event', [
             'event' => $event,
             'microphones' => $microphones,
             'pas' => $pas
@@ -98,7 +98,7 @@ class EventController extends Controller
     {
         $user = User::where('id', Auth::id())->first();
 
-        return view('pages.profile', [
+        return view('pages.profile.profile', [
             'user' => $user
         ]);
     }
@@ -113,26 +113,26 @@ class EventController extends Controller
             'website' => $r->website,
             'capacity' => $r->capacity,
             'description' => $r->description,
+            'genre_description' => $r->genre_description,
         ];
         if($r->id){
             $user = User::where('id', $r->id)->first();
             $user->update($data);
         }
-        return view('pages.profile', [
-            'user' => $user
-        ]);
+        return back();
+
     }
     // change password user-event
     public function changePassword()
     {
 
-        return view('pages.password');
+        return view('pages.profile.password');
     }
     // show all user-event media
     public function getEventMedia()
     {
 
-        return view('pages.media', [
+        return view('pages.profile.media', [
 
         ]);
     }

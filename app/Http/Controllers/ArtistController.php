@@ -65,7 +65,7 @@ class ArtistController extends Controller
         }
 
 
-        return view('pages.artist.profile-event', [
+        return view('pages.profile.profile-artist.profile-event', [
             'future_events' => $future_events,
             'passed_events' => $passed_events,
         ]);
