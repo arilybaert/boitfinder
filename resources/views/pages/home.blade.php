@@ -41,21 +41,13 @@
                         </h3>
                     </div>
                     <div class="col-10 offset-2 o-filter-input-checkbox">
-                        {{-- <label for="pas" class="m-filter-input-checkbox-container">
-                            Full Band
-                            <input type="checkbox" name="pas" class="a-filter-input-checkbox">
-                            <span class="a-filter-input-checkmark"></span>
-                        </label> --}}
-                        <label class="container">
-                            Full Band
-                            <input type="checkbox" >
-                            <span class="checkmark"></span>
-                        </label>
-                        <label class="container">
-                            Akoustic
-                            <input type="checkbox" checked="checked">
-                            <span class="checkmark"></span>
-                        </label>
+                        @foreach ($pas as $pa)
+                            <label class="container">
+                                {{$pa->name}}
+                                <input type="checkbox" name="pas[]" value="{{$pa->id}}">
+                                <span class="checkmark"></span>
+                            </label>
+                        @endforeach
                     </div>
                 </div>
 
@@ -71,26 +63,13 @@
                         </h3>
                     </div>
                     <div class="col-10 offset-2 o-filter-input-checkbox">
-                        <label class="container">
-                            Vocals
-                            <input type="checkbox" checked="checked">
-                            <span class="checkmark"></span>
-                        </label>
-                        <label class="container">
-                            Stringed instruments
-                            <input type="checkbox" >
-                            <span class="checkmark"></span>
-                        </label>
-                        <label class="container">
-                            Piano
-                            <input type="checkbox" >
-                            <span class="checkmark"></span>
-                        </label>
-                        <label class="container">
-                            Drum
-                            <input type="checkbox" checked="checked">
-                            <span class="checkmark"></span>
-                        </label>
+                        @foreach ($microphones as $microphone)
+                            <label class="container">
+                                {{$microphone->name}}
+                                <input type="checkbox" name="microphones[]" value="{{$microphone->id}}">
+                                <span class="checkmark"></span>
+                            </label>
+                        @endforeach
                     </div>
                 </div>
 
@@ -106,36 +85,14 @@
                         </h3>
                     </div>
                     <div class="col-10 offset-2 o-filter-input-checkbox">
+                        @foreach ($genres as $genre)
                         <label class="container">
-                            House
-                            <input type="checkbox" checked="checked">
+                            {{$genre->name}}
+                            <input type="checkbox" name="genres[]" value="{{$genre->id}}">
                             <span class="checkmark"></span>
                         </label>
-                        <label class="container">
-                            Rock
-                            <input type="checkbox" >
-                            <span class="checkmark"></span>
-                        </label>
-                        <label class="container">
-                            Metal
-                            <input type="checkbox" >
-                            <span class="checkmark"></span>
-                        </label>
-                        <label class="container">
-                            Alternative
-                            <input type="checkbox" checked="checked">
-                            <span class="checkmark"></span>
-                        </label>
-                        <label class="container">
-                            Indie
-                            <input type="checkbox" checked="checked">
-                            <span class="checkmark"></span>
-                        </label>
-                        <label class="container">
-                            Ska
-                            <input type="checkbox" checked="checked">
-                            <span class="checkmark"></span>
-                        </label>
+                        @endforeach
+
                     </div>
                 </div>
             </form>
