@@ -31,20 +31,24 @@ Route::get('/event/profile/events', [EventController::class, 'getEvents'])->name
 Route::get('/event/profile/applicants/{event}', [EventController::class, 'getEventApplicants'])->name('event.applicants');
 Route::get('/event/accept/artist/{event}/{accepted_applicant}', [EventController::class, 'acceptApplicant'])->name('artist.accept');
 
-
 // edit event
 Route::get('/event/create/event/{event?}', [EventController::class, 'createEvent'])->name('event.create');
-
-//save event
 Route::post('/event/create/event', [EventController::class, 'saveEvent'])->name('event.create.save');
 
+// Edit event profile
 Route::get('/event/profile/edit', [EventController::class, 'editProfileEvent'])->name('edit.profile.event');
-
 Route::post('/event/profile/edit', [EventController::class, 'saveProfileEvent'])->name('save.profile.event');
-
+/*
+*** Artist Profile Routes
+*/
+Route::get('/artist/profile/events', [ArtistController::class, 'getEvents'])->name('artist.profile.events');
+/*
+*** Event + Artist Profile Routes
+*/
+// change password
 Route::get('/event/password/change', [EventController::class, 'changePassword'])->name('event.password.change');
 Route::post('/event/password/change', [ChangePasswordController::class, 'changePassword'])->name('event.password.submit');
-
+// manage media
 Route::get('/event/media/', [EventController::class, 'getEventMedia'])->name('event.media');
 
 
