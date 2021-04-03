@@ -25,8 +25,8 @@
                         </h3>
                     </div>
                     <div class="col-10 offset-2 m-filter-input-date">
-                        <input type="date" name="date_from" id="" class="a-filter-input-date" placeholder="from">
-                        <input type="date" name="date_to" id="" class="a-filter-input-date" placeholder="to">
+                        <input type="date" name="date_from" id="" class="a-filter-input-date" placeholder="from"  value="{{ old('date', ($date_from ? date('Y-m-d', strtotime($date_from)) : '')) }}">
+                        <input type="date" name="date_to" id="" class="a-filter-input-date" placeholder="to" value="{{ old('date', ($date_to ? date('Y-m-d', strtotime($date_to)) : '')) }}">
                     </div>
                 </div>
 
@@ -44,7 +44,7 @@
                         @foreach ($pas as $pa)
                             <label class="container">
                                 {{$pa->name}}
-                                <input type="checkbox" name="pas[]" value="{{$pa->id}}">
+                                <input type="checkbox" name="pas[]" value="{{$pa->id}}" @if(is_array($r_pas) && in_array($pa->id, $r_pas)) checked @endif>
                                 <span class="checkmark"></span>
                             </label>
                         @endforeach
@@ -66,7 +66,7 @@
                         @foreach ($microphones as $microphone)
                             <label class="container">
                                 {{$microphone->name}}
-                                <input type="checkbox" name="microphones[]" value="{{$microphone->id}}">
+                                <input type="checkbox" name="microphones[]" value="{{$microphone->id}}" @if(is_array($r_microphones) && in_array($microphone->id, $r_microphones)) checked @endif>
                                 <span class="checkmark"></span>
                             </label>
                         @endforeach
@@ -88,7 +88,7 @@
                         @foreach ($genres as $genre)
                         <label class="container">
                             {{$genre->name}}
-                            <input type="checkbox" name="genres[]" value="{{$genre->id}}">
+                            <input type="checkbox" name="genres[]" value="{{$genre->id}}" @if(is_array($r_genres) && in_array($genre->id, $r_genres)) checked @endif>
                             <span class="checkmark"></span>
                         </label>
                         @endforeach
