@@ -31,8 +31,11 @@ class GigController extends Controller
             'genres' => $genres,
             'microphones' => $microphones,
             'pas' => $pas,
-
-
+            'date_from' => '',
+            'date_to' => '',
+            'r_pas' => [],
+            'r_microphones' => [],
+            'r_genres' => []
         ]);
     }
 
