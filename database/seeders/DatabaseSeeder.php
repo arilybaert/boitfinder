@@ -50,8 +50,9 @@ class DatabaseSeeder extends Seeder
             array('Wolstraat 46', '2000', 'Antwerpen'),
             array('Leopold de Waelstraat 2', '2000', 'Antwerpen'),
             array('Melkmarkt', '2000', 'Antwerpen'),
+            array('Oude Markt 32', '3000', 'Leuven'),
         );
-        for($i=0; $i<9; $i++){
+        for($i=0; $i<10; $i++){
             $user = User::factory()->create([
                 'role' => 'event',
                 'address' => $address[$i][0],
@@ -68,7 +69,7 @@ class DatabaseSeeder extends Seeder
         // Users (Artist)
         //
 
-        for($i=0; $i<9; $i++){
+        for($i=0; $i<10; $i++){
             $user = User::factory()->create([
                 'role' => 'artist',
                 'zipcode' => $address[$i][1],
@@ -103,14 +104,16 @@ class DatabaseSeeder extends Seeder
         //
         // Microphones Users TUSSENTABEL
         //
+
+        // Event mics
         for($i = 1 ; $i<5 ; $i++) {
 
             $event_1 = MicrophonesUser::factory()->create([
                 'user_id' => $i,
                 'microphone_id' => $i
                 ]);
-
         }
+
         // Event with all mics present
 
         for($i = 5; $i<10 ; $i++) {
@@ -118,19 +121,50 @@ class DatabaseSeeder extends Seeder
             $microphone_1 = MicrophonesUser::factory()->create([
                 'user_id' => $i,
                 'microphone_id' => 1
-                ]);
+            ]);
             $microphone_2 = MicrophonesUser::factory()->create([
                 'user_id' => $i,
                 'microphone_id' => 2
-                ]);
+            ]);
             $microphone_3 = MicrophonesUser::factory()->create([
                 'user_id' => $i,
                 'microphone_id' => 3
-                ]);
+            ]);
             $microphone_4 = MicrophonesUser::factory()->create([
                 'user_id' => $i,
                 'microphone_id' => 4
+            ]);
+        }
+
+        // Artist mics
+        for($i = 11 ; $i<16 ; $i++) {
+            $mics = [1, 2, 3, 4];
+            $event_1 = MicrophonesUser::factory()->create([
+                'user_id' => $i,
+                'microphone_id' => $mics[array_rand($mics)],
                 ]);
+        }
+
+        // Artists with all mics present
+
+        for($i = 16; $i<21 ; $i++) {
+
+            $microphone_1 = MicrophonesUser::factory()->create([
+                'user_id' => $i,
+                'microphone_id' => 1
+            ]);
+            $microphone_2 = MicrophonesUser::factory()->create([
+                'user_id' => $i,
+                'microphone_id' => 2
+            ]);
+            $microphone_3 = MicrophonesUser::factory()->create([
+                'user_id' => $i,
+                'microphone_id' => 3
+            ]);
+            $microphone_4 = MicrophonesUser::factory()->create([
+                'user_id' => $i,
+                'microphone_id' => 4
+            ]);
         }
 
         //
