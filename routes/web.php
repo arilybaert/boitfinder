@@ -51,8 +51,9 @@ Route::post('/event/password/change', [ChangePasswordController::class, 'changeP
 // manage media
 Route::get('/event/media/', [EventController::class, 'getEventMedia'])->name('event.media');
 
-
+//
 // Find Gig Routes
+//
 // Home (redirect to find.event)
 Route::get('/', [GigController::class, 'getIndex'])->name('home');
 // Show all gigs
@@ -64,6 +65,7 @@ Route::get('/find/event/{event}', [GigController::class, 'getEvent'])->name('eve
 
 // Find Artist Routes
 Route::get('/find/artist', [ArtistController::class, 'getFindArtist'])->name('find.artist');
+Route::post('/find/artist', [ArtistController::class, 'postFindArtist'])->name('find.artist');
 Route::get('/find/artist/{artist}', [ArtistController::class, 'getArtist'])->name('artist');
 Route::get('/find/artist/rider/download', [ArtistController::class, 'getRider'])->name('download.rider');
 

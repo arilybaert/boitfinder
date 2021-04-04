@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Applicant;
+use App\Models\Microphone;
+use App\Models\Genre;
+use App\Models\Pa;
 use App\Models\Event;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -17,11 +19,91 @@ class ArtistController extends Controller
     public function getFindArtist()
     {
         $artists = User::where('role', 'artist')->get();
+        $pas = Pa::all();
+        $microphones = Microphone::all();
+        $genres = Genre::all();
 
-        // dd($artists);
-        // dd($events);
         return view('pages.find-artist', [
             'artists' => $artists,
+            'pas' => $pas,
+            'genres' => $genres,
+            'microphones' => $microphones,
+            'r_pas' => [],
+            'r_microphones' => [],
+            'r_genres' => []
+        ]);
+    }
+    public function postFindArtist(Request $r)
+    {
+        // Get all events
+        $artists = User::where('role', 'artist')->get();
+
+        // Get all microphones, genres, pas
+        $microphones = Microphone::all();
+        $genres = Genre::orderBy('name')->get();
+        $pas = Pa::all();
+
+        // Filter the genres
+        if($r->genres > 0) {
+            foreach ($artists as $key => $artist) {
+                $artist_genres = [];
+                foreach($artist->genres as $genre) {
+                    array_push($artist_genres, $genre->genre_id);
+                }
+
+                if (count(array_intersect($artist_genres,$r->genres)) === 0) {
+                    unset($artists[$key]);
+                }
+            }
+        }
+
+        /*
+        *** Filter microphones
+        */
+        foreach ($artists as $key => $artist) {
+            // make array with all the mics for one event
+            $event_mics =[];
+            foreach($artist->microphones as $microphone) {
+                array_push($event_mics, $microphone->microphone_id);
+            }
+            // delete events if it doesn't have the requested microphone
+            if($r->microphones > 0) {
+                foreach ($r->microphones as $checkbox_microphone) {
+                    if(!in_array($checkbox_microphone, $event_mics)) {
+                        unset($artists[$key]);
+                    }
+                }
+            }
+        }
+        // Filter PA-System
+        foreach ($artists as $key => $artist) {
+            switch ($r->pas[0]) {
+                // if pa is acoutic allow users with fullband en acoustic systems
+                case '1':
+                    if($artist->pa_id !== 1 && $artist->pa_id !== 2){
+                        unset($artists[$key]);
+                    }
+                    break;
+                 // only allow full band systems
+                case '2':
+                    if($artist->pa_id !== 2){
+                        unset($artists[$key]);
+                    }
+                    break;
+            }
+        }
+
+
+        return view('pages.find-artist', [
+            'artists' => $artists,
+
+            'genres' => $genres,
+            'microphones' => $microphones,
+            'pas' => $pas,
+
+            'r_pas' => $r->pas,
+            'r_microphones' => $r->microphones,
+            'r_genres' => $r->genres,
         ]);
     }
 
@@ -40,14 +122,6 @@ class ArtistController extends Controller
     // show events where the user has applied for
     public function getEvents()
     {
-        // $now = Carbon::now();
-        // if (Auth::check()){
-        //     $user_id = Auth::id();
-        //     $future_events = Event::where('date', '>', $now)->orderBy('date', 'asc')->get();
-        //     // ->join('applicants', 'events.id', '=', 'applicants.event_id')
-        //     dd($future_events);
-        //     // $passed_events = Applicant::where('user_id', $user_id)->where('date', '<', $now)->orderBy('date', 'asc')->get();
-        // }
         $now = Carbon::now();
         if (Auth::check()){
             $user_id = Auth::id();

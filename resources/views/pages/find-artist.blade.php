@@ -3,8 +3,8 @@
 <div class="row">
     {{-- filter  --}}
     <div class="col-3 o-filters">
-        <form action="" method="post">
-
+        <form action="{{route('find.artist')}} " method="post">
+            @csrf
             {{-- submit button --}}
 
             <div class="row m-filter-button">
@@ -13,131 +13,88 @@
                 </div>
             </div>
 
-            {{-- filter items --}}
+                {{-- filter items --}}
 
-            <div class="row o-filter-item">
-                <div class="col-2 m-filter-icon">
-                    <i class="far fa-calendar-alt a-filter-icon"></i>
-                </div>
-                <div class="col-10">
-                    <h3 class="a-filter-item-title">
-                        Date
-                    </h3>
-                </div>
-                <div class="col-10 offset-2 m-filter-input-date">
-                    <input type="date" name="date-from" id="" class="a-filter-input-date" placeholder="from">
-                    <input type="date" name="date-to" id="" class="a-filter-input-date" placeholder="to">
-                </div>
-            </div>
+                {{-- <div class="row o-filter-item">
+                    <div class="col-2 m-filter-icon">
+                        <i class="far fa-calendar-alt a-filter-icon"></i>
+                    </div>
+                    <div class="col-10">
+                        <h3 class="a-filter-item-title">
+                            Date
+                        </h3>
+                    </div>
+                    <div class="col-10 offset-2 m-filter-input-date">
+                        <input type="date" name="date_from" id="" class="a-filter-input-date" placeholder="from"  value="{{ old('date', ($date_from ? date('Y-m-d', strtotime($date_from)) : '')) }}">
+                        <input type="date" name="date_to" id="" class="a-filter-input-date" placeholder="to" value="{{ old('date', ($date_to ? date('Y-m-d', strtotime($date_to)) : '')) }}">
+                    </div>
+                </div> --}}
 
-            {{-- P.A. system --}}
-            <div class="row o-filter-item">
-                <div class="col-2 m-filter-icon">
-                    <i class="fas fa-volume-up a-filter-icon"></i>
+                {{-- P.A. system --}}
+                <div class="row o-filter-item">
+                    <div class="col-2 m-filter-icon">
+                        <i class="fas fa-volume-up a-filter-icon"></i>
+                    </div>
+                    <div class="col-10">
+                        <h3 class="a-filter-item-title">
+                            PA System
+                        </h3>
+                    </div>
+                    <div class="col-10 offset-2 o-filter-input-checkbox">
+                        @foreach ($pas as $pa)
+                            <label class="container">
+                                {{$pa->name}}
+                                <input type="checkbox" name="pas[]" value="{{$pa->id}}" @if(is_array($r_pas) && in_array($pa->id, $r_pas)) checked @endif>
+                                <span class="checkmark"></span>
+                            </label>
+                        @endforeach
+                    </div>
                 </div>
-                <div class="col-10">
-                    <h3 class="a-filter-item-title">
-                        PA System
-                    </h3>
-                </div>
-                <div class="col-10 offset-2 o-filter-input-checkbox">
-                    {{-- <label for="pas" class="m-filter-input-checkbox-container">
-                        Full Band
-                        <input type="checkbox" name="pas" class="a-filter-input-checkbox">
-                        <span class="a-filter-input-checkmark"></span>
-                    </label> --}}
-                    <label class="container">
-                        Full Band
-                        <input type="checkbox" >
-                        <span class="checkmark"></span>
-                    </label>
-                    <label class="container">
-                        Akoustic
-                        <input type="checkbox" checked="checked">
-                        <span class="checkmark"></span>
-                    </label>
-                </div>
-            </div>
 
-            {{-- Microphones --}}
+                {{-- Microphones --}}
 
-            <div class="row o-filter-item">
-                <div class="col-2 m-filter-icon">
-                    <i class="fas fa-microphone a-filter-icon"></i>
+                <div class="row o-filter-item">
+                    <div class="col-2 m-filter-icon">
+                        <i class="fas fa-microphone a-filter-icon"></i>
+                    </div>
+                    <div class="col-10">
+                        <h3 class="a-filter-item-title">
+                            Microphones
+                        </h3>
+                    </div>
+                    <div class="col-10 offset-2 o-filter-input-checkbox">
+                        @foreach ($microphones as $microphone)
+                            <label class="container">
+                                {{$microphone->name}}
+                                <input type="checkbox" name="microphones[]" value="{{$microphone->id}}" @if(is_array($r_microphones) && in_array($microphone->id, $r_microphones)) checked @endif>
+                                <span class="checkmark"></span>
+                            </label>
+                        @endforeach
+                    </div>
                 </div>
-                <div class="col-10">
-                    <h3 class="a-filter-item-title">
-                        Microphones
-                    </h3>
-                </div>
-                <div class="col-10 offset-2 o-filter-input-checkbox">
-                    <label class="container">
-                        Vocals
-                        <input type="checkbox" checked="checked">
-                        <span class="checkmark"></span>
-                    </label>
-                    <label class="container">
-                        Stringed instruments
-                        <input type="checkbox" >
-                        <span class="checkmark"></span>
-                    </label>
-                    <label class="container">
-                        Piano
-                        <input type="checkbox" >
-                        <span class="checkmark"></span>
-                    </label>
-                    <label class="container">
-                        Drum
-                        <input type="checkbox" checked="checked">
-                        <span class="checkmark"></span>
-                    </label>
-                </div>
-            </div>
 
-            {{-- Genres --}}
+                {{-- Genres --}}
 
-            <div class="row o-filter-item">
-                <div class="col-2 m-filter-icon">
-                    <i class="fas fa-music a-filter-icon"></i>
+                <div class="row o-filter-item">
+                    <div class="col-2 m-filter-icon">
+                        <i class="fas fa-music a-filter-icon"></i>
+                    </div>
+                    <div class="col-10">
+                        <h3 class="a-filter-item-title">
+                            Genres
+                        </h3>
+                    </div>
+                    <div class="col-10 offset-2 o-filter-input-checkbox">
+                        @foreach ($genres as $genre)
+                        <label class="container">
+                            {{$genre->name}}
+                            <input type="checkbox" name="genres[]" value="{{$genre->id}}" @if(is_array($r_genres) && in_array($genre->id, $r_genres)) checked @endif>
+                            <span class="checkmark"></span>
+                        </label>
+                        @endforeach
+
+                    </div>
                 </div>
-                <div class="col-10">
-                    <h3 class="a-filter-item-title">
-                        Genres
-                    </h3>
-                </div>
-                <div class="col-10 offset-2 o-filter-input-checkbox">
-                    <label class="container">
-                        House
-                        <input type="checkbox" checked="checked">
-                        <span class="checkmark"></span>
-                    </label>
-                    <label class="container">
-                        Rock
-                        <input type="checkbox" >
-                        <span class="checkmark"></span>
-                    </label>
-                    <label class="container">
-                        Metal
-                        <input type="checkbox" >
-                        <span class="checkmark"></span>
-                    </label>
-                    <label class="container">
-                        Alternative
-                        <input type="checkbox" checked="checked">
-                        <span class="checkmark"></span>
-                    </label>
-                    <label class="container">
-                        Indie
-                        <input type="checkbox" checked="checked">
-                        <span class="checkmark"></span>
-                    </label>
-                    <label class="container">
-                        Ska
-                        <input type="checkbox" checked="checked">
-                        <span class="checkmark"></span>
-                    </label>
-                </div>
-            </div>
         </form>
     </div>
 
