@@ -3,7 +3,7 @@
 
     <div class="row">
         <div class="col-3 o-filters">
-            <form action="{{route('find.event')}}" method="post">
+            <form action="{{route('find.event')}}" method="post" autocomplete="off">
                 @csrf
                 {{-- submit button --}}
 
@@ -24,9 +24,9 @@
                             Date
                         </h3>
                     </div>
-                    <div class="col-10 offset-2 m-filter-input-date">
-                        <input type="date" name="date_from" id="" class="a-filter-input-date" placeholder="from"  value="{{ old('date', ($date_from ? date('Y-m-d', strtotime($date_from)) : '')) }}">
-                        <input type="date" name="date_to" id="" class="a-filter-input-date" placeholder="to" value="{{ old('date', ($date_to ? date('Y-m-d', strtotime($date_to)) : '')) }}">
+                    <div class="col-10 offset-2 m-filter-input">
+                        <input type="date" name="date_from" id="" class="a-filter-input-date a-filter-input" placeholder="from"  value="{{ old('date', ($date_from ? date('Y-m-d', strtotime($date_from)) : '')) }}">
+                        <input type="date" name="date_to" id="" class="a-filter-input-date a-filter-input" placeholder="to" value="{{ old('date', ($date_to ? date('Y-m-d', strtotime($date_to)) : '')) }}">
                     </div>
                 </div>
 
@@ -73,6 +73,21 @@
                     </div>
                 </div>
 
+                {{-- Location --}}
+
+                <div class="row o-filter-item">
+                    <div class="col-2 m-filter-icon">
+                        <i class="fas fa-map-pin a-filter-icon"></i>
+                    </div>
+                    <div class="col-10">
+                        <h3 class="a-filter-item-title" id="a-location">
+                            Location
+                        </h3>
+                    </div>
+                    <div class="col-10 offset-2 m-filter-input">
+                        <input type="text" name="location" class="a-filter-input-location a-filter-input" placeholder="brussel" id="a-input-city">
+                    </div>
+                </div>
                 {{-- Genres --}}
 
                 <div class="row o-filter-item">

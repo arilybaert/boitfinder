@@ -41,6 +41,7 @@ class GigController extends Controller
 
     public function postFindEvent(Request $r)
     {
+        dd($r);
         // convert time and date
         $from = Carbon::parse($r->date_from)->toDatetimeString();
         $to = Carbon::parse($r->date_to)->toDatetimeString();

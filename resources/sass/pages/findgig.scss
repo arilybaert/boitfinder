@@ -28,9 +28,18 @@
             margin-bottom: 0;
             font-family: $font-secondary;
         }
-        .m-filter-input-date {
+        .m-filter-input {
+            .a-filter-input {
+                height: 33px;
+            }
             display: flex;
             margin-top: 1rem;
+            .a-filter-input-location {
+                width: 100%;
+                border: 1px solid $secondary-color;
+                border-radius: $radius-small;
+                padding-left: 0.5rem;
+            }
             .a-filter-input-date {
                 display: inline;
                 width: 50%;

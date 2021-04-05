@@ -23,11 +23,20 @@
   margin-bottom: 0;
   font-family: "Cooper Black";
 }
-.o-filters .o-filter-item .m-filter-input-date {
+.o-filters .o-filter-item .m-filter-input {
   display: flex;
   margin-top: 1rem;
 }
-.o-filters .o-filter-item .m-filter-input-date .a-filter-input-date {
+.o-filters .o-filter-item .m-filter-input .a-filter-input {
+  height: 33px;
+}
+.o-filters .o-filter-item .m-filter-input .a-filter-input-location {
+  width: 100%;
+  border: 1px solid #E75124;
+  border-radius: 5px;
+  padding-left: 0.5rem;
+}
+.o-filters .o-filter-item .m-filter-input .a-filter-input-date {
   display: inline;
   width: 50%;
   margin: 0;
@@ -35,13 +44,13 @@
   font-size: 11pt;
   color: #E75124;
 }
-.o-filters .o-filter-item .m-filter-input-date .a-filter-input-date:first-child {
+.o-filters .o-filter-item .m-filter-input .a-filter-input-date:first-child {
   border: 1px solid #E75124;
   border-bottom-left-radius: 5px;
   border-top-left-radius: 5px;
   border-right: 0;
 }
-.o-filters .o-filter-item .m-filter-input-date .a-filter-input-date:last-child {
+.o-filters .o-filter-item .m-filter-input .a-filter-input-date:last-child {
   border: 1px solid #E75124;
   border-bottom-right-radius: 5px;
   border-top-right-radius: 5px;
