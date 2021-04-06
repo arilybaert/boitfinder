@@ -86,6 +86,8 @@
                     </div>
                     <div class="col-10 offset-2 m-filter-input">
                         <input type="text" name="location" class="a-filter-input-location a-filter-input" placeholder="brussel" id="a-input-city">
+                        <input type="hidden" name="latitude" id="a-latitude">
+                        <input type="hidden" name="longitude" id="a-longitude">
                     </div>
                 </div>
                 {{-- Genres --}}

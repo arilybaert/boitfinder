@@ -3890,19 +3890,7 @@ if (document.getElementsByClassName("a-player")) {
       return player(index);
     });
   });
-} // city autocomplete
-// if(document.getElementById('a-city')){
-//     function initialize() {
-//         var options = {
-//             types: ['(cities)'],
-//             componentRestrictions: {country: "be"}
-//            };
-//         var input = document.getElementById('a-city');
-//         var autocomplete = new google.maps.places.Autocomplete(input, options);
-//      }
-//      google.maps.event.addDomListener(window, 'load', initialize);
-// }
-
+}
 
 var geocodingClient = mapboxSdk({
   accessToken: mapboxApiKey
@@ -3953,8 +3941,8 @@ function autocompleteInputBox(inp) {
           var _long = $(this).find('input').attr('data-lng');
 
           inp.value = $(this).find('input').val();
-          $(inp).attr('data-lat', lat);
-          $(inp).attr('data-lng', _long);
+          $(document.getElementById("a-latitude").value = lat);
+          $(document.getElementById("a-latitude").value = _long);
           closeAllLists();
         });
         a.appendChild(b);

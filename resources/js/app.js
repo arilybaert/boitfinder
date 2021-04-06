@@ -96,19 +96,6 @@ if (document.getElementsByClassName("a-player")) {
     });
 }
 
-// city autocomplete
-// if(document.getElementById('a-city')){
-//     function initialize() {
-//         var options = {
-//             types: ['(cities)'],
-//             componentRestrictions: {country: "be"}
-//            };
-//         var input = document.getElementById('a-city');
-//         var autocomplete = new google.maps.places.Autocomplete(input, options);
-//      }
-//      google.maps.event.addDomListener(window, 'load', initialize);
-// }
-
 const geocodingClient = mapboxSdk({accessToken: mapboxApiKey});
 
 
@@ -153,8 +140,8 @@ function autocompleteInputBox(inp) {
                     let lat = $(this).find('input').attr('data-lat');
                     let long = $(this).find('input').attr('data-lng');
                     inp.value = $(this).find('input').val();
-                    $(inp).attr('data-lat', lat);
-                    $(inp).attr('data-lng', long);
+                    $(document.getElementById("a-latitude").value =  lat);
+                    $(document.getElementById("a-latitude").value =  long);
                     closeAllLists();
                 });
                 a.appendChild(b);
