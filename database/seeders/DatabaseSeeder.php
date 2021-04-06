@@ -41,16 +41,16 @@ class DatabaseSeeder extends Seeder
         // Users (Event)
         //
         $address = array(
-            array('Grand Place 12A', '1000', 'Brussel'),
-            array('Rue du Pont de la Carpe 7', '1000', 'Brussel'),
-            array('Impasse de la Fidélité 4', '1000', 'Brussel'),
-            array('Annonciadenstraat 5', '9000', 'Gent'),
-            array('Klein Turkije 16', '9000', 'Gent'),
-            array('Schuddevisstraatje 2', '9000', 'Gent'),
-            array('Wolstraat 46', '2000', 'Antwerpen'),
-            array('Leopold de Waelstraat 2', '2000', 'Antwerpen'),
-            array('Melkmarkt', '2000', 'Antwerpen'),
-            array('Oude Markt 32', '3000', 'Leuven'),
+            array('Grand Place 12A', '1000', 'Brussel', '50.8467', '4.3547'),
+            array('Rue du Pont de la Carpe 7', '1000', 'Brussel', '50.8467', '4.3547'),
+            array('Impasse de la Fidélité 4', '1000', 'Brussel', '50.8467', '4.3547'),
+            array('Annonciadenstraat 5', '9000', 'Gent', '51.0538286', '3.7250121'),
+            array('Klein Turkije 16', '9000', 'Gent', '51.0538286', '3.7250121'),
+            array('Schuddevisstraatje 2', '9000', 'Gent', '51.0538286', '3.7250121'),
+            array('Wolstraat 46', '2000', 'Antwerpen', '51.2211097', '4.3997081'),
+            array('Leopold de Waelstraat 2', '2000', 'Antwerpen', '51.2211097', '4.3997081'),
+            array('Melkmarkt', '2000', 'Antwerpen', '51.2211097', '4.3997081'),
+            array('Oude Markt 32', '3000', 'Leuven', '50.879202', '4.7011675'),
         );
         for($i=0; $i<10; $i++){
             $user = User::factory()->create([
@@ -58,6 +58,8 @@ class DatabaseSeeder extends Seeder
                 'address' => $address[$i][0],
                 'zipcode' => $address[$i][1],
                 'city' => $address[$i][2],
+                'latitude' => $address[$i][3],
+                'longitude' => $address[$i][4],
 
                 'coverphoto' => 'src/img/event/cover/cover-' . $i . '.jpg',
 

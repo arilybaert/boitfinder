@@ -3942,7 +3942,7 @@ function autocompleteInputBox(inp) {
 
           inp.value = $(this).find('input').val();
           $(document.getElementById("a-latitude").value = lat);
-          $(document.getElementById("a-latitude").value = _long);
+          $(document.getElementById("a-longitude").value = _long);
           closeAllLists();
         });
         a.appendChild(b);
