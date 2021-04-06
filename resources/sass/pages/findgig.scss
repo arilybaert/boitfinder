@@ -34,6 +34,45 @@
             }
             display: flex;
             margin-top: 1rem;
+            .a-location-button {
+                width: 30%;
+                background-color: #f1f1f1;
+                height: 33px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                font-size: $font-large;
+                cursor: pointer;
+            }
+            .a-button__left {
+                border: 1px solid $secondary-color;
+                border-bottom-left-radius: $radius-small;
+                border-top-left-radius: $radius-small;
+            }
+            .a-button__right {
+                border: 1px solid $secondary-color;
+                border-bottom-right-radius: $radius-small;
+                border-top-right-radius: $radius-small;
+            }
+            .a-distance-input {
+                width: 40%;
+                background-color: #f1f1f1;
+                height: 33px;
+                border-top: 1px solid $secondary-color;
+                border-bottom: 1px solid $secondary-color;
+                font-weight: bold;
+                text-align: center;
+            }
+            // hide up and down arrows from input field
+            input[type=number]::-webkit-outer-spin-button,
+            input[type=number]::-webkit-inner-spin-button {
+                -webkit-appearance: none;
+                margin: 0;
+            }
+
+            input[type=number] {
+                -moz-appearance:textfield;
+            }
             .a-filter-input-location {
                 width: 100%;
                 border: 1px solid $secondary-color;

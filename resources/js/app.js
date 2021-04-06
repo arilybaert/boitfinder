@@ -3,6 +3,7 @@ require('alpinejs');
 
 
 console.log('Free bobby shmurda');
+
 const mapboxApiKey = process.env.MIX_APP_ACCESS;
 
 
@@ -85,17 +86,32 @@ if (document.getElementsByClassName("a-player")) {
             pause[i].style.display = "block"
             img[i].classList.add('a-rotate')
         }
-
-
-
     }
-
 
     buttons.forEach((button, index) => {
         button.addEventListener('click', () => player(index));
     });
 }
 
+
+if(document.getElementById('a-location-plus-button')) {
+    let distance;
+    document.getElementById('a-location-plus-button').addEventListener('click', () => {
+        document.getElementById('a-input-distance').value == '' ? distance = 0 : distance = parseFloat(document.getElementById('a-input-distance').value)
+        document.getElementById('a-input-distance').value = distance += parseFloat(10);
+    })
+    document.getElementById('a-location-minus-button').addEventListener('click', () => {
+        document.getElementById('a-input-distance').value == '' ? distance = 0 : distance = parseFloat(document.getElementById('a-input-distance').value)
+        distance -= parseFloat(10);
+        if (distance < 0) {
+            document.getElementById('a-input-distance').value = 0
+        } else {
+            document.getElementById('a-input-distance').value = distance;
+        }
+
+    })
+}
+// AUTOFILL CITY ON FIND GIG FORM
 const geocodingClient = mapboxSdk({accessToken: mapboxApiKey});
 
 

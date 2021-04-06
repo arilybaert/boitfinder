@@ -3892,6 +3892,25 @@ if (document.getElementsByClassName("a-player")) {
   });
 }
 
+if (document.getElementById('a-location-plus-button')) {
+  var distance;
+  document.getElementById('a-location-plus-button').addEventListener('click', function () {
+    document.getElementById('a-input-distance').value == '' ? distance = 0 : distance = parseFloat(document.getElementById('a-input-distance').value);
+    document.getElementById('a-input-distance').value = distance += parseFloat(10);
+  });
+  document.getElementById('a-location-minus-button').addEventListener('click', function () {
+    document.getElementById('a-input-distance').value == '' ? distance = 0 : distance = parseFloat(document.getElementById('a-input-distance').value);
+    distance -= parseFloat(10);
+
+    if (distance < 0) {
+      document.getElementById('a-input-distance').value = 0;
+    } else {
+      document.getElementById('a-input-distance').value = distance;
+    }
+  });
+} // AUTOFILL CITY ON FIND GIG FORM
+
+
 var geocodingClient = mapboxSdk({
   accessToken: mapboxApiKey
 });

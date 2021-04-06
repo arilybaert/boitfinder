@@ -30,6 +30,43 @@
 .o-filters .o-filter-item .m-filter-input .a-filter-input {
   height: 33px;
 }
+.o-filters .o-filter-item .m-filter-input .a-location-button {
+  width: 30%;
+  background-color: #f1f1f1;
+  height: 33px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 17pt;
+  cursor: pointer;
+}
+.o-filters .o-filter-item .m-filter-input .a-button__left {
+  border: 1px solid #E75124;
+  border-bottom-left-radius: 5px;
+  border-top-left-radius: 5px;
+}
+.o-filters .o-filter-item .m-filter-input .a-button__right {
+  border: 1px solid #E75124;
+  border-bottom-right-radius: 5px;
+  border-top-right-radius: 5px;
+}
+.o-filters .o-filter-item .m-filter-input .a-distance-input {
+  width: 40%;
+  background-color: #f1f1f1;
+  height: 33px;
+  border-top: 1px solid #E75124;
+  border-bottom: 1px solid #E75124;
+  font-weight: bold;
+  text-align: center;
+}
+.o-filters .o-filter-item .m-filter-input input[type=number]::-webkit-outer-spin-button,
+.o-filters .o-filter-item .m-filter-input input[type=number]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+.o-filters .o-filter-item .m-filter-input input[type=number] {
+  -moz-appearance: textfield;
+}
 .o-filters .o-filter-item .m-filter-input .a-filter-input-location {
   width: 100%;
   border: 1px solid #E75124;

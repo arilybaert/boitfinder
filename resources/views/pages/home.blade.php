@@ -85,10 +85,16 @@
                         </h3>
                     </div>
                     <div class="col-10 offset-2 m-filter-input">
-                        <input type="text" name="location" class="a-filter-input-location a-filter-input" placeholder="brussel" id="a-input-city">
-                        <input type="hidden" name="latitude" id="a-latitude">
-                        <input type="hidden" name="longitude" id="a-longitude">
+                        <input type="text" name="location" class="a-filter-input-location a-filter-input" placeholder="brussel" id="a-input-city" value="{{ old('location', ($r_location ? $r_location : '')) }}">
+                        <input type="hidden" name="latitude" id="a-latitude" value="{{ old('latitude', ($r_latitude ? $r_latitude : '')) }}">
+                        <input type="hidden" name="longitude" id="a-longitude" value="{{ old('longitude', ($r_longitude ? $r_longitude : '')) }}">
                     </div>
+                    <div class="col-10 offset-2 m-filter-input">
+                        <div class="a-location-button a-button__left" id="a-location-minus-button">-</div>
+                        <input type="number" name="distance" placeholder="50" class="a-distance-input" id="a-input-distance" value="{{ old('distance', ($r_distance ? $r_distance : '')) }}">
+                        <div class="a-location-button a-button__right" id="a-location-plus-button">+</div>
+                    </div>
+
                 </div>
                 {{-- Genres --}}
 

@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Classes\CalcDistance;
 
 use App\Models\Pa;
 use App\Models\Event;
@@ -41,7 +42,6 @@ class GigController extends Controller
 
     public function postFindEvent(Request $r)
     {
-        dd($r);
         // convert time and date
         $from = Carbon::parse($r->date_from)->toDatetimeString();
         $to = Carbon::parse($r->date_to)->toDatetimeString();
@@ -53,6 +53,15 @@ class GigController extends Controller
         $genres = Genre::orderBy('name')->get();
         $pas = Pa::all();
 
+        // filter distance
+        if($r->distance > 0) {
+            foreach ($events as $key => $event) {
+                $distanceInKM = CalcDistance::vincentyGreatCircleDistance($r->latitude, $r->longitude, $event->user->latitude, $event->user->longitude) / 1000;
+                if($distanceInKM > $r->distance) {
+                    unset($events[$key]);
+                }
+            }
+        }
         // Filter the genres
         $r->genres > 0 ? $events = $events->whereIn('genre_id', $r->genres) : '';
         // Set start date
@@ -120,9 +129,14 @@ class GigController extends Controller
             'genres' => $genres,
             'microphones' => $microphones,
             'pas' => $pas,
+
             'r_pas' => $r->pas,
             'r_microphones' => $r->microphones,
             'r_genres' => $r->genres,
+            'r_location' => $r->location,
+            'r_distance' => $r->distance,
+            'r_latitude' => $r->latitude,
+            'r_longitude' => $r->longitude,
             'date_from' => $r->date_from,
             'date_to' => $r->date_to,
         ]);
