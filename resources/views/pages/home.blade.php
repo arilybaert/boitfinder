@@ -154,10 +154,15 @@
                                 <i class="fas fa-music a-card-icon"></i>
                                 {{$event->genre->name}}
                             </div>
+                            <div class="m-event-card-genres">
+                                <i class="fas fa-map-pin a-card-icon"></i>
+                                {{ $event->user->city }}
+                            </div>
                             <div class="m-event-card-date">
                                 <i class="far fa-calendar-alt a-card-icon"></i>
                                 {{ date("d/m/Y",strtotime($event->date)) }}
                             </div>
+
                         </div>
                     </a>
                 @endforeach

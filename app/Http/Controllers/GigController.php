@@ -36,7 +36,11 @@ class GigController extends Controller
             'date_to' => '',
             'r_pas' => [],
             'r_microphones' => [],
-            'r_genres' => []
+            'r_genres' => [],
+            'r_location' => '',
+            'r_latitude' => '',
+            'r_longitude' => '',
+            'r_distance' => '',
         ]);
     }
 
