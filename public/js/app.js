@@ -3801,6 +3801,17 @@ module.exports = {
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
 __webpack_require__(/*! alpinejs */ "./node_modules/alpinejs/dist/alpine.js");
+/*
+// import autofill class
+import { LocationAutoFill } from './Classes/LocationAutoFill';
+
+// add key to constructor
+const locationAutoFill = new LocationAutoFill(mapboxApiKey);
+// call autofill method
+locationAutoFill.autocompleteInputBox(document.getElementById("a-input-city"));
+
+*/
+
 
 console.log('Free bobby shmurda');
 var mapboxApiKey = "pk.eyJ1IjoiYXJpbHliYWVydCIsImEiOiJjanV3Z2xoaXkwMTJnM3ltbjNnNG8yNG9uIn0.jOc-8EWTPKQKE4otvon92A"; // apply form on event page
@@ -3914,19 +3925,6 @@ if (document.getElementById('a-location-plus-button')) {
 var geocodingClient = mapboxSdk({
   accessToken: mapboxApiKey
 });
-
-function autocompleteSuggestionMapBoxAPI(inputParams, callback) {
-  geocodingClient.geocoding.forwardGeocode({
-    query: inputParams,
-    countries: ["BE"],
-    types: ["place"],
-    autocomplete: true,
-    limit: 5
-  }).send().then(function (response) {
-    var match = response.body;
-    callback(match);
-  });
-}
 
 function autocompleteInputBox(inp) {
   var currentFocus;

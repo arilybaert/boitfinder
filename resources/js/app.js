@@ -1,7 +1,16 @@
 require('./bootstrap');
 require('alpinejs');
 
+/*
+// import autofill class
+import { LocationAutoFill } from './Classes/LocationAutoFill';
 
+// add key to constructor
+const locationAutoFill = new LocationAutoFill(mapboxApiKey);
+// call autofill method
+locationAutoFill.autocompleteInputBox(document.getElementById("a-input-city"));
+
+*/
 console.log('Free bobby shmurda');
 
 const mapboxApiKey = process.env.MIX_APP_ACCESS;
@@ -115,20 +124,7 @@ if(document.getElementById('a-location-plus-button')) {
 const geocodingClient = mapboxSdk({accessToken: mapboxApiKey});
 
 
-function autocompleteSuggestionMapBoxAPI(inputParams, callback) {
-    geocodingClient.geocoding.forwardGeocode({
-        query: inputParams,
-        countries: ["BE"],
-        types: ["place"],
-        autocomplete: true,
-        limit: 5,
-    })
-        .send()
-        .then(response => {
-            const match = response.body;
-            callback(match);
-        });
-}
+
 
 function autocompleteInputBox(inp) {
     let currentFocus;
