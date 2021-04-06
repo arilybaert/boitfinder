@@ -3802,7 +3802,8 @@ __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
 __webpack_require__(/*! alpinejs */ "./node_modules/alpinejs/dist/alpine.js");
 
-console.log('Free bobby shmurda'); // apply form on event page
+console.log('Free bobby shmurda');
+var mapboxApiKey = "pk.eyJ1IjoiYXJpbHliYWVydCIsImEiOiJjanV3Z2xoaXkwMTJnM3ltbjNnNG8yNG9uIn0.jOc-8EWTPKQKE4otvon92A"; // apply form on event page
 
 if (document.getElementById('o-form')) {
   var formdiv = document.getElementById('o-form');
@@ -3904,7 +3905,7 @@ if (document.getElementsByClassName("a-player")) {
 
 
 var geocodingClient = mapboxSdk({
-  accessToken: 'pk.eyJ1IjoiYXJpbHliYWVydCIsImEiOiJjanV3Z2xoaXkwMTJnM3ltbjNnNG8yNG9uIn0.jOc-8EWTPKQKE4otvon92A'
+  accessToken: mapboxApiKey
 });
 
 function autocompleteSuggestionMapBoxAPI(inputParams, callback) {

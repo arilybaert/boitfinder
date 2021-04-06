@@ -3,6 +3,7 @@ require('alpinejs');
 
 
 console.log('Free bobby shmurda');
+const mapboxApiKey = process.env.MIX_APP_ACCESS;
 
 
 // apply form on event page
@@ -108,7 +109,8 @@ if (document.getElementsByClassName("a-player")) {
 //      google.maps.event.addDomListener(window, 'load', initialize);
 // }
 
-const geocodingClient = mapboxSdk({accessToken: 'pk.eyJ1IjoiYXJpbHliYWVydCIsImEiOiJjanV3Z2xoaXkwMTJnM3ltbjNnNG8yNG9uIn0.jOc-8EWTPKQKE4otvon92A'});
+const geocodingClient = mapboxSdk({accessToken: mapboxApiKey});
+
 
 function autocompleteSuggestionMapBoxAPI(inputParams, callback) {
     geocodingClient.geocoding.forwardGeocode({
