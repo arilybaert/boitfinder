@@ -165,23 +165,29 @@
                         <h2>Apply now</h2>
                     </div>
                 </div>
+
                 @if (!Auth::check())
-                    <div class="m-apply-form-warning">
-                        <p>You need to be logged in to apply for an event</p>
-                    </div>
+
                 @else
-                <div class="row">
-                    <div class="col-10 offset-1">
-                        <label for="content">Message</label>
-                        <textarea name="content" id="" class="a-textarea"></textarea>
-                        <input type="hidden" value="{{$event->id}}" name="event-id">
+
+                    @if (Auth::user()->role === 'event')
+                    <div class="m-apply-form-warning">
+                        <p>You need to be an artist in to apply for an event!</p>
                     </div>
-                </div>
-                <div class="row">
-                    <div class="col-10 offset-1">
-                        <button type="submit">Send application</button>
-                    </div>
-                </div>
+                    @else
+                        <div class="row">
+                            <div class="col-10 offset-1">
+                                <label for="content">Message</label>
+                                <textarea name="content" id="" class="a-textarea"></textarea>
+                                <input type="hidden" value="{{$event->id}}" name="event-id">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-10 offset-1">
+                                <button type="submit">Send application</button>
+                            </div>
+                        </div>
+                    @endif
                 @endif
             </form>
 
