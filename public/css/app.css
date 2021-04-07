@@ -451,6 +451,10 @@
   margin: 1.5rem 0rem;
 }
 
+.a-display {
+  display: block;
+}
+
 .o-artist-detail-cover {
   padding: 0;
   position: relative;

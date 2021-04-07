@@ -4051,7 +4051,9 @@ function autocompleteInputBox(inp) {
   });
 }
 
-autocompleteInputBox(document.getElementById("a-input-city"));
+if (document.getElementById("a-input-city")) {
+  autocompleteInputBox(document.getElementById("a-input-city"));
+}
 
 /***/ }),
 

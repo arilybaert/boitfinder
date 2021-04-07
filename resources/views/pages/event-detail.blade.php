@@ -153,7 +153,7 @@
     </div>
 
 </div>
-<div class="o-apply-form" id="o-apply-form">
+<div class="o-apply-form @if (\Session::has('success')) a-display @endif" id="o-apply-form">
     <div class="row m-apply-form">
         <div class="col-6 offset-3">
 
@@ -166,20 +166,26 @@
                     </div>
                 </div>
 
+                {{-- check if user is logged in --}}
                 @if (!Auth::check())
-
+                    <div class="m-apply-form-warning">
+                        <p>You need to be logged in to apply for an event!</p>
+                    </div>
                 @else
-
                     @if (Auth::user()->role === 'event')
                     <div class="m-apply-form-warning">
-                        <p>You need to be an artist in to apply for an event!</p>
+                        <p>You need to be an artist to apply for an event!</p>
+                    </div>
+                    @elseif (\Session::has('success'))
+                    <div class="m-apply-form-warning">
+                        <p>You're application was sent!</p>
                     </div>
                     @else
                         <div class="row">
                             <div class="col-10 offset-1">
                                 <label for="content">Message</label>
-                                <textarea name="content" id="" class="a-textarea"></textarea>
-                                <input type="hidden" value="{{$event->id}}" name="event-id">
+                                <textarea name="content" id="" class="a-textarea" required></textarea>
+                                <input type="hidden" value="{{$event->id}}" name="event_id">
                             </div>
                         </div>
                         <div class="row">

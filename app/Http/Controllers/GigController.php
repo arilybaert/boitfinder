@@ -2,12 +2,13 @@
 
 namespace App\Http\Controllers;
 use App\Classes\CalcDistance;
-
+use App\Models\Applicant;
 use App\Models\Pa;
 use App\Models\Event;
 use App\Models\Genre;
 use App\Models\Microphone;
-use App\Models\MicrophonesUser;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
 
@@ -146,7 +147,25 @@ class GigController extends Controller
     // Apply event
     public function postEventApply(Request $r)
     {
-        dd($r);
-        return back();
+        $data = [
+            'status' => 'pending',
+            'message' => $r->content,
+            'event_id' => $r->event_id,
+            'user_id' => Auth::user()->id,
+        ];
+        // Create application in db
+        $application = Applicant::create($data);
+
+        $to_name = $application->event->user->name;
+        $to_email = $application->event->user->email;
+        $body = "You have received a new application from " . $application->user->name . " go check it out via the button below";
+        $data = array('name'=>$to_name, "body" => $body, "sender_message" => $r->content);
+
+        Mail::send('emails.mail', $data, function($message) use ($to_name, $to_email) {
+            $message->to($to_email, $to_name)
+                    ->subject('New application!');
+            $message->from('gigfinder.ahs@gmail.com','Gigfinder');
+        });
+        return redirect()->back()->with('success', 'Application sent!');
     }
 }
