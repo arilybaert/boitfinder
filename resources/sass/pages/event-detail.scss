@@ -172,6 +172,15 @@
     right: 0;
     bottom: 0;
     display: none;
+    .m-apply-form-warning {
+        height: 40vh;
+        color: $tertiary-color;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: $font-medium;
+        font-weight: bold;
+    }
     .m-apply-form {
         height: 100%;
         display: flex;

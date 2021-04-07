@@ -44,6 +44,7 @@ class GigController extends Controller
         ]);
     }
 
+    // Filter events
     public function postFindEvent(Request $r)
     {
         // convert time and date
@@ -66,17 +67,16 @@ class GigController extends Controller
                 }
             }
         }
-        // Filter the genres
+
+        /* Filter the genres
+        ***
+        */
+
         $r->genres > 0 ? $events = $events->whereIn('genre_id', $r->genres) : '';
         // Set start date
         $r->date_from !== null ? $events = $events->where('date', '>=', $from) : '';
         // Set end date
         $r->date_to !== null ? $events = $events->where('date', '<=', $to) : '';
-
-        // loop over all events
-        // echo '<pre>';
-        // var_dump($r->microphones);
-        // echo '</pre>';
 
         /*
         *** Filter microphones
@@ -96,17 +96,10 @@ class GigController extends Controller
                 }
             }
         }
-        // Filter PA-System
+        /*
+        *** Filter PA-system
+        */
         foreach ($events as $key => $event) {
-            // if($r->pas[0] === '1'){
-            //     if($event->user->pa_id !== 1 && $event->user->pa_id !== 2){
-            //         unset($events[$key]);
-            //     }
-            // }elseif ($r->pas[0] === '2') {
-            //     if($event->user->pa_id !== 2){
-            //         unset($events[$key]);
-            //     }
-            // }
             switch ($r->pas[0]) {
                 // if pa is acoutic allow users with fullband en acoustic systems
                 case '1':
@@ -120,12 +113,8 @@ class GigController extends Controller
                         unset($events[$key]);
                     }
                     break;
-                // default:
-                //     # code...
-                //     break;
             }
         }
-        // dd($events);
 
 
         return view('pages.home', [
@@ -152,5 +141,12 @@ class GigController extends Controller
         return view('pages.event-detail', [
             'event' => $event
         ]);
+    }
+
+    // Apply event
+    public function postEventApply(Request $r)
+    {
+        dd($r);
+        return back();
     }
 }

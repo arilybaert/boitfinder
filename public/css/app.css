@@ -395,6 +395,15 @@
   bottom: 0;
   display: none;
 }
+.o-apply-form .m-apply-form-warning {
+  height: 40vh;
+  color: #990000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 15pt;
+  font-weight: bold;
+}
 .o-apply-form .m-apply-form {
   height: 100%;
   display: flex;

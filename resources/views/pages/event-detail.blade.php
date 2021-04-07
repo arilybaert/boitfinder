@@ -143,7 +143,6 @@
         </div>
     </div>
     <div class="col-3">
-
         {{-- <div class="row">
             <div class="o-media-buttons">
                 <div class="m-media-buttons">
@@ -151,25 +150,31 @@
                 </div>
             </div>
         </div> --}}
-
-
-
     </div>
 
 </div>
 <div class="o-apply-form" id="o-apply-form">
     <div class="row m-apply-form">
         <div class="col-6 offset-3">
-            <form action="" id="o-form">
+
+
+            <form action="{{route('event.apply')}}" method="POST" id="o-form">
+                @csrf
                 <div class="row">
                     <div class="col-12">
                         <h2>Apply now</h2>
                     </div>
                 </div>
+                @if (!Auth::check())
+                    <div class="m-apply-form-warning">
+                        <p>You need to be logged in to apply for an event</p>
+                    </div>
+                @else
                 <div class="row">
                     <div class="col-10 offset-1">
                         <label for="content">Message</label>
                         <textarea name="content" id="" class="a-textarea"></textarea>
+                        <input type="hidden" value="{{$event->id}}" name="event-id">
                     </div>
                 </div>
                 <div class="row">
@@ -177,7 +182,9 @@
                         <button type="submit">Send application</button>
                     </div>
                 </div>
+                @endif
             </form>
+
         </div>
     </div>
 </div>

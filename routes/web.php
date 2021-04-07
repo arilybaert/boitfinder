@@ -58,10 +58,12 @@ Route::get('/event/media/', [EventController::class, 'getEventMedia'])->name('ev
 Route::get('/', [GigController::class, 'getIndex'])->name('home');
 // Show all gigs
 Route::get('/find/event', [GigController::class, 'getFindEvent'])->name('find.event');
-// Apply filter to gigs
+// filter gigs
 Route::post('/find/event', [GigController::class, 'postFindEvent'])->name('find.event');
-
+// Show gig details
 Route::get('/find/event/{event}', [GigController::class, 'getEvent'])->name('event');
+// Apply for event
+Route::post('/find/event/apply', [GigController::class, 'postEventApply'])->name('event.apply');
 
 // Find Artist Routes
 Route::get('/find/artist', [ArtistController::class, 'getFindArtist'])->name('find.artist');
