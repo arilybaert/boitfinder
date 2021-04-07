@@ -139,8 +139,16 @@ class GigController extends Controller
     // Find event detail
     public function getEvent(Event $event)
     {
+        $user = Auth::user();
+        if(Applicant::where('user_id', $user->id)->where('event_id', $event->id)->count() > 0){
+            $applied = true;
+        } else {
+            $applied = false;
+        }
+
         return view('pages.event-detail', [
-            'event' => $event
+            'event' => $event,
+            'applied' => $applied
         ]);
     }
 

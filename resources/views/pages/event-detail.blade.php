@@ -180,6 +180,10 @@
                     <div class="m-apply-form-warning">
                         <p>You're application was sent!</p>
                     </div>
+                    @elseif ($applied)
+                    <div class="m-apply-form-warning">
+                        <p>You already applied for this event</p>
+                    </div>
                     @else
                         <div class="row">
                             <div class="col-10 offset-1">
