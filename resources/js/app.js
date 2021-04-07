@@ -123,7 +123,20 @@ if(document.getElementById('a-location-plus-button')) {
 // AUTOFILL CITY ON FIND GIG FORM
 const geocodingClient = mapboxSdk({accessToken: mapboxApiKey});
 
-
+function autocompleteSuggestionMapBoxAPI(inputParams, callback) {
+    geocodingClient.geocoding.forwardGeocode({
+        query: inputParams,
+        countries: ["BE"],
+        types: ["place"],
+        autocomplete: true,
+        limit: 5,
+    })
+        .send()
+        .then(response => {
+            const match = response.body;
+            callback(match);
+        });
+}
 
 
 function autocompleteInputBox(inp) {

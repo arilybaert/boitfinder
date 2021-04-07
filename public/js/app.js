@@ -3926,6 +3926,19 @@ var geocodingClient = mapboxSdk({
   accessToken: mapboxApiKey
 });
 
+function autocompleteSuggestionMapBoxAPI(inputParams, callback) {
+  geocodingClient.geocoding.forwardGeocode({
+    query: inputParams,
+    countries: ["BE"],
+    types: ["place"],
+    autocomplete: true,
+    limit: 5
+  }).send().then(function (response) {
+    var match = response.body;
+    callback(match);
+  });
+}
+
 function autocompleteInputBox(inp) {
   var currentFocus;
   inp.addEventListener("input", function (e) {

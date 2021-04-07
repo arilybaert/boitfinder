@@ -2,7 +2,7 @@
 @section('content')
 
     <div class="row">
-        <div class="col-3 o-filters">
+        <div class="col-6 col-sm-5 col-md-3 o-filters">
             <form action="{{route('find.event')}}" method="post" autocomplete="off">
                 @csrf
                 {{-- submit button --}}
@@ -81,7 +81,7 @@
                     </div>
                     <div class="col-10">
                         <h3 class="a-filter-item-title" id="a-location">
-                            Location
+                            Location (km)
                         </h3>
                     </div>
                     <div class="col-10 offset-2 m-filter-input">
@@ -120,10 +120,10 @@
                 </div>
             </form>
         </div>
-        <div class="col-9 o-event-cards">
+        <div class="col-6 col-sm-7 col-md-9 o-event-cards">
             <div class="row">
                 @foreach ($events as $event)
-                    <a class="col-4 o-event-card" href="{{route('event', $event->id)}}">
+                    <a class="col-12 col-md-6 col-lg-4 col-xl-3 o-event-card" href="{{route('event', $event->id)}}">
                         <div class="m-event-card">
                             <div class="m-event-card-image-container">
                                 <img src="{{ asset($event->coverphoto)}}" alt="" class="a-event-card-image">
