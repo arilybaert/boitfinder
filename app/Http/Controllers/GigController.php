@@ -164,7 +164,9 @@ class GigController extends Controller
         // Create application in db
         $application = Applicant::create($data);
 
-        // send email to event hoster
+        /* Send email to event hoster
+        ***
+        */
         $to_name = $application->event->user->name;
         $to_email = $application->event->user->email;
         $body = "You have received a new application from " . $application->user->name . " go check it out via the button below";
@@ -176,6 +178,9 @@ class GigController extends Controller
             $message->from('gigfinder.ahs@gmail.com','Gigfinder');
         });
 
+        /*
+        *** Send email to applicant
+        */
         $to_name = $application->user->name;
         $to_email = $application->user->email;
         $body = "You applied for the " . $application->event->name . " event.";

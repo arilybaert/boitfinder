@@ -8,6 +8,8 @@ use App\Models\Event;
 use App\Models\Microphone;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
+
 use Carbon\Carbon;
 
 class EventController extends Controller
@@ -44,9 +46,49 @@ class EventController extends Controller
     {
         foreach ($event->applicants as $applicant) {
             if($applicant->user->id == $accepted_applicant->id) {
+                /*
+                *** Let the applicant knoz he's being selected
+                */
                 $applicant->update([['status' => 'accepted']]);
+                $to_name = $applicant->user->name;
+                $to_email = $applicant->user->email;
+                $body = "Good news! The host from " . $applicant->event->name . " has accepted your application";
+                $data = array('name'=>$to_name, "body" => $body);
+
+                Mail::send('emails.mail_application_status', $data, function($message) use ($to_name, $to_email) {
+                    $message->to($to_email, $to_name)
+                            ->subject('New application!');
+                    $message->from('gigfinder.ahs@gmail.com','Gigfinder');
+                });
+
+                /*
+                *** Let event know he has chosen an applicant
+                */
+                $to_name = $event->user->name;
+                $to_email = $event->user->email;
+                $body = "You've accepted " . $applicant->user->name . " as artist for your event.";
+                $data = array('name'=>$to_name, "body" => $body);
+
+                Mail::send('emails.mail_application_status', $data, function($message) use ($to_name, $to_email) {
+                    $message->to($to_email, $to_name)
+                            ->subject('New application!');
+                    $message->from('gigfinder.ahs@gmail.com','Gigfinder');
+                });
             } else {
+                /*
+                *** Let other applicants know there being rejected
+                */
                 $applicant->update(['status' => 'rejected']);
+                $to_name = $applicant->user->name;
+                $to_email = $applicant->user->email;
+                $body = "We're sorry to infrom you that the host from " . $applicant->event->name . " has rejected your application. Go check out other events on our site below";
+                $data = array('name'=>$to_name, "body" => $body);
+
+                Mail::send('emails.mail_application_status', $data, function($message) use ($to_name, $to_email) {
+                    $message->to($to_email, $to_name)
+                            ->subject('New application!');
+                    $message->from('gigfinder.ahs@gmail.com','Gigfinder');
+                });
             };
 
         }
