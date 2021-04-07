@@ -61,7 +61,7 @@
                                         </p>
                                         <h3
                                             style="font-family: Avenir, Helvetica, sans-serif; box-sizing: border-box; color: #990000; font-size: 14px; font-weight: bold; margin-top: 0; text-align: left;">
-                                            His message:</h3>
+                                            Message</h3>
                                         <p
                                             style="font-family: Avenir, Helvetica, sans-serif; box-sizing: border-box; color: #990000; font-size: 16px; line-height: 1.5em; margin-top: 0; text-align: left;">
                                             {{ $sender_message }}

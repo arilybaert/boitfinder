@@ -164,10 +164,24 @@ class GigController extends Controller
         // Create application in db
         $application = Applicant::create($data);
 
+        // send email to event hoster
         $to_name = $application->event->user->name;
         $to_email = $application->event->user->email;
         $body = "You have received a new application from " . $application->user->name . " go check it out via the button below";
         $data = array('name'=>$to_name, "body" => $body, "sender_message" => $r->content);
+
+        Mail::send('emails.mail', $data, function($message) use ($to_name, $to_email) {
+            $message->to($to_email, $to_name)
+                    ->subject('New application!');
+            $message->from('gigfinder.ahs@gmail.com','Gigfinder');
+        });
+
+        $to_name = $application->user->name;
+        $to_email = $application->user->email;
+        $body = "You applied for the " . $application->event->name . " event.";
+        $sender_message = "You will receive an email once the host replies";
+
+        $data = array('name'=>$to_name, "body" => $body, "sender_message" => $sender_message);
 
         Mail::send('emails.mail', $data, function($message) use ($to_name, $to_email) {
             $message->to($to_email, $to_name)
