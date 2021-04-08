@@ -86,6 +86,7 @@
                 color: #ffffff;
             }
         </style>
+        @livewireStyles
     </head>
     <body>
         <div class="container">
