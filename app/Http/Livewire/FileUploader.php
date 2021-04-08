@@ -9,15 +9,23 @@ class FileUploader extends Component
 {
     use WithFileUploads;
 
-    public $photo;
+    public $photos = [];
 
+    public function updatedPhotos()
+    {
+        $this->validate([
+            'photos.*' => 'image|max:1624', // 2MB Max
+        ]);
+    }
     public function save()
     {
         $this->validate([
-            'photo' => 'image|max:5624', // 2.5MB Max
+            'photos.*' => 'image|max:1624', // 2.5MB Max
         ]);
+        foreach ($this->photos as $photo) {
+            $photo->storePublicly('photos', 's3');
+        }
 
-        $this->photo->storePublicly('photos', 's3');
     }
 
 
