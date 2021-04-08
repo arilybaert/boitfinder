@@ -4,6 +4,8 @@ namespace App\Http\Livewire;
 
 use Livewire\Component;
 use Livewire\WithFileUploads;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 
 class FileUploader extends Component
 {
@@ -23,7 +25,8 @@ class FileUploader extends Component
             'photos.*' => 'image|max:1624', // 2.5MB Max
         ]);
         foreach ($this->photos as $photo) {
-            $photo->storePublicly('photos/jens', 's3');
+            $user_id = Auth::id();
+            $photo->storePublicly('photos/' . $user_id . '/', 's3');
         }
 
     }
@@ -31,6 +34,12 @@ class FileUploader extends Component
 
     public function render()
     {
-        return view('livewire.file-uploader');
+        $user_id = Auth::id();
+
+        $photo_files = Storage::disk('s3')->allFiles('photos/' . $user_id);
+        // dd($files);
+        return view('livewire.file-uploader', [
+            'photo_files' => $photo_files
+        ]);
     }
 }

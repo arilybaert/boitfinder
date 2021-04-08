@@ -31,6 +31,13 @@ x-on:livewire-upload-progress="progress = $event.detail.progress"
                 @endforeach
             @endif
         @endif
+
+        @foreach ($photo_files as $photo_file)
+                    <div class="col-3 o-photos">
+
+                        <img src="{{env('AWS_URL') . $photo_file}}">
+                    </div>
+                @endforeach
     </div>
 
 
