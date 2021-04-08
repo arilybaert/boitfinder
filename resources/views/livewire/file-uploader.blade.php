@@ -21,7 +21,7 @@ x-on:livewire-upload-progress="progress = $event.detail.progress"
 @error('photos.*') <span class="error">{{ $message }}</span> @enderror
 
     <div class="row">
-        @if (!$errors->any())
+        {{-- @if (!$errors->any())
             @if ($photos)
                 @foreach ($photos as $photo)
                     <div class="col-3 o-photos">
@@ -30,14 +30,25 @@ x-on:livewire-upload-progress="progress = $event.detail.progress"
                     </div>
                 @endforeach
             @endif
-        @endif
+        @endif --}}
 
         @foreach ($photo_files as $photo_file)
-                    <div class="col-3 o-photos">
+            <div class="col-3 o-photos">
 
-                        <img src="{{env('AWS_URL') . $photo_file}}">
-                    </div>
-                @endforeach
+                <img src="{{env('AWS_URL') . $photo_file}}">
+                <button wire:click.prevent="remove('{{$photo_file}}')" class="a-button-remove">
+                    <i class="fas fa-minus-circle"></i>
+                </button>
+
+                @if ($user->coverphoto !== $photo_file)
+
+                    <button wire:click.submit="set('{{$photo_file}}')" class="a-button-coverphoto">
+                        <i class="fas fa-home"></i>
+                    </button>
+                @endif
+
+            </div>
+        @endforeach
     </div>
 
 
@@ -46,10 +57,10 @@ x-on:livewire-upload-progress="progress = $event.detail.progress"
 
 
 
-    <button wire:click.prevent="save">Save</button>
+    {{-- <button wire:click.prevent="save">Save</button> --}}
 
     <!-- Progress Bar -->
     <div x-show="isUploading">
-        <progress max="100" x-bind:value="progress"></progress>
+        <progress max="100" x-bind:value="progress" style="color: red;"></progress>
     </div>
 </div>

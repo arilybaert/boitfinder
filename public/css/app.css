@@ -1235,6 +1235,7 @@
 }
 .o-media .o-photos {
   margin-top: 1.5rem;
+  position: relative;
 }
 .o-media .o-photos img {
   border-radius: 5px;
@@ -1242,6 +1243,26 @@
   height: 100px;
   -o-object-fit: cover;
      object-fit: cover;
+}
+.o-media .o-photos button {
+  background-color: #E75124;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  height: 30px;
+  width: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  font-size: 15pt;
+  top: -18px;
+}
+.o-media .o-photos .a-button-remove {
+  right: 0;
+}
+.o-media .o-photos .a-button-coverphoto {
+  left: 0;
 }
 
 body {

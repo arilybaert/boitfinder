@@ -20,11 +20,32 @@
     }
     .o-photos {
         margin-top: 1.5rem;
+        position: relative;
         img {
             border-radius: $radius-small;
             width: 100%;
             height: 100px;
             object-fit: cover;
+        }
+        button {
+            background-color: $secondary-color;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            height: 30px;
+            width: 30px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: absolute;
+            font-size: $font-medium;
+            top: -18px;
+        }
+        .a-button-remove {
+            right: 0;
+        }
+        .a-button-coverphoto {
+            left: 0;
         }
     }
 }
