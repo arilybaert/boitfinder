@@ -22,6 +22,8 @@
 
         <script src="https://code.jquery.com/jquery-3.4.1.js" type="text/javascript"></script>
         <script src="https://unpkg.com/@mapbox/mapbox-sdk/umd/mapbox-sdk.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
+
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <style>
             * {

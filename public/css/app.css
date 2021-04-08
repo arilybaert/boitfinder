@@ -1212,6 +1212,38 @@
   pointer-events: none;
 }
 
+.o-media {
+  color: #990000;
+}
+.o-media h2 {
+  font-size: 17pt;
+  font-family: "Cooper Black";
+  margin: 0;
+  padding: 0;
+}
+.o-media .m-button-photos {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+.o-media .m-button-photos .a-button-photos {
+  background-color: #FC9627;
+  padding: 0.5rem 2rem;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+}
+.o-media .o-photos {
+  margin-top: 1.5rem;
+}
+.o-media .o-photos img {
+  border-radius: 5px;
+  width: 100%;
+  height: 100px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
 body {
   background-color: #FFDFCF;
   font-family: Arial, sans-serif;

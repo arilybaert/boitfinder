@@ -23,7 +23,7 @@ class FileUploader extends Component
             'photos.*' => 'image|max:1624', // 2.5MB Max
         ]);
         foreach ($this->photos as $photo) {
-            $photo->storePublicly('photos', 's3');
+            $photo->storePublicly('photos/jens', 's3');
         }
 
     }
