@@ -138,16 +138,21 @@
 
                 <div class="row o-apply-button">
                             <button class="a-apply-button" id="a-applyBtn">Our music</button>
-                            <div class="col-3 a-apply-color-1 o-song">
-                                <div class="m-img-container a-button"">
-                                    <audio  classname="a-player" src="{{asset('src/audio/user-1/1-03 Nude.mp3')}}"></audio>
-                                    <img src="{{asset('src/audio/user-1/cover/cover-2.png')}}" alt="" class="a-spinning-cover">
-                                    <i class="fas fa-play"></i>
-                                    <i class="fas fa-pause"></i>
-                                </div>
 
-                            </div>
-                            <div class="col-3 a-apply-color-2 o-song">
+                            @foreach ($song_files as $song_file)
+                                @if ( $loop->index < 4)
+                                <div class="col-3 a-apply-color-{{$loop->index+=1}} o-song">
+                                    <div class="m-img-container a-button">
+                                        <audio  classname="a-player" src="{{env('AWS_URL') . $song_file}}"></audio>
+                                        <img src="{{asset('src/audio/user-1/cover/cover-2.png')}}" alt="" class="a-spinning-cover">
+                                        <i class="fas fa-play"></i>
+                                        <i class="fas fa-pause"></i>
+                                    </div>
+                                </div>
+                                @endif
+
+                            @endforeach
+                            {{-- <div class="col-3 a-apply-color-2 o-song">
                                 <div class="m-img-container a-button">
                                     <audio classname="a-player"src="{{asset('src/audio/user-1/1-01 15 Step.mp3')}}"></audio>
                                     <img src="{{asset('src/audio/user-1/cover/cover-2.png')}}" alt="" class="a-spinning-cover">
@@ -163,7 +168,7 @@
                                     <i class="fas fa-pause"></i>
                                 </div>
                             </div>
-                            <div class="col-3 a-apply-color-4"></div>
+                            <div class="col-3 a-apply-color-4"></div> --}}
 
 
                 </div>

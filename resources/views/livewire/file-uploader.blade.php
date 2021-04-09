@@ -59,7 +59,7 @@ x-on:livewire-upload-progress="progress = $event.detail.progress"
             <h2 class="col-6">
                 Songs
             </h2>
-            @if (count($song_files) < 4)
+            @if (count($song_files) < 5)
 
                 <div class="col-6">
                     <div @click="$refs.songInput.click()" class="m-button-photos">

@@ -32,6 +32,7 @@ class ArtistController extends Controller
             'r_genres' => []
         ]);
     }
+
     public function postFindArtist(Request $r)
     {
         // Get all events
@@ -108,8 +109,11 @@ class ArtistController extends Controller
 
     public function getArtist(User $artist)
     {
+        $song_files = Storage::disk('s3')->allFiles('songs/' . $artist->id);
+
         return view('pages.artist-detail', [
-            'artist' => $artist
+            'artist' => $artist,
+            'song_files' => $song_files
         ]);
     }
     // download rider

@@ -32,15 +32,14 @@ class FileUploader extends Component
     public function updatedSongs()
     {
         $this->validate([
-            'songs.*' => 'image|max:1624', // 2MB Max
-        ]);
-        $this->validate([
-            'songs.*' => 'image|max:1624', // 2.5MB Max
+            'songs.*' => 'mimes:mp3|max:4100', // 2MB Max
         ]);
         foreach ($this->songs as $song) {
+            dd($song);
             $user_id = Auth::id();
             $song->storePublicly('songs/' . $user_id . '/', 's3');
         }
+
     }
     public function remove($file)
     {
