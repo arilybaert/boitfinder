@@ -141,7 +141,7 @@
                             <div class="col-3 a-apply-color-1 o-song">
                                 <div class="m-img-container a-button"">
                                     <audio  classname="a-player" src="{{asset('src/audio/user-1/1-03 Nude.mp3')}}"></audio>
-                                    <img src="{{asset('src/audio/user-1/cover/cover-1.png')}}" alt="" class="a-spinning-cover">
+                                    <img src="{{asset('src/audio/user-1/cover/cover-2.png')}}" alt="" class="a-spinning-cover">
                                     <i class="fas fa-play"></i>
                                     <i class="fas fa-pause"></i>
                                 </div>
@@ -150,7 +150,7 @@
                             <div class="col-3 a-apply-color-2 o-song">
                                 <div class="m-img-container a-button">
                                     <audio classname="a-player"src="{{asset('src/audio/user-1/1-01 15 Step.mp3')}}"></audio>
-                                    <img src="{{asset('src/audio/user-1/cover/cover-1.png')}}" alt="" class="a-spinning-cover">
+                                    <img src="{{asset('src/audio/user-1/cover/cover-2.png')}}" alt="" class="a-spinning-cover">
                                     <i class="fas fa-play"></i>
                                     <i class="fas fa-pause"></i>
                                 </div>
@@ -158,7 +158,7 @@
                             <div class="col-3 a-apply-color-3 o-song">
                                 <div class="m-img-container a-button">
                                     <audio classname="a-player"src="{{asset('src/audio/user-1/1-10 Videotape.mp3')}}"></audio>
-                                    <img src="{{asset('src/audio/user-1/cover/cover-1.png')}}" alt="" class="a-spinning-cover">
+                                    <img src="{{asset('src/audio/user-1/cover/cover-2.png')}}" alt="" class="a-spinning-cover">
                                     <i class="fas fa-play"></i>
                                     <i class="fas fa-pause"></i>
                                 </div>

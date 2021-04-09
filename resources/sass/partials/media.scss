@@ -49,3 +49,20 @@
         }
     }
 }
+.o-songs {
+    margin-top: 2rem;
+
+}
+.m-song-remove {
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    .a-button-remove {
+        border: none;
+        border-radius: $radius-small;
+        background-color: $tertiary-color;
+        color: white;
+        padding: 0.5rem 2rem;
+        font-weight: bold;
+    }
+}

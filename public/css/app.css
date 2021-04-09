@@ -1265,6 +1265,24 @@
   left: 0;
 }
 
+.o-songs {
+  margin-top: 2rem;
+}
+
+.m-song-remove {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+}
+.m-song-remove .a-button-remove {
+  border: none;
+  border-radius: 5px;
+  background-color: #990000;
+  color: white;
+  padding: 0.5rem 2rem;
+  font-weight: bold;
+}
+
 body {
   background-color: #FFDFCF;
   font-family: Arial, sans-serif;

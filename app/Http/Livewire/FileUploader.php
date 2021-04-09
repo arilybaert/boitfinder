@@ -14,6 +14,7 @@ class FileUploader extends Component
     use WithFileUploads;
 
     public $photos = [];
+    public $songs = [];
 
     public function updatedPhotos()
     {
@@ -28,10 +29,19 @@ class FileUploader extends Component
             $photo->storePublicly('photos/' . $user_id . '/', 's3');
         }
     }
-    // public function save()
-    // {
-
-    // }
+    public function updatedSongs()
+    {
+        $this->validate([
+            'songs.*' => 'image|max:1624', // 2MB Max
+        ]);
+        $this->validate([
+            'songs.*' => 'image|max:1624', // 2.5MB Max
+        ]);
+        foreach ($this->songs as $song) {
+            $user_id = Auth::id();
+            $song->storePublicly('songs/' . $user_id . '/', 's3');
+        }
+    }
     public function remove($file)
     {
         Storage::disk('s3')->delete($file);
@@ -57,10 +67,12 @@ class FileUploader extends Component
         $user = Auth::user();
         $user_id = Auth::id();
 
-        $photo_files = Storage::disk('s3')->allFiles('photos/' . $user_id);
-        // dd($photo_files[0]);
+        // $photo_files = Storage::disk('s3')->allFiles('photos/' . $user_id);
+        $photo_files = [];
+        $song_files = Storage::disk('s3')->allFiles('songs/' . $user_id);
         return view('livewire.file-uploader', [
             'photo_files' => $photo_files,
+            'song_files' => $song_files,
             'user' => $user
         ]);
     }
