@@ -32,7 +32,7 @@ class ArtistController extends Controller
             'r_genres' => []
         ]);
     }
-
+    // Filter artists
     public function postFindArtist(Request $r)
     {
         // Get all events
@@ -111,9 +111,19 @@ class ArtistController extends Controller
     {
         // $song_files = Storage::disk('s3')->allFiles('songs/' . $artist->id);
         $song_files = [];
+        // $photo_files = Storage::disk('s3')->allFiles('photos/' . $artist->id);
+        $photo_files = [
+            "src/img/event/cover/cover-0.jpg",
+            "src/img/event/cover/cover-1.jpg",
+            "src/img/event/cover/cover-2.jpg",
+            "src/img/event/cover/cover-3.jpg",
+        ];
+        // dd($photo_files);
+        // $photo_files = [];
         return view('pages.artist-detail', [
             'artist' => $artist,
-            'song_files' => $song_files
+            'song_files' => $song_files,
+            'photo_files' => $photo_files
         ]);
     }
     // download rider

@@ -5,7 +5,15 @@
     <div class="m-gallery">
         <h2>Gallery</h2>
         <div class="m-photo">
-            <img src="{{asset('src/img/event/cover/cover-0.jpg') }}" alt="">
+            @foreach ($photo_files as $photo_file)
+                <img src="{{asset($photo_file) }}" alt="gallery picture" class="a-gallery-picture">
+                @endforeach
+                <div class="a-left a-image-button" id="a-left">
+                    <i class="fas fa-arrow-left"></i>
+                </div>
+                <div class="a-right a-image-button" id="a-right">
+                    <i class="fas fa-arrow-right"></i>
+                </div>
         </div>
     </div>
 </div>
@@ -13,7 +21,7 @@
 {{-- image --}}
 <div class="row">
     <div class="col-10 offset-1 o-artist-detail-cover">
-        <img src="{{ asset($artist->coverphoto) }}" alt="" class="a-artist-detail-cover">
+        <img src="{{ asset($artist->coverphoto) }}" class="a-artist-detail-cover">
         <h2>{{$artist->name}}</h2>
         <i class="fas fa-camera"></i>
     </div>

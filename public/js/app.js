@@ -3798,6 +3798,9 @@ module.exports = {
   \*****************************/
 /***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
 
+var _require = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js"),
+    forEach = _require.forEach;
+
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
 __webpack_require__(/*! alpinejs */ "./node_modules/alpinejs/dist/alpine.js");
@@ -4054,6 +4057,48 @@ function autocompleteInputBox(inp) {
 if (document.getElementById("a-input-city")) {
   autocompleteInputBox(document.getElementById("a-input-city"));
 }
+/*
+**************************************** Gallery modal
+*/
+
+
+var photoGallery = function photoGallery() {
+  // get all pictures
+  var images = document.querySelectorAll(".a-gallery-picture"); // count how many image there are
+
+  var imagesCount = images.length; // show first image
+
+  var index = 0;
+  images[index].style.display = "block"; // Button on the left shows previous picture
+
+  document.getElementById("a-left").addEventListener('click', function () {
+    images[index].style.display = "none";
+
+    if (index === 0) {
+      index = imagesCount - 1;
+    } else {
+      index = index - 1;
+    }
+
+    images[index].style.display = "block";
+  }); // Button on the right shows next picture
+
+  document.getElementById("a-right").addEventListener('click', function () {
+    images[index].style.display = "none";
+
+    if (index + 1 === imagesCount) {
+      console.log('1');
+      index = 0;
+    } else {
+      console.log('2');
+      index = index + 1;
+    }
+
+    images[index].style.display = "block";
+  });
+};
+
+photoGallery();
 
 /***/ }),
 

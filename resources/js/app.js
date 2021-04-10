@@ -1,3 +1,5 @@
+const { forEach } = require('lodash');
+
 require('./bootstrap');
 require('alpinejs');
 
@@ -239,4 +241,45 @@ function autocompleteInputBox(inp) {
 if(document.getElementById("a-input-city")){
     autocompleteInputBox(document.getElementById("a-input-city"));
 }
+
+/*
+**************************************** Gallery modal
+*/
+
+const photoGallery = () => {
+    // get all pictures
+    const images = document.querySelectorAll(".a-gallery-picture");
+    // count how many image there are
+    const imagesCount = images.length;
+
+    // show first image
+    let index = 0;
+    images[index].style.display = "block";
+
+    // Button on the left shows previous picture
+    document.getElementById("a-left").addEventListener('click', () => {
+        images[index].style.display = "none";
+        if(index === 0){
+            index= imagesCount - 1;
+        } else {
+            index = index-1;
+        }
+        images[index].style.display = "block";
+
+    })
+    // Button on the right shows next picture
+    document.getElementById("a-right").addEventListener('click', () => {
+        images[index].style.display = "none";
+        if(index+1 === imagesCount){
+            console.log('1');
+            index = 0;
+        } else {
+            console.log('2');
+
+            index = index+1;
+        }
+        images[index].style.display = "block";
+    })
+}
+photoGallery();
 
