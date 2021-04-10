@@ -109,8 +109,8 @@ class ArtistController extends Controller
 
     public function getArtist(User $artist)
     {
-        $song_files = Storage::disk('s3')->allFiles('songs/' . $artist->id);
-
+        // $song_files = Storage::disk('s3')->allFiles('songs/' . $artist->id);
+        $song_files = [];
         return view('pages.artist-detail', [
             'artist' => $artist,
             'song_files' => $song_files

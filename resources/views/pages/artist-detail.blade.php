@@ -1,12 +1,21 @@
 @extends('layouts.app')
 @section('content')
 
+<div class="o-gallery">
+    <div class="m-gallery">
+        <h2>Gallery</h2>
+        <div class="m-photo">
+            <img src="{{asset('src/img/event/cover/cover-0.jpg') }}" alt="">
+        </div>
+    </div>
+</div>
 
 {{-- image --}}
 <div class="row">
     <div class="col-10 offset-1 o-artist-detail-cover">
         <img src="{{ asset($artist->coverphoto) }}" alt="" class="a-artist-detail-cover">
         <h2>{{$artist->name}}</h2>
+        <i class="fas fa-camera"></i>
     </div>
 </div>
 
@@ -125,16 +134,6 @@
                     </div>
                 </div>
 
-                {{-- <div class="row">
-                    <audio id="player" src="{{asset('src/audio/user-1/1-03 Nude.mp3')}}"></audio>
-                    <div>
-                    <button onclick="document.getElementById('player').play()">Play</button>
-                    <button onclick="document.getElementById('player').pause()">Pause</button>
-                    <button onclick="document.getElementById('player').volume += 0.1">Vol +</button>
-                    <button onclick="document.getElementById('player').volume -= 0.1">Vol -</button>
-                    </div>
-
-                </div> --}}
 
                 <div class="row o-apply-button">
                             <button class="a-apply-button" id="a-applyBtn">Our music</button>
@@ -152,25 +151,6 @@
                                 @endif
 
                             @endforeach
-                            {{-- <div class="col-3 a-apply-color-2 o-song">
-                                <div class="m-img-container a-button">
-                                    <audio classname="a-player"src="{{asset('src/audio/user-1/1-01 15 Step.mp3')}}"></audio>
-                                    <img src="{{asset('src/audio/user-1/cover/cover-2.png')}}" alt="" class="a-spinning-cover">
-                                    <i class="fas fa-play"></i>
-                                    <i class="fas fa-pause"></i>
-                                </div>
-                            </div>
-                            <div class="col-3 a-apply-color-3 o-song">
-                                <div class="m-img-container a-button">
-                                    <audio classname="a-player"src="{{asset('src/audio/user-1/1-10 Videotape.mp3')}}"></audio>
-                                    <img src="{{asset('src/audio/user-1/cover/cover-2.png')}}" alt="" class="a-spinning-cover">
-                                    <i class="fas fa-play"></i>
-                                    <i class="fas fa-pause"></i>
-                                </div>
-                            </div>
-                            <div class="col-3 a-apply-color-4"></div> --}}
-
-
                 </div>
             </div>
         </div>
@@ -179,9 +159,7 @@
 
         {{-- <div class="row">
             <div class="o-media-buttons">
-                <div class="m-media-buttons">
-                    <i class="fas fa-camera"></i>
-                </div>
+
             </div>
         </div> --}}
 
