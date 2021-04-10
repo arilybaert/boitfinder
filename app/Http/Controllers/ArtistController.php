@@ -109,15 +109,21 @@ class ArtistController extends Controller
 
     public function getArtist(User $artist)
     {
-        // $song_files = Storage::disk('s3')->allFiles('songs/' . $artist->id);
+        // get songs from db
         $song_files = [];
-        // $photo_files = Storage::disk('s3')->allFiles('photos/' . $artist->id);
+        // UNCOMMENT TO USE DB SONGS
+        // $song_files = Storage::disk('s3')->allFiles('songs/' . $artist->id);
+
+        // get photos from db
         $photo_files = [
             "src/img/event/cover/cover-0.jpg",
             "src/img/event/cover/cover-1.jpg",
             "src/img/event/cover/cover-2.jpg",
             "src/img/event/cover/cover-3.jpg",
         ];
+        // UNCOMMENT TO USE DB PICTURES
+        // $photo_files = Storage::disk('s3')->allFiles('photos/' . $artist->id);
+
         // dd($photo_files);
         // $photo_files = [];
         return view('pages.artist-detail', [

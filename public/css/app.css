@@ -460,6 +460,7 @@
   position: relative;
   background-color: #E75124;
   height: 100%;
+  cursor: pointer;
 }
 .o-artist-detail-cover .a-artist-detail-cover {
   width: 100%;
@@ -1354,6 +1355,7 @@
   align-items: center;
   color: white;
   z-index: 2000;
+  cursor: pointer;
 }
 .o-gallery .m-gallery .m-photo .a-image-button i {
   background-color: #FC9627;

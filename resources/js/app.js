@@ -247,6 +247,7 @@ if(document.getElementById("a-input-city")){
 */
 
 const photoGallery = () => {
+
     // get all pictures
     const images = document.querySelectorAll(".a-gallery-picture");
     // count how many image there are
@@ -265,17 +266,14 @@ const photoGallery = () => {
             index = index-1;
         }
         images[index].style.display = "block";
+    });
 
-    })
     // Button on the right shows next picture
     document.getElementById("a-right").addEventListener('click', () => {
         images[index].style.display = "none";
         if(index+1 === imagesCount){
-            console.log('1');
             index = 0;
         } else {
-            console.log('2');
-
             index = index+1;
         }
         images[index].style.display = "block";
@@ -283,3 +281,25 @@ const photoGallery = () => {
 }
 photoGallery();
 
+
+const togglePhotoGallery = () => {
+    const openGallery = document.getElementById('a-gallery-open');
+    const galleryContainer = document.getElementById('o-gallery');
+    const galleryContent = document.getElementById('m-gallery');
+
+    document.addEventListener('click', function(event) {
+        const isClickInsideFormdiv = galleryContainer.contains(event.target);
+        const isClickInsideApplyForm = galleryContent.contains(event.target);
+        if (!isClickInsideApplyForm && isClickInsideFormdiv){
+            galleryContainer.style.display = "none";
+        }
+    });
+    galleryContainer.style.display = 'none';
+
+    openGallery.addEventListener("click", () => {
+        galleryContainer.style.display = 'flex';
+    });
+}
+if(document.getElementById('a-gallery-open')) {
+    togglePhotoGallery();
+}

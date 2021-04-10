@@ -4087,10 +4087,8 @@ var photoGallery = function photoGallery() {
     images[index].style.display = "none";
 
     if (index + 1 === imagesCount) {
-      console.log('1');
       index = 0;
     } else {
-      console.log('2');
       index = index + 1;
     }
 
@@ -4099,6 +4097,28 @@ var photoGallery = function photoGallery() {
 };
 
 photoGallery();
+
+var togglePhotoGallery = function togglePhotoGallery() {
+  var openGallery = document.getElementById('a-gallery-open');
+  var galleryContainer = document.getElementById('o-gallery');
+  var galleryContent = document.getElementById('m-gallery');
+  document.addEventListener('click', function (event) {
+    var isClickInsideFormdiv = galleryContainer.contains(event.target);
+    var isClickInsideApplyForm = galleryContent.contains(event.target);
+
+    if (!isClickInsideApplyForm && isClickInsideFormdiv) {
+      galleryContainer.style.display = "none";
+    }
+  });
+  galleryContainer.style.display = 'none';
+  openGallery.addEventListener("click", function () {
+    galleryContainer.style.display = 'flex';
+  });
+};
+
+if (document.getElementById('a-gallery-open')) {
+  togglePhotoGallery();
+}
 
 /***/ }),
 

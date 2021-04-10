@@ -1,12 +1,14 @@
 @extends('layouts.app')
 @section('content')
 
-<div class="o-gallery">
-    <div class="m-gallery">
+<div class="o-gallery" id="o-gallery">
+    <div class="m-gallery" id="m-gallery">
         <h2>Gallery</h2>
         <div class="m-photo">
             @foreach ($photo_files as $photo_file)
+                {{-- uncomment to use db pictures --}}
                 <img src="{{asset($photo_file) }}" alt="gallery picture" class="a-gallery-picture">
+                {{-- <img src="{{env('AWS_URL') . $photo_file}}" alt="gallery picture" class="a-gallery-picture"> --}}
                 @endforeach
                 <div class="a-left a-image-button" id="a-left">
                     <i class="fas fa-arrow-left"></i>
@@ -20,7 +22,7 @@
 
 {{-- image --}}
 <div class="row">
-    <div class="col-10 offset-1 o-artist-detail-cover">
+    <div class="col-10 offset-1 o-artist-detail-cover" id="a-gallery-open">
         <img src="{{ asset($artist->coverphoto) }}" class="a-artist-detail-cover">
         <h2>{{$artist->name}}</h2>
         <i class="fas fa-camera"></i>
