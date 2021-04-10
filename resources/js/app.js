@@ -257,7 +257,7 @@ const photoGallery = () => {
     let index = 0;
     images[index].style.display = "block";
 
-    // Button on the left shows previous picture
+    // Button on the LEFT shows previous picture
     document.getElementById("a-left").addEventListener('click', () => {
         images[index].style.display = "none";
         if(index === 0){
@@ -268,7 +268,7 @@ const photoGallery = () => {
         images[index].style.display = "block";
     });
 
-    // Button on the right shows next picture
+    // Button on the RIGHT shows next picture
     document.getElementById("a-right").addEventListener('click', () => {
         images[index].style.display = "none";
         if(index+1 === imagesCount){
@@ -278,9 +278,40 @@ const photoGallery = () => {
         }
         images[index].style.display = "block";
     })
-}
-photoGallery();
 
+    // switch between photo or video mode
+
+}
+
+const photoVideoSwitch = () => {
+    // get picture container
+    const pictureContainer = document.getElementById("m-photo");
+    // get video container
+    const videoContainer = document.getElementById("o-gallery-video");
+    // hide video container
+    videoContainer.style.display = "none";
+    // get switchBtn
+    const switchBtn = document.getElementById("a-photo-video-btn");
+    switchBtn.addEventListener('click', () => {
+        pictureContainer.style.display = "none";
+        videoContainer.style.display = "block";
+        document.getElementById("a-photo-video-btn_photo").style.display = "block";
+        document.getElementById("a-photo-video-btn").style.display = "none";
+    });
+    // get switchBtn video
+    const switchBtn_photo = document.getElementById("a-photo-video-btn_photo");
+    switchBtn_photo.style.display = "none";
+    switchBtn_photo.addEventListener('click', () => {
+        pictureContainer.style.display = "block";
+        videoContainer.style.display = "none";
+        document.getElementById("a-photo-video-btn_photo").style.display = "none";
+        document.getElementById("a-photo-video-btn").style.display = "block";
+    });
+
+}
+if(document.getElementById("a-left")){
+    photoGallery();
+}
 
 const togglePhotoGallery = () => {
     const openGallery = document.getElementById('a-gallery-open');
@@ -294,7 +325,7 @@ const togglePhotoGallery = () => {
             galleryContainer.style.display = "none";
         }
     });
-    galleryContainer.style.display = 'none';
+    galleryContainer.style.display = 'flex';
 
     openGallery.addEventListener("click", () => {
         galleryContainer.style.display = 'flex';
@@ -302,4 +333,5 @@ const togglePhotoGallery = () => {
 }
 if(document.getElementById('a-gallery-open')) {
     togglePhotoGallery();
+    photoVideoSwitch();
 }

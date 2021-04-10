@@ -4,7 +4,7 @@
 <div class="o-gallery" id="o-gallery">
     <div class="m-gallery" id="m-gallery">
         <h2>Gallery</h2>
-        <div class="m-photo">
+        <div class="m-photo" id="m-photo">
             @foreach ($photo_files as $photo_file)
                 {{-- uncomment to use db pictures --}}
                 <img src="{{asset($photo_file) }}" alt="gallery picture" class="a-gallery-picture">
@@ -17,6 +17,11 @@
                     <i class="fas fa-arrow-right"></i>
                 </div>
         </div>
+        <div class="m-gallery-video" id="o-gallery-video">
+            <iframe class="a-gallery-video" src="https://player.vimeo.com/video/403530213" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen=""></iframe>
+        </div>
+        <i class="fas fa-video a-video" id="a-photo-video-btn"></i>
+        <i class="fas fa-camera a-video" id="a-photo-video-btn_photo"></i>
     </div>
 </div>
 

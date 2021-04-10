@@ -4069,7 +4069,7 @@ var photoGallery = function photoGallery() {
   var imagesCount = images.length; // show first image
 
   var index = 0;
-  images[index].style.display = "block"; // Button on the left shows previous picture
+  images[index].style.display = "block"; // Button on the LEFT shows previous picture
 
   document.getElementById("a-left").addEventListener('click', function () {
     images[index].style.display = "none";
@@ -4081,7 +4081,7 @@ var photoGallery = function photoGallery() {
     }
 
     images[index].style.display = "block";
-  }); // Button on the right shows next picture
+  }); // Button on the RIGHT shows next picture
 
   document.getElementById("a-right").addEventListener('click', function () {
     images[index].style.display = "none";
@@ -4093,10 +4093,38 @@ var photoGallery = function photoGallery() {
     }
 
     images[index].style.display = "block";
+  }); // switch between photo or video mode
+};
+
+var photoVideoSwitch = function photoVideoSwitch() {
+  // get picture container
+  var pictureContainer = document.getElementById("m-photo"); // get video container
+
+  var videoContainer = document.getElementById("o-gallery-video"); // hide video container
+
+  videoContainer.style.display = "none"; // get switchBtn
+
+  var switchBtn = document.getElementById("a-photo-video-btn");
+  switchBtn.addEventListener('click', function () {
+    pictureContainer.style.display = "none";
+    videoContainer.style.display = "block";
+    document.getElementById("a-photo-video-btn_photo").style.display = "block";
+    document.getElementById("a-photo-video-btn").style.display = "none";
+  }); // get switchBtn video
+
+  var switchBtn_photo = document.getElementById("a-photo-video-btn_photo");
+  switchBtn_photo.style.display = "none";
+  switchBtn_photo.addEventListener('click', function () {
+    pictureContainer.style.display = "block";
+    videoContainer.style.display = "none";
+    document.getElementById("a-photo-video-btn_photo").style.display = "none";
+    document.getElementById("a-photo-video-btn").style.display = "block";
   });
 };
 
-photoGallery();
+if (document.getElementById("a-left")) {
+  photoGallery();
+}
 
 var togglePhotoGallery = function togglePhotoGallery() {
   var openGallery = document.getElementById('a-gallery-open');
@@ -4110,7 +4138,7 @@ var togglePhotoGallery = function togglePhotoGallery() {
       galleryContainer.style.display = "none";
     }
   });
-  galleryContainer.style.display = 'none';
+  galleryContainer.style.display = 'flex';
   openGallery.addEventListener("click", function () {
     galleryContainer.style.display = 'flex';
   });
@@ -4118,6 +4146,7 @@ var togglePhotoGallery = function togglePhotoGallery() {
 
 if (document.getElementById('a-gallery-open')) {
   togglePhotoGallery();
+  photoVideoSwitch();
 }
 
 /***/ }),
