@@ -32,6 +32,7 @@ class CreateUsersTable extends Migration
 
             $table->text('description')->nullable();
             $table->string('coverphoto')->nullable();
+            $table->string('vimeo_id')->nullable();
 
             // event specific
             $table->integer('capacity')->nullable();

@@ -61,6 +61,7 @@ class DatabaseSeeder extends Seeder
                 'latitude' => $address[$i][3],
                 'longitude' => $address[$i][4],
 
+                'vimeo_id' => '529663747',
                 'coverphoto' => 'src/img/event/cover/cover-' . $i . '.jpg',
 
                 'pa_id' => $i%2 == 0 ? 1 : 2
@@ -79,6 +80,7 @@ class DatabaseSeeder extends Seeder
 
                 'genre_description' => 'Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Etiam scelerisque tortor diam, vel aliquam leo vestibulum in. Suspendisse consectetur lacus et justo egestas consequat. Nulla id risus massa. Donec eu eleifend nunc.',
                 'coverphoto' => 'src/img/artist/cover/cover-' . $i . '.jpg',
+                'vimeo_id' => '529663747',
                 'rider' => 'src/img/artist/rider/rider-0',
 
                 'pa_id' => $i%2 == 0 ? 1 : 2

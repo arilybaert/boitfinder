@@ -4102,7 +4102,8 @@ var photoVideoSwitch = function photoVideoSwitch() {
 
   var videoContainer = document.getElementById("o-gallery-video"); // hide video container
 
-  videoContainer.style.display = "none"; // get switchBtn
+  videoContainer.style.display = "none"; // @TODO refactor switch button
+  // get switchBtn
 
   var switchBtn = document.getElementById("a-photo-video-btn");
   switchBtn.addEventListener('click', function () {
