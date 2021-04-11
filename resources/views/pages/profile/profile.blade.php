@@ -106,10 +106,10 @@
                 @endif
                 <div class="row m-form-group">
                     <div class="col-3">
-                        <label for="coverphoto">Coverphoto</label>
+                        <label for="vimeo_id">Video</label>
                     </div>
                     <div class="col-9">
-                        <input type="file" name="coverphoto" id="">
+                        <input type="text" name="vimeo_id" value="{{ old('vimeo_id', ($user ? $user->vimeo_id : '')) }}" placeholder="vimeo video id">
                     </div>
                 </div>
             </div>

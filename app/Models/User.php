@@ -30,6 +30,7 @@ class User extends Authenticatable
         'telephone',
         'description',
         'coverphoto',
+        'vimeo_id',
         'capacity',
         'genre_description',
         'rider',

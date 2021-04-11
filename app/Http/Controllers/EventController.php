@@ -156,6 +156,7 @@ class EventController extends Controller
             'capacity' => $r->capacity,
             'description' => $r->description,
             'genre_description' => $r->genre_description,
+            'vimeo_id' => $r->vimeo_id,
         ];
         if($r->id){
             $user = User::where('id', $r->id)->first();

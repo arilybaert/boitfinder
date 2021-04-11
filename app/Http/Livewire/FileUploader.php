@@ -35,7 +35,6 @@ class FileUploader extends Component
             'songs.*' => 'mimes:mp3|max:4100', // 2MB Max
         ]);
         foreach ($this->songs as $song) {
-            dd($song);
             $user_id = Auth::id();
             $song->storePublicly('songs/' . $user_id . '/', 's3');
         }
@@ -68,7 +67,9 @@ class FileUploader extends Component
 
         // $photo_files = Storage::disk('s3')->allFiles('photos/' . $user_id);
         $photo_files = [];
-        $song_files = Storage::disk('s3')->allFiles('songs/' . $user_id);
+        // $song_files = Storage::disk('s3')->allFiles('songs/' . $user_id);
+        $song_files = [];
+
         return view('livewire.file-uploader', [
             'photo_files' => $photo_files,
             'song_files' => $song_files,

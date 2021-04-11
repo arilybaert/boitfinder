@@ -18,7 +18,7 @@
                 </div>
         </div>
         <div class="m-gallery-video" id="o-gallery-video">
-            <iframe class="a-gallery-video" src="https://player.vimeo.com/video/403530213" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen=""></iframe>
+            <iframe class="a-gallery-video" src="{{env('VIMEO_URL') . $artist->vimeo_id}}" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen=""></iframe>
         </div>
         <i class="fas fa-video a-video" id="a-photo-video-btn"></i>
         <i class="fas fa-camera a-video" id="a-photo-video-btn_photo"></i>
