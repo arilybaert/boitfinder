@@ -1386,6 +1386,19 @@
   padding: 0.3rem;
 }
 
+.o-table-members img {
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+}
+.o-table-members .a-delete {
+  background-color: #990000;
+  color: white;
+  border-radius: 5px;
+  border: none;
+  padding: 0.5rem 2rem;
+}
+
 body {
   background-color: #FFDFCF;
   font-family: Arial, sans-serif;

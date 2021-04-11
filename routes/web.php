@@ -42,7 +42,12 @@ Route::post('/event/profile/edit', [EventController::class, 'saveProfileEvent'])
 *** Artist Profile Routes
 */
 Route::get('/artist/profile/events', [ArtistController::class, 'getEvents'])->name('artist.profile.events');
+Route::get('/artist/members', [ArtistController::class, 'getMembers'])->name('artist.members');
+Route::get('/artist/members/{user}', [ArtistController::class, 'deleteMembers'])->name('artist.members.delete');
+Route::post('/artist/members', [ArtistController::class, 'postMembers'])->name('artist.members');
+
 /*
+artist.members
 *** Event + Artist Profile Routes
 */
 // change password

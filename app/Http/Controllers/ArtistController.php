@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Bandmember;
 use App\Models\Microphone;
 use App\Models\Genre;
 use App\Models\Pa;
@@ -162,5 +163,22 @@ class ArtistController extends Controller
             'future_events' => $future_events,
             'passed_events' => $passed_events,
         ]);
+    }
+
+    // show bandmembers
+    public function getMembers()
+    {
+        $user_id = auth()->user()->id;
+        $members = Bandmember::where('user_id', $user_id)->get();
+        // dd($members);
+
+        return view('pages.profile.profile-artist.members', [
+            'members' => $members
+        ]);
+    }
+    public function deleteMembers(Bandmember $user)
+    {
+        $user->delete();
+        return back();
     }
 }

@@ -1,0 +1,15 @@
+.o-table-members {
+
+    img {
+        height: 50px;
+        width: 50px;
+        border-radius: 50%;
+    }
+    .a-delete {
+        background-color: $tertiary-color;
+        color: white;
+        border-radius: $radius-small;
+        border: none;
+        padding: 0.5rem 2rem;
+    }
+}
