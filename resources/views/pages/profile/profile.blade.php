@@ -15,7 +15,7 @@
         {{-- upcoming events  --}}
         <div class="row o-create-event">
             <div class="col-6">
-                <div class="row m-form-group">
+                <div class="row m-form-group" autocomplete="off">
                     <div class="col-4">
                         <label for="name">Name</label>
                     </div>
@@ -55,7 +55,9 @@
                         <label for="city">City</label>
                     </div>
                     <div class="col-8">
-                        <input type="text" name="city" value="{{ old('city', ($user ? $user->city : '')) }}">
+                        <input type="text" name="location" class="a-filter-input-location a-filter-input" placeholder="brussel" id="a-input-city" value="{{ old('location', ($user->city ? $user->city : '')) }}">
+                        <input type="hidden" name="latitude" id="a-latitude" value="{{ old('latitude', ($user->latitude ? $user->latitude : '')) }}">
+                        <input type="hidden" name="longitude" id="a-longitude" value="{{ old('longitude', ($user->longitude ? $user->longitude : '')) }}">
                     </div>
                 </div>
                 <div class="row m-form-group">

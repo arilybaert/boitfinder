@@ -146,18 +146,22 @@ class EventController extends Controller
     }
     public function saveProfileEvent(Request $r)
     {
+        $arrLocation = explode(',', $r->location);
         $data = [
             'name' => $r->name,
             'telephone' => $r->telephone,
             'address' => $r->address,
             'zipcode' => $r->zipcode,
-            'city' => $r->city,
+            'city' => $arrLocation[0],
+            'latitude' => $r->latitude,
+            'longitude' => $r->longitude,
             'website' => $r->website,
             'capacity' => $r->capacity,
             'description' => $r->description,
             'genre_description' => $r->genre_description,
             'vimeo_id' => $r->vimeo_id,
         ];
+
         if($r->id){
             $user = User::where('id', $r->id)->first();
             $user->update($data);
