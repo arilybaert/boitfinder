@@ -184,6 +184,15 @@ class ArtistController extends Controller
 
     public function postMembers(Request $r)
     {
-        dd($r);
+        foreach ($r->id as $key => $id) {
+            $data = [
+                "name" => $r->name[$key],
+                "function" => $r->function[$key],
+            ];
+            $bandmember = Bandmember::where('id', $id)->first();
+            $bandmember->update($data);
+        }
+        return back();
+
     }
 }

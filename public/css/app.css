@@ -1410,9 +1410,17 @@
   width: 80%;
   border-radius: 5px;
 }
-.o-table-members .m-action {
+
+.o-bandmembers-button {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
+}
+.o-bandmembers-button button {
+  background-color: #FC9627;
+  color: #990000;
+  border-radius: 5px;
+  padding: 0.5rem 2rem;
+  border: none;
 }
 
 body {

@@ -22,10 +22,10 @@
         width: 80%;
         border-radius: $radius-small;
     }
-    .m-action {
-        display: flex;
-        justify-content: space-between;
-    }
+    // .m-action {
+    //     display: flex;
+    //     justify-content: space-between;
+    // }
     // .a-edit-button {
     //     display: block;
     // }
@@ -34,3 +34,14 @@
     // }
 }
 
+.o-bandmembers-button {
+    display: flex;
+    justify-content: flex-end;
+    button {
+        background-color: $primary-color;
+        color: $tertiary-color;
+        border-radius: $radius-small;
+        padding: 0.5rem 2rem;
+        border: none;
+    }
+}

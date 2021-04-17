@@ -10,6 +10,9 @@
             <div class="col-6">
                 <h2>Band members</h2>
             </div>
+            <div class="col-6 o-bandmembers-button">
+                <button type="submit">Save</button>
+            </div>
         </div>
         <div class="row">
             <div class="col-12">
