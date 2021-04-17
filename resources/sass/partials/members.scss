@@ -45,3 +45,20 @@
         border: none;
     }
 }
+.o-photo-uploader {
+
+    .m-add-btn {
+        height: 50px;
+        width: 50px;
+        background-color: $primary-color;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        i {
+            color: white;
+            font-size: $font-medium;
+        }
+    }
+}

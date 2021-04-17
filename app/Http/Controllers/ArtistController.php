@@ -184,13 +184,30 @@ class ArtistController extends Controller
 
     public function postMembers(Request $r)
     {
+        $user_id = auth()->user()->id;
+
         foreach ($r->id as $key => $id) {
-            $data = [
-                "name" => $r->name[$key],
-                "function" => $r->function[$key],
-            ];
-            $bandmember = Bandmember::where('id', $id)->first();
-            $bandmember->update($data);
+            if($id !== null) {
+                $data = [
+                    "name" => $r->name[$key],
+                    "function" => $r->function[$key],
+                ];
+                $bandmember = Bandmember::where('id', $id)->first();
+                $bandmember->update($data);
+            } else {
+                if($r->name[$key] !== null){
+
+                    $data = [
+                        "name" => $r->name[$key],
+                        "function" => $r->function[$key],
+                        "user_id" => $user_id,
+                        "photo" => $r->profile_picture,
+                    ];
+                    $bandmember = Bandmember::create($data);
+                }
+
+            }
+
         }
         return back();
 

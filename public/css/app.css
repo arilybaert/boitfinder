@@ -1423,6 +1423,21 @@
   border: none;
 }
 
+.o-photo-uploader .m-add-btn {
+  height: 50px;
+  width: 50px;
+  background-color: #FC9627;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+.o-photo-uploader .m-add-btn i {
+  color: white;
+  font-size: 15pt;
+}
+
 body {
   background-color: #FFDFCF;
   font-family: Arial, sans-serif;

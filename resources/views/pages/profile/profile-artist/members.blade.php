@@ -56,6 +56,22 @@
                             </td>
                         </tr>
                         @endforeach
+                        <tr>
+                            <td>
+                                <input type="text" name="name[]" class="a-input a-input-name">
+                                <input type="hidden" name="id[]">
+                            </td>
+                            <td>
+                                <input type="text" name="function[]" class="a-input a-input-function">
+                            </td>
+                            <td>
+                                <livewire:bandmember-uploader/>
+
+
+                            </td>
+                            <td class="m-action">
+                            </td>
+                        </tr>
                     </tbody>
                 </table>
             </div>
