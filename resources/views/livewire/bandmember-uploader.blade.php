@@ -8,11 +8,17 @@ x-on:livewire-upload-progress="progress = $event.detail.progress"
     <div class="o-photo-uploader">
         @error('photo') <span class="error">{{ $message }}</span> @enderror
 
+        @if(strlen($photo_path) > 0)
+        <img src="{{asset($photo_path)}}">
+        <input type="hidden" value="{{ $photo_path }}" name="profile_picture">
+
+        @else
+
         <div @click="$refs.photoInput.click()" class="m-add-btn">
             <i class="fas fa-plus"></i>
         </div>
         <input x-ref="photoInput" type="file" wire:model="photo" style="display: none;">
-        <input type="hidden" value="{{ $photo_path }}">
+        @endif
     </div>
 
     <div wire:loading wire:target="photo">Loading...</div>

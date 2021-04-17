@@ -178,7 +178,10 @@ class ArtistController extends Controller
     }
     public function deleteMembers(Bandmember $user)
     {
+        Storage::disk('public')->delete(substr($user->photo, 8));
+
         $user->delete();
+
         return back();
     }
 
