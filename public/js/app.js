@@ -4149,6 +4149,26 @@ if (document.getElementById('a-gallery-open')) {
   togglePhotoGallery();
   photoVideoSwitch();
 }
+/****************************** BANDMEMBERS *****************************/
+// if(document.querySelectorAll('.a-input-function')) {
+//     const inputFunction = document.querySelectorAll('.a-input-function');
+//     const inputName = document.querySelectorAll('.a-input-name');
+//     const btn = document.querySelectorAll('.a-js-button');
+//     const editBtn = document.querySelectorAll('.a-edit-button');
+//     const saveBtn = document.querySelectorAll('.a-save-button');
+//     btn.forEach((button, index) => {
+//         editBtn[index].style.display = 'block';
+//         saveBtn[index].style.display = 'none';
+//         // inputFunction[index].readonly = true;
+//         // inputName[index].readonly = true;
+//         button.addEventListener('click', () => {
+//             inputFunction[index].disabled = !inputFunction[index].disabled;
+//             inputName[index].disabled = !inputName[index].disabled;
+//             editBtn[index].style.display = editBtn[index].style.display === 'block' ? 'none' : 'block';
+//             saveBtn[index].style.display = saveBtn[index].style.display === 'block' ? 'none' : 'block';
+//         })
+//     })
+// }
 
 /***/ }),
 

@@ -181,4 +181,9 @@ class ArtistController extends Controller
         $user->delete();
         return back();
     }
+
+    public function postMembers(Request $r)
+    {
+        dd($r);
+    }
 }
