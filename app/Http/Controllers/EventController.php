@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Applicant;
 use App\Models\Pa;
 use App\Models\User;
 use App\Models\Event;
@@ -86,7 +87,7 @@ class EventController extends Controller
 
                 Mail::send('emails.mail_application_status', $data, function($message) use ($to_name, $to_email) {
                     $message->to($to_email, $to_name)
-                            ->subject('New application!');
+                            ->subject('Application info');
                     $message->from('gigfinder.ahs@gmail.com','Gigfinder');
                 });
             };
@@ -94,6 +95,27 @@ class EventController extends Controller
         }
         return back();
     }
+
+    public function rejectApplicant(Event $event, User $rejected_applicant, Applicant $application)
+    {
+
+        /*
+        *** Let other applicants know there being rejected
+        */
+        $application->update(['status' => 'rejected']);
+        $to_name = $rejected_applicant->name;
+        $to_email = $rejected_applicant->email;
+        $body = "We're sorry to infrom you that the host from " . $event->name . " has rejected your application. Go check out other events on our site below";
+        $data = array('name'=>$to_name, "body" => $body);
+
+        Mail::send('emails.mail_application_status', $data, function($message) use ($to_name, $to_email) {
+            $message->to($to_email, $to_name)
+                    ->subject('Application info');
+            $message->from('gigfinder.ahs@gmail.com','Gigfinder');
+        });
+        return back();
+    }
+
     // edit event
     public function editEvent(Event $event)
     {

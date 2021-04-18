@@ -45,6 +45,7 @@
                         <p>{{$applicant->message}}</p>
                         <a href="{{route('artist', $applicant->user->id)}}" class="a-view" >View</a>
                         <a href="{{route('artist.accept', [$event->id, $applicant->user->id])}}" class="a-accept"  onclick="return confirm('Are you sure?')" >Accept</a>
+                        <a href="{{route('artist.reject', [$event->id, $applicant->user->id, $applicant->id])}}" class="a-accept"  onclick="return confirm('Are you sure?')">Reject</a>
                     </div>
                 </div>
             @endforeach
