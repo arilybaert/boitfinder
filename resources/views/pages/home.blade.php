@@ -9,10 +9,16 @@
 
                 <div class="row m-filter-button">
                     <div class="col-10 offset-2">
-                        <button type="submit" class="a-filter-button">Apply Filters</button>
+                        <button type="submit" class="a-filter-button" name="action" value="apply">Apply Filters</button>
                     </div>
                 </div>
-
+                @if (Auth::check())
+                    <div class="row m-filter-button">
+                        <div class="col-10 offset-2">
+                            <button href="" class="a-filter-button" name="action" value="save">Save Filters</button>
+                        </div>
+                    </div>
+                @endif
                 {{-- filter items --}}
 
                 <div class="row o-filter-item">

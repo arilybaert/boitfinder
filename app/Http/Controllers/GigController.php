@@ -7,6 +7,7 @@ use App\Models\Pa;
 use App\Models\Event;
 use App\Models\Genre;
 use App\Models\Microphone;
+use App\Models\SavedQuery;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Http\Request;
@@ -48,9 +49,6 @@ class GigController extends Controller
     // Filter events
     public function postFindEvent(Request $r)
     {
-        // convert time and date
-        $from = Carbon::parse($r->date_from)->toDatetimeString();
-        $to = Carbon::parse($r->date_to)->toDatetimeString();
 
         // Get all events
         $events = Event::all();
@@ -58,6 +56,12 @@ class GigController extends Controller
         $microphones = Microphone::all();
         $genres = Genre::orderBy('name')->get();
         $pas = Pa::all();
+
+
+
+        // convert time and date
+        $from = Carbon::parse($r->date_from)->toDatetimeString();
+        $to = Carbon::parse($r->date_to)->toDatetimeString();
 
         // filter distance
         if($r->distance > 0) {
@@ -108,7 +112,7 @@ class GigController extends Controller
                         unset($events[$key]);
                     }
                     break;
-                 // only allow full band systems
+                // only allow full band systems
                 case '2':
                     if($event->user->pa_id !== 2){
                         unset($events[$key]);
@@ -117,6 +121,21 @@ class GigController extends Controller
             }
         }
 
+        // save search query to database
+        if($r->action === 'save') {
+            $data = [
+                'date_from' => Carbon::parse($r->date_from)->toDatetimeString(),
+                'date_to' => Carbon::parse($r->date_to)->toDatetimeString(),
+                'pas' => serialize($r->pas),
+                'microphones' => serialize($r->microphones),
+                'latitude' => $r->latitude,
+                'longitude' => $r->longitude,
+                'distance' => $r->distance,
+                'genres' => serialize($r->genres),
+                'user_id' => Auth::user()->id,
+            ];
+            $query = SavedQuery::create($data);
+        }
 
         return view('pages.home', [
             'events' => $events,
