@@ -48,7 +48,7 @@ class EventController extends Controller
         foreach ($event->applicants as $applicant) {
             if($applicant->user->id == $accepted_applicant->id) {
                 /*
-                *** Let the applicant knoz he's being selected
+                *** Let the applicant know he's being selected
                 */
                 $applicant->update([['status' => 'accepted']]);
                 $to_name = $applicant->user->name;

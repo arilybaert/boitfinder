@@ -14,6 +14,7 @@ class FileUploader extends Component
 
     public $photos = [];
     public $songs = [];
+    public $rider;
 
     public function updatedPhotos()
     {
@@ -37,6 +38,38 @@ class FileUploader extends Component
             $user_id = Auth::id();
             $song->storePublicly('songs/' . $user_id . '/', 's3');
         }
+    }
+    public function updatedRider()
+    {
+        $this->validate([
+            'rider' => 'mimes:jpg,jpeg,png,svg,pdf|max:2324', // 2MB Max
+        ]);
+
+            $user_id = Auth::id();
+            $this->rider->storePublicly('doc/rider/' . $user_id . '/', env('STORAGE'));
+            $data = [
+                'rider' => 'doc/rider/' . $user_id . '/' . $this->rider->hashname(),
+            ];
+
+            $user = User::findOrFail($user_id);
+            Storage::disk(env('STORAGE'))->delete($user->rider);
+
+            $user->update($data);
+            return redirect()->to(route('event.media'));
+
+    }
+    public function removeRider($file)
+    {
+        $user_id = Auth::id();
+        $data = [
+            'rider' => '',
+        ];
+        $user = User::findOrFail($user_id);
+
+        $user->update($data);
+        Storage::disk(env('STORAGE'))->delete($file);
+        return redirect()->to(route('event.media'));
+
 
     }
     public function remove($file)
@@ -69,10 +102,12 @@ class FileUploader extends Component
         // $song_files = Storage::disk('s3')->allFiles('songs/' . $user_id);
         $song_files = [];
 
+        $rider_file = $user->rider;
         return view('livewire.file-uploader', [
             'photo_files' => $photo_files,
             'song_files' => $song_files,
-            'user' => $user
+            'user' => $user,
+            'rider_file' => $rider_file
         ]);
     }
 }

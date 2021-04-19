@@ -1015,6 +1015,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-bottom: 2rem;
 }
 .m-submit button {
   background-color: #FC9627;

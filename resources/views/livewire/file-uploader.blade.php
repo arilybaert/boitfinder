@@ -89,6 +89,31 @@ x-on:livewire-upload-progress="progress = $event.detail.progress"
                 </div>
             @endforeach
         </div>
+
+        <div class="row o-songs">
+            <h2 class="col-6">
+                Rider
+            </h2>
+                <div class="col-6">
+                    <div @click="$refs.riderInput.click()" class="m-button-photos">
+                        <div class="a-button-photos">Add Rider</div>
+                    </div>
+                    <input x-ref="riderInput" type="file" wire:model="rider" style="display: none;" accept="image/*, .pdf">
+                </div>
+        </div>
+
+        @error('rider') <span class="error">{{ $message }}</span> @enderror
+
+        <div class="row">
+                <div class="col-6 o-photos">
+                    <img src="{{asset($rider_file)}}" alt="">
+                </div>
+                <div class="col-3 offset-3 m-song-remove">
+                    <button wire:click.prevent="removeRider('{{$rider_file}}')" class="a-button-remove">
+                        Remove
+                    </button>
+                </div>
+        </div>
     @endif
 
     <div wire:loading wire:target="photo">Loading...</div>

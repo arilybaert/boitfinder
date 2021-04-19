@@ -1,6 +1,6 @@
 @extends('layouts.profile')
 @section('content')
-<form method="POST" class="row o-profile-events" action="{{route('save.profile.event')}}">
+<form method="POST" class="row o-profile-events" action="{{route('save.profile.event')}}" enctype="multipart/form-data">
     @csrf
 
     <x-sidebar type="profile"/>
@@ -77,14 +77,14 @@
                     </div>
                 </div>
                 @if($user->role === 'artist')
-                    <div class="row m-form-group">
+                    {{--  <div class="row m-form-group">
                         <div class="col-4">
                             <label for="rider">Rider</label>
                         </div>
                         <div class="col-8">
-                            <input type="file" name="rider" id="">
+                            <input type="file" name="rider" id="" accept="image/*, .pdf">
                         </div>
-                    </div>
+                    </div>  --}}
                 @endif
             </div>
             <div class="col-6">
@@ -119,7 +119,7 @@
 
     </div>
     <div class="col-9 offset-3 m-submit">
-        <button type="submit">Create</button>
+        <button type="submit">Save</button>
     </div>
 </form>
 @endsection
