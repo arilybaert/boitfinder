@@ -103,6 +103,7 @@ class FileUploader extends Component
         $song_files = [];
 
         $rider_file = $user->rider;
+        // dd($rider_file);
         return view('livewire.file-uploader', [
             'photo_files' => $photo_files,
             'song_files' => $song_files,

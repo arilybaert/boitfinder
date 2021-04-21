@@ -89,7 +89,7 @@
                     </div>
                 </div>
                 <div class="row ">
-                    <a href="{{route('download.rider')}}" class="col-4 offset-4 a-rider-button">
+                    <a href="{{route('download.rider', $artist->id)}}" class="col-4 offset-4 a-rider-button">
                         Download rider
                     </a>
                 </div>

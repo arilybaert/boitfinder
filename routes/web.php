@@ -75,7 +75,7 @@ Route::post('/find/event/apply', [GigController::class, 'postEventApply'])->name
 Route::get('/find/artist', [ArtistController::class, 'getFindArtist'])->name('find.artist');
 Route::post('/find/artist', [ArtistController::class, 'postFindArtist'])->name('find.artist');
 Route::get('/find/artist/{artist}', [ArtistController::class, 'getArtist'])->name('artist');
-Route::get('/find/artist/rider/download', [ArtistController::class, 'getRider'])->name('download.rider');
+Route::get('/find/artist/rider/download/{artist}', [ArtistController::class, 'getRider'])->name('download.rider');
 
 
 

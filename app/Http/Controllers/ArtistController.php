@@ -134,10 +134,11 @@ class ArtistController extends Controller
         ]);
     }
     // download rider
-    public function getRider()
+    public function getRider(User $artist)
     {
-        // Storage::disk('local')->put('example.txt', 'Contents');
-        return Storage::download('public/docs/artist-riders/rider.png');
+        // dd($artist->rider);
+
+        return Storage::download('public/' . $artist->rider);
     }
     // show events where the user has applied for
     public function getEvents()

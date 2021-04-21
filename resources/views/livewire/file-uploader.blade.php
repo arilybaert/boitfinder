@@ -106,13 +106,15 @@ x-on:livewire-upload-progress="progress = $event.detail.progress"
 
         <div class="row">
                 <div class="col-6 o-photos">
-                    <img src="{{asset($rider_file)}}" alt="">
-                </div>
-                <div class="col-3 offset-3 m-song-remove">
-                    <button wire:click.prevent="removeRider('{{$rider_file}}')" class="a-button-remove">
-                        Remove
-                    </button>
-                </div>
+                    @if ($rider_file !== '')
+                        <img src="{{asset($rider_file)}}" alt="">
+                    </div>
+                    <div class="col-3 offset-3 m-song-remove">
+                        <button wire:click.prevent="removeRider('{{$rider_file}}')" class="a-button-remove">
+                            Remove
+                        </button>
+                    </div>
+                    @endif
         </div>
     @endif
 
