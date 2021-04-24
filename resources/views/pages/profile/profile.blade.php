@@ -24,14 +24,6 @@
                         <input type="hidden" name="id" value="{{ ($user ? $user->id : '') }}">
                     </div>
                 </div>
-                <div class="row m-form-group">
-                    <div class="col-4">
-                        <label for="telephone">Telephone</label>
-                    </div>
-                    <div class="col-8">
-                        <input type="text" name="telephone" value="{{ old('telephone', ($user ? $user->telephone : '')) }}">
-                    </div>
-                </div>
                 @if ($user->role === 'event')
                     <div class="row m-form-group">
                         <div class="col-4">
@@ -60,22 +52,7 @@
                         <input type="hidden" name="longitude" id="a-longitude" value="{{ old('longitude', ($user->longitude ? $user->longitude : '')) }}">
                     </div>
                 </div>
-                <div class="row m-form-group">
-                    <div class="col-4">
-                        <label for="website">Website</label>
-                    </div>
-                    <div class="col-8">
-                        <input type="text" name="website" value="{{ old('website', ($user ? $user->website : '')) }}">
-                    </div>
-                </div>
-                <div class="row m-form-group">
-                    <div class="col-4">
-                        <label for="capacity">Capacity</label>
-                    </div>
-                    <div class="col-8">
-                        <input type="text" name="capacity" value="{{ old('capacity', ($user ? $user->capacity : '')) }}">
-                    </div>
-                </div>
+
                 @if($user->role === 'event')
                     <div class="row m-form-group">
                         <div class="col-4">
@@ -99,7 +76,7 @@
                             @foreach ($pas as $pa)
                                 <label class="container">
                                     {{$pa->name}}
-                                    <input type="radio" name="pa_id œ" value="{{$pa->id}}" {{ $pa->id === $user->pa_id ? 'checked' : '' }}>
+                                    <input type="radio" name="pa_id" value="{{$pa->id}}" {{ $pa->id === $user->pa_id ? 'checked' : '' }}>
                                     <span class="checkmark"></span>
                                 </label>
                             @endforeach
@@ -109,28 +86,52 @@
             </div>
             <div class="col-6">
                 <div class="row m-form-group">
-                    <div class="col-3">
+                    <div class="col-4">
+                        <label for="telephone">Telephone</label>
+                    </div>
+                    <div class="col-8">
+                        <input type="text" name="telephone" value="{{ old('telephone', ($user ? $user->telephone : '')) }}">
+                    </div>
+                </div>
+                <div class="row m-form-group">
+                    <div class="col-4">
+                        <label for="website">Website</label>
+                    </div>
+                    <div class="col-8">
+                        <input type="text" name="website" value="{{ old('website', ($user ? $user->website : '')) }}">
+                    </div>
+                </div>
+                <div class="row m-form-group">
+                    <div class="col-4">
+                        <label for="capacity">Capacity</label>
+                    </div>
+                    <div class="col-8">
+                        <input type="text" name="capacity" value="{{ old('capacity', ($user ? $user->capacity : '')) }}">
+                    </div>
+                </div>
+                <div class="row m-form-group">
+                    <div class="col-4">
                         <label for="description">Description</label>
                     </div>
-                    <div class="col-9">
+                    <div class="col-8">
                         <textarea name="description" id="">{{ old('description', ($user ? $user->description : '')) }}</textarea>
                     </div>
                 </div>
                 @if ($user->role === 'artist')
                     <div class="row m-form-group">
-                        <div class="col-3">
+                        <div class="col-4">
                             <label for="genre_description">Genre description</label>
                         </div>
-                        <div class="col-9">
+                        <div class="col-8">
                             <textarea name="genre_description" id="">{{ old('genre_description', ($user ? $user->genre_description : '')) }}</textarea>
                         </div>
                     </div>
                 @endif
                 <div class="row m-form-group">
-                    <div class="col-3">
+                    <div class="col-4">
                         <label for="vimeo_id">Video</label>
                     </div>
-                    <div class="col-9">
+                    <div class="col-8">
                         <input type="text" name="vimeo_id" value="{{ old('vimeo_id', ($user ? $user->vimeo_id : '')) }}" placeholder="vimeo video id">
                     </div>
                 </div>

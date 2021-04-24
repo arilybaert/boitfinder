@@ -1065,6 +1065,7 @@
   border-radius: 5px;
   height: 200px;
   border: 1px solid #FC9627;
+  background-color: #f1f1f1;
 }
 .o-create-event label {
   font-weight: bold;
