@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('content')
 <div class="row">
-    <form class="col-8 offset-2 o-login" method="POST" action="{{ route('login') }}">
+    <form class="col-8 offset-2 o-login" method="POST" action="{{ route('register') }}">
         @csrf
 
         <div class="row m-login-header">
@@ -62,12 +62,18 @@
             </div>
             <div class="col-5">
                 <div class="o-custom-select">
-                    <select>
+                    <select name="role" id="role" required="required" class="@error('role') is-invalid @enderror">
                         <option selected disabled>Choose here</option>
                         <option value="artist">Artist</option>
                         <option value="event">Event</option>
                     </select>
+                    @error('role')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                    @enderror
                 </div>
+
             </div>
         </div>
 

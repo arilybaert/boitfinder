@@ -819,58 +819,6 @@
   height: 2.3rem;
   margin-bottom: 1rem;
 }
-.o-login .m-form-group .o-custom-select {
-  position: relative;
-  border: 2px solid #FC9627;
-  border-radius: 5px;
-  text-align: left;
-  /* Style the arrow inside the select element: */
-  /* Point the arrow upwards when the select box is open (active): */
-  /* style the items (options), including the selected item: */
-  /* Style items (options): */
-  /* Hide the items when the select box is closed: */
-}
-.o-login .m-form-group .o-custom-select select {
-  display: none;
-}
-.o-login .m-form-group .o-custom-select .select-selected {
-  background-color: white;
-}
-.o-login .m-form-group .o-custom-select .select-selected:after {
-  position: absolute;
-  content: "";
-  top: 14px;
-  right: 10px;
-  width: 0;
-  height: 0;
-  border: 6px solid transparent;
-  border-color: #990000 transparent transparent transparent;
-}
-.o-login .m-form-group .o-custom-select .select-selected.select-arrow-active:after {
-  border-color: transparent transparent #fff transparent;
-  top: 7px;
-}
-.o-login .m-form-group .o-custom-select .select-items div, .o-login .m-form-group .o-custom-select .select-selected {
-  color: #990000;
-  padding: 8px 16px;
-  border: 1px solid transparent;
-  border-color: transparent transparent transparent transparent;
-  cursor: pointer;
-}
-.o-login .m-form-group .o-custom-select .select-items {
-  position: absolute;
-  background-color: white;
-  top: 100%;
-  left: 0;
-  right: 0;
-  z-index: 99;
-}
-.o-login .m-form-group .o-custom-select .select-hide {
-  display: none;
-}
-.o-login .m-form-group .o-custom-select .select-items div:hover, .o-login .m-form-group .o-custom-select .same-as-selected {
-  background-color: rgba(0, 0, 0, 0.1);
-}
 
 .o-header {
   width: 100%;
