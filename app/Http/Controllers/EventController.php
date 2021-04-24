@@ -7,6 +7,7 @@ use App\Models\Pa;
 use App\Models\User;
 use App\Models\Event;
 use App\Models\Microphone;
+use App\Models\MicrophonesUser;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
@@ -165,12 +166,31 @@ class EventController extends Controller
     {
         $user = User::where('id', Auth::id())->first();
 
+        $microphones = Microphone::all();
+        $pas = Pa::all();
+
+        $user_microphones = [];
+        foreach ($user->microphones as $mic) {
+            array_push($user_microphones, $mic->microphone_id);
+        }
+
         return view('pages.profile.profile', [
-            'user' => $user
+            'user' => $user,
+            'microphones' => $microphones,
+            'user_microphones' => $user_microphones,
+            'pas' => $pas
         ]);
     }
     public function saveProfileEvent(Request $r)
     {
+        MicrophonesUser::where('user_id',$r->id)->delete();
+        foreach ($r->microphones as $microphone) {
+            $data = [
+                'user_id' => $r->id,
+                'microphone_id' => $microphone
+            ];
+            MicrophonesUser::create($data);
+        }
         $arrLocation = explode(',', $r->location);
         $data = [
             'name' => $r->name,
@@ -185,6 +205,7 @@ class EventController extends Controller
             'description' => $r->description,
             'genre_description' => $r->genre_description,
             'vimeo_id' => $r->vimeo_id,
+            'pa_id' => $r->pa_id,
         ];
 
         if($r->id){

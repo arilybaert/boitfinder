@@ -76,15 +76,35 @@
                         <input type="text" name="capacity" value="{{ old('capacity', ($user ? $user->capacity : '')) }}">
                     </div>
                 </div>
-                @if($user->role === 'artist')
-                    {{--  <div class="row m-form-group">
+                @if($user->role === 'event')
+                    <div class="row m-form-group">
                         <div class="col-4">
-                            <label for="rider">Rider</label>
+                            <label for="mic">Available mics</label>
                         </div>
-                        <div class="col-8">
-                            <input type="file" name="rider" id="" accept="image/*, .pdf">
+                        <div class="col-8 o-filter-input-checkbox">
+                            @foreach ($microphones as $microphone)
+                                    <label class="container">
+                                        {{$microphone->name}}
+                                        <input type="checkbox" name="microphones[]" value="{{ $microphone->id }}" {{ in_array($microphone->id, $user_microphones) ? 'checked' : '' }} >
+                                        <span class="checkmark"></span>
+                                    </label>
+                            @endforeach
                         </div>
-                    </div>  --}}
+                    </div>
+                    <div class="row m-form-group">
+                        <div class="col-4">
+                            <label for="mic">Available PA</label>
+                        </div>
+                        <div class="col-8 o-filter-input-checkbox">
+                            @foreach ($pas as $pa)
+                                <label class="container">
+                                    {{$pa->name}}
+                                    <input type="radio" name="pa_id œ" value="{{$pa->id}}" {{ $pa->id === $user->pa_id ? 'checked' : '' }}>
+                                    <span class="checkmark"></span>
+                                </label>
+                            @endforeach
+                        </div>
+                    </div>
                 @endif
             </div>
             <div class="col-6">

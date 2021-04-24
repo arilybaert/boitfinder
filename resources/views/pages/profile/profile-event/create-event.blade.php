@@ -33,36 +33,9 @@
                         <input type="date" name="date" value="{{$event->date ? date('Y-m-d', strtotime($event->date)) : ''}}" required>
                     </div>
                 </div>
-                {{-- <div class="row m-form-group">
-                    <div class="col-4">
-                        <label for="mic">Available mics</label>
-                    </div>
-                    <div class="col-8 o-filter-input-checkbox">
-                        @foreach ($microphones as $microphone)
-                            <label class="container">
-                                {{$microphone->name}}
-                                <input type="checkbox" name="microphones[]">
-                                <span class="checkmark"></span>
-                            </label>
-                        @endforeach
-                    </div>
-                </div>
-                <div class="row m-form-group">
-                    <div class="col-4">
-                        <label for="mic">Available PA</label>
-                    </div>
-                    <div class="col-8 o-filter-input-checkbox">
-                        @foreach ($pas as $pa)
-                            <label class="container">
-                                {{$pa->name}}
-                                <input type="checkbox" name="pas[]" value="{{$pa->id}}">
-                                <span class="checkmark"></span>
-                            </label>
-                        @endforeach
-                    </div>
-                </div> --}}
 
-                <livewire:coverphoto-uploader />
+            <livewire:coverphoto-uploader />
+
             <div class="col-6">
                 <div class="row m-form-group">
                     <div class="col-4">
@@ -74,7 +47,6 @@
                 </div>
             </div>
         </div>
-
     </div>
     <div class="col-9 offset-3 m-submit">
         <button type="submit">Save</button>
