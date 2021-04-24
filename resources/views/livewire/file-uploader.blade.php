@@ -16,7 +16,7 @@ x-on:livewire-upload-progress="progress = $event.detail.progress"
             <div @click="$refs.photoInput.click()" class="m-button-photos">
                 <div class="a-button-photos">Add photo's</div>
             </div>
-            <input x-ref="photoInput" type="file" multiple wire:model="photos" style="display: none;">
+            <input x-ref="photoInput" type="file" multiple wire:model="photos" style="display: none;" accept="image/*">
         </div>
     </div>
 
@@ -39,7 +39,7 @@ x-on:livewire-upload-progress="progress = $event.detail.progress"
 
                 <img src="{{env('AWS_URL') . $photo_file}}">
                 <button wire:click.prevent="remove('{{$photo_file}}')" class="a-button-remove">
-                    <i class="fas fa-minus-circle" accept="image/*"></i>
+                    <i class="fas fa-minus-circle"></i>
                 </button>
 
                 @if ($user->coverphoto !== $photo_file)
@@ -98,7 +98,7 @@ x-on:livewire-upload-progress="progress = $event.detail.progress"
                     <div @click="$refs.riderInput.click()" class="m-button-photos">
                         <div class="a-button-photos">Add Rider</div>
                     </div>
-                    <input x-ref="riderInput" type="file" wire:model="rider" style="display: none;" accept="image/*, .pdf">
+                    <input x-ref="riderInput" type="file" wire:model="rider" style="display: none;" accept="image/*">
                 </div>
         </div>
 

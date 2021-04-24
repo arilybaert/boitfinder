@@ -19,11 +19,9 @@ class FileUploader extends Component
     public function updatedPhotos()
     {
         $this->validate([
-            'photos.*' => 'image|max:1624', // 2MB Max
+            'photos.*' => 'image|max:2624', // 2MB Max
         ]);
-        $this->validate([
-            'photos.*' => 'image|max:1624', // 2.5MB Max
-        ]);
+
         foreach ($this->photos as $photo) {
             $user_id = Auth::id();
             $photo->storePublicly('photos/' . $user_id . '/', 's3');
@@ -32,7 +30,7 @@ class FileUploader extends Component
     public function updatedSongs()
     {
         $this->validate([
-            'songs.*' => 'mimes:mp3|max:4100', // 2MB Max
+            'songs.*' => 'mimes:mp3|max:4100', // 4MB Max
         ]);
         foreach ($this->songs as $song) {
             $user_id = Auth::id();

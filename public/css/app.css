@@ -963,6 +963,7 @@
   text-align: center;
 }
 .o-profile-events .o-events-sub-header h5 {
+  margin-top: 1rem;
   font-family: Arial, sans-serif;
   font-size: 11pt;
   color: #990000;
@@ -1040,6 +1041,13 @@
   color: #990000;
   font-weight: bold;
   font-family: "Cooper Black";
+}
+.o-create-event .m-form-group .a-create-event-image {
+  width: 100%;
+  height: auto;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 5px;
 }
 .o-create-event input {
   width: 100%;

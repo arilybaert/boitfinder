@@ -21,7 +21,7 @@
                         <label for="name">Name</label>
                     </div>
                     <div class="col-8">
-                        <input type="text" name="name" value="{{$event->name ? $event->name : ''}}">
+                        <input type="text" name="name" value="{{$event->name ? $event->name : ''}}" required>
                         <input type="hidden" name="id" value="{{$event->id ? $event->id : ''}}">
                     </div>
                 </div>
@@ -30,7 +30,7 @@
                         <label for="date">Date</label>
                     </div>
                     <div class="col-8">
-                        <input type="date" name="date" value="{{$event->date ? date('Y-m-d', strtotime($event->date)) : ''}}">
+                        <input type="date" name="date" value="{{$event->date ? date('Y-m-d', strtotime($event->date)) : ''}}" required>
                     </div>
                 </div>
                 {{-- <div class="row m-form-group">
@@ -61,22 +61,15 @@
                         @endforeach
                     </div>
                 </div> --}}
-            </div>
+
+                <livewire:coverphoto-uploader />
             <div class="col-6">
                 <div class="row m-form-group">
                     <div class="col-4">
                         <label for="description">Description</label>
                     </div>
                     <div class="col-8">
-                        <textarea name="description" id="">{{$event->description ? $event->description : ''}}</textarea>
-                    </div>
-                </div>
-                <div class="row m-form-group">
-                    <div class="col-4">
-                        <label for="coverphoto">Coverphoto</label>
-                    </div>
-                    <div class="col-8">
-                        <input type="file" name="" id="">
+                        <textarea name="description" id="" required>{{$event->description ? $event->description : ''}}</textarea>
                     </div>
                 </div>
             </div>

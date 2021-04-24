@@ -17,6 +17,12 @@
             font-weight: bold;
             font-family: $font-secondary;
         }
+        .a-create-event-image {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+            border-radius: $radius-small;
+        }
     }
     input {
         width: 100%;

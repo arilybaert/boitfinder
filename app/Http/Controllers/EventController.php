@@ -141,19 +141,22 @@ class EventController extends Controller
             'name' => $r->name,
             'date' => $r->date,
             'description' => $r->description,
+            'coverphoto' => $r->coverphoto_path,
             'user_id' => Auth::id(),
-            'genre_id' => 14
+            'genre_id' => 14,
+            'created_at' => Carbon::now()
         ];
-        if(Event::where('id',$r->id)) {
+        if($r->id !== null) {
             $event = Event::where('id', $r->id)->first();
             $event->update($event_data);
         } else {
+
             $event = Event::create($event_data);
 
         }
 
 
-        return back();
+        return redirect()->route('event.profile.events');
 
     }
 
