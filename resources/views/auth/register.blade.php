@@ -14,7 +14,7 @@
                 <label for="name">Name</label>
             </div>
             <div class="col-5">
-                <input type="text" name="name" value="{{ old('name') }}" class="@error('name') is-invalid @enderror" required autofocus>
+                <input type="text" id="name" name="name" value="{{ old('name') }}" class="@error('name') is-invalid @enderror" required autofocus>
             </div>
         </div>
         <div class="row m-form-group">
@@ -22,7 +22,7 @@
                 <label for="email">Email</label>
             </div>
             <div class="col-5">
-                <input type="email" name="email" value="{{ old('email') }}" class="@error('email') is-invalid @enderror" required autofocus>
+                <input type="email" id="email" name="email" value="{{ old('email') }}" class="@error('email') is-invalid @enderror" required autofocus>
                 @error('email')
                 <span class="invalid-feedback" role="alert">
                     <strong>{{ $message }}</strong>
@@ -55,6 +55,45 @@
                 <input id="password-confirm" type="password" class="" name="password_confirmation" required autocomplete="new-password">
             </div>
         </div>
+
+        <div class="row m-form-group">
+            <div class="col-4">
+                <label for="role">Who are you?</label>
+            </div>
+            <div class="col-5">
+                <div class="o-custom-select">
+                    <select>
+                        <option selected disabled>Choose here</option>
+                        <option value="artist">Artist</option>
+                        <option value="event">Event</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+
+        {{-- <div class="row">
+            <div class="col-5 offset-4">
+                <div class="o-filter-input-checkbox">
+                    <label class="container">
+                        Artist
+                        <input type="radio" name="role" value="artist">
+                        <span class="checkmark"></span>
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-5 offset-4">
+                <div class="o-filter-input-checkbox">
+                    <label class="container">
+                        Event
+                        <input type="radio" name="role" value="event">
+                        <span class="checkmark"></span>
+                    </label>
+                </div>
+            </div>
+        </div> --}}
 
         <div class="row m-form-group">
             <div class="col-5 offset-4">
