@@ -27,7 +27,6 @@ class CoverphotoUploader extends Component
 
     public function render()
     {
-
         return view('livewire.coverphoto-uploader', [
             'photo_path' => $this->photo_path,
         ]);

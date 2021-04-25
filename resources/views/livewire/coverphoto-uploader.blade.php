@@ -23,14 +23,19 @@
             </div>
 
             {{-- upload preview --}}
-            @if(strlen($photo_path) > 0)
+            @if(strlen($photo_path) > 0 )
 
                 <div class="row m-form-group">
                     <div class="col-4">
                         <label for="coverphoto">Preview</label>
                     </div>
                     <div class="col-8">
-                        <img src="{{ asset($photo_path) }}" alt="" class="a-create-event-image">
+                        @if(env('STORAGE') === 'public')
+                            <img src="{{ asset($photo_path) }}" alt="" class="a-create-event-image">
+                        @endif
+                        @if(env('STORAGE') === 's3')
+                            <img src="{{ env('AWS_URL') . $photo_path }}" alt="" class="a-create-event-image">
+                        @endif
                     </div>
                 </div>
             @endif
