@@ -12,6 +12,7 @@
             <div class="col-6 o-events-header-button">
                 <a href="{{route('event.create')}} ">Create new event</a>
             </div>
+
         </div>
         @if(count($future_events) > 0)
             <div class="row o-events-sub-header">

@@ -118,7 +118,7 @@
                         </div>
                         <div class="col-4 m-header-menu">
                             @if (Auth::check())
-                                <a href="{{ route('event.profile.events')}} ">
+                                <a href="{{ route(Auth::user()->role . '.profile.events')}} ">
                                     <h2>
                                         Profile
                                     </h2>
