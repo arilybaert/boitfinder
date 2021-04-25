@@ -24,7 +24,8 @@ class FileUploader extends Component
 
         foreach ($this->photos as $photo) {
             $user_id = Auth::id();
-            $photo->storePublicly('photos/' . $user_id . '/', 's3');
+            // $photo->storePublicly('photos/' . $user_id . '/', 's3');
+            $photo->storePublicly('photos/' . $user_id . '/', env('STORAGE'));
         }
     }
     public function updatedSongs()
@@ -34,7 +35,8 @@ class FileUploader extends Component
         ]);
         foreach ($this->songs as $song) {
             $user_id = Auth::id();
-            $song->storePublicly('songs/' . $user_id . '/', 's3');
+            // $song->storePublicly('songs/' . $user_id . '/', 's3');
+            $song->storePublicly('songs/' . $user_id . '/', env('STORAGE'));
         }
     }
     public function updatedRider()
@@ -72,7 +74,8 @@ class FileUploader extends Component
     }
     public function remove($file)
     {
-        Storage::disk('s3')->delete($file);
+        // Storage::disk('s3')->delete($file);
+        Storage::disk(env('STORAGE'))->delete($file);
 
     }
 
@@ -94,11 +97,12 @@ class FileUploader extends Component
     {
         $user = Auth::user();
         $user_id = Auth::id();
+        $photo_files = [];
+        $song_files = [];
 
         // $photo_files = Storage::disk('s3')->allFiles('photos/' . $user_id);
-        $photo_files = [];
         // $song_files = Storage::disk('s3')->allFiles('songs/' . $user_id);
-        $song_files = [];
+        $song_files = Storage::disk(env('STORAGE'))->allFiles('songs/' . $user_id);
 
         $rider_file = $user->rider;
         // dd($rider_file);

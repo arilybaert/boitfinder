@@ -77,7 +77,12 @@ x-on:livewire-upload-progress="progress = $event.detail.progress"
             @foreach ($song_files as $song_file)
                 <div class="col-6 o-photos">
                     <audio controls css="background-color:red;">
-                        <source src="{{env('AWS_URL') . $song_file}}" type="audio/mpeg">
+                        @if (env('STORAGE') === 's3')
+                            <source src="{{env('AWS_URL') . $song_file}}" type="audio/mpeg">
+                        @endif
+                        @if (env('STORAGE') === 'public')
+                            <source src="{{asset($song_file)}}" type="audio/mpeg">
+                        @endif
                       Your browser does not support the audio element.
                       </audio>
 

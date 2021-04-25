@@ -1348,10 +1348,14 @@
 }
 .o-media .m-button-photos .a-button-photos {
   background-color: #FC9627;
+  border: 2px solid #FC9627;
   padding: 0.5rem 2rem;
   border-radius: 5px;
   cursor: pointer;
   font-weight: bold;
+}
+.o-media .m-button-photos .a-button-photos:hover {
+  border: 2px solid #990000;
 }
 .o-media .o-photos {
   margin-top: 1.5rem;

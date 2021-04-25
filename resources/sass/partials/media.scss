@@ -12,10 +12,14 @@
         align-items: center;
         .a-button-photos {
             background-color: $primary-color;
+            border: 2px solid $primary-color;
             padding: 0.5rem 2rem;
             border-radius: $radius-small;
             cursor: pointer;
             font-weight: bold;
+        }
+        .a-button-photos:hover {
+            border: 2px solid $tertiary-color;
         }
     }
     .o-photos {
@@ -41,6 +45,7 @@
             font-size: $font-medium;
             top: -18px;
         }
+
         .a-button-remove {
             right: 0;
         }

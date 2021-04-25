@@ -157,7 +157,12 @@
                                 @if ( $loop->index < 4)
                                 <div class="col-3 a-apply-color-{{$loop->index+=1}} o-song">
                                     <div class="m-img-container a-button">
-                                        <audio  classname="a-player" src="{{env('AWS_URL') . $song_file}}"></audio>
+                                        @if (env('STORAGE') === 's3')
+                                            <audio  classname="a-player" src="{{env('AWS_URL') . $song_file}}"></audio>
+                                        @endif
+                                        @if(env('STORAGE') === 'public')
+                                            <audio  classname="a-player" src="{{asset($song_file)}}"></audio>
+                                        @endif
                                         <img src="{{asset('src/audio/user-1/cover/cover-2.png')}}" alt="" class="a-spinning-cover">
                                         <i class="fas fa-play"></i>
                                         <i class="fas fa-pause"></i>
