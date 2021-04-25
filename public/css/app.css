@@ -872,6 +872,44 @@
   background-color: rgba(0, 0, 0, 0.1);
 }
 
+.o-404 {
+  margin-top: 18%;
+}
+.o-404 .m-404 {
+  display: flex;
+  flex-direction: column;
+  color: #990000;
+  align-items: center;
+}
+.o-404 .m-404 h1 {
+  font-family: "Cooper Black";
+  font-size: 41pt;
+}
+.o-404 .m-404 h2 {
+  font-family: Arial, sans-serif;
+  font-size: 15pt;
+  font-weight: bold;
+}
+.o-404 .m-404 a,
+.o-404 .m-404 a:link {
+  border-radius: 5px;
+  background-color: #FC9627;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  padding: 0.5rem 2rem;
+  color: #990000;
+  font-family: "Cooper Black";
+  text-decoration: none;
+  border: 2px solid #FC9627;
+}
+.o-404 .m-404 a:hover {
+  border: 2px solid #990000;
+}
+.o-404 .m-404 * {
+  margin-bottom: 1.5rem;
+}
+
 .o-header {
   width: 100%;
   background-color: #E75124;

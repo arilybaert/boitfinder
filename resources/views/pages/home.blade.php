@@ -3,7 +3,7 @@
 
     <div class="row">
         <div class="col-6 col-sm-5 col-md-3 o-filters">
-            <form action="{{route('find.event')}}" method="post" autocomplete="off">
+            <form action="{{route('find.event.apply')}}" method="post" autocomplete="off">
                 @csrf
                 {{-- submit button --}}
 

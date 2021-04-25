@@ -1,0 +1,35 @@
+.o-404 {
+    margin-top: 18%;
+    .m-404 {
+        display: flex;
+        flex-direction: column;
+        color: $tertiary-color;
+        align-items: center;
+        h1 {
+            font-family: $font-secondary;
+            font-size: $font-x-x-large;
+        }
+        h2 {
+            font-family: $font-primary;
+            font-size: $font-medium;
+            font-weight: bold;
+        }
+        a,
+        a:link {
+            border-radius: $radius-small;
+            background-color: $primary-color;
+            width: fit-content;
+            padding: 0.5rem 2rem;
+            color: $tertiary-color;
+            font-family: $font-secondary;
+            text-decoration: none;
+            border: 2px solid $primary-color;
+        }
+        a:hover {
+            border: 2px solid $tertiary-color;
+        }
+    }
+    .m-404 * {
+        margin-bottom: 1.5rem;
+    }
+}

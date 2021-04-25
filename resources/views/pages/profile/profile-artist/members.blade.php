@@ -1,6 +1,6 @@
 @extends('layouts.profile')
 @section('content')
-<form method="POST" class="row o-profile-events" action="{{route('artist.members')}}">
+<form method="POST" class="row o-profile-events" action="{{route('artist.members.save')}}">
     @csrf
 
     <x-sidebar type="members"/>

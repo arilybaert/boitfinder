@@ -21,8 +21,8 @@ use App\Http\Controllers\GigController;
 
 // User Specific Routes
 Route::get('/admin', [AdminController::class, 'getIndex'])->name('admin')->middleware('admin');
-Route::get('/artist', [ArtistController::class, 'getIndex'])->name('artist')->middleware('artist');
-Route::get('/event', [EventController::class, 'getIndex'])->name('event')->middleware('event');
+// Route::get('/artist', [ArtistController::class, 'getIndex'])->name('artist')->middleware('artist');
+// Route::get('/event', [EventController::class, 'getIndex'])->name('event')->middleware('event');
 
 /*
 *** Event Profile Routes
@@ -39,16 +39,17 @@ Route::post('/event/create/event', [EventController::class, 'saveEvent'])->name(
 // Edit event profile
 Route::get('/event/profile/edit', [EventController::class, 'editProfileEvent'])->name('edit.profile.event');
 Route::post('/event/profile/edit', [EventController::class, 'saveProfileEvent'])->name('save.profile.event');
+
+
 /*
 *** Artist Profile Routes
 */
 Route::get('/artist/profile/events', [ArtistController::class, 'getEvents'])->name('artist.profile.events');
 Route::get('/artist/members', [ArtistController::class, 'getMembers'])->name('artist.members');
 Route::get('/artist/members/{user}', [ArtistController::class, 'deleteMembers'])->name('artist.members.delete');
-Route::post('/artist/members', [ArtistController::class, 'postMembers'])->name('artist.members');
+Route::post('/artist/members', [ArtistController::class, 'postMembers'])->name('artist.members.save');
 
 /*
-artist.members
 *** Event + Artist Profile Routes
 */
 // change password
@@ -65,7 +66,7 @@ Route::get('/', [GigController::class, 'getIndex'])->name('home');
 // Show all gigs
 Route::get('/find/event', [GigController::class, 'getFindEvent'])->name('find.event');
 // filter gigs
-Route::post('/find/event', [GigController::class, 'postFindEvent'])->name('find.event');
+Route::post('/find/event', [GigController::class, 'postFindEvent'])->name('find.event.apply');
 // Show gig details
 Route::get('/find/event/{event}', [GigController::class, 'getEvent'])->name('event');
 // Apply for event
@@ -73,7 +74,7 @@ Route::post('/find/event/apply', [GigController::class, 'postEventApply'])->name
 
 // Find Artist Routes
 Route::get('/find/artist', [ArtistController::class, 'getFindArtist'])->name('find.artist');
-Route::post('/find/artist', [ArtistController::class, 'postFindArtist'])->name('find.artist');
+Route::post('/find/artist', [ArtistController::class, 'postFindArtist'])->name('find.artist.apply');
 Route::get('/find/artist/{artist}', [ArtistController::class, 'getArtist'])->name('artist');
 Route::get('/find/artist/rider/download/{artist}', [ArtistController::class, 'getRider'])->name('download.rider');
 

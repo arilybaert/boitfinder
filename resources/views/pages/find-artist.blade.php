@@ -3,7 +3,7 @@
 <div class="row">
     {{-- filter  --}}
     <div class="col-3 o-filters">
-        <form action="{{route('find.artist')}} " method="post">
+        <form action="{{route('find.artist.apply')}} " method="post">
             @csrf
             {{-- submit button --}}
 

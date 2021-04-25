@@ -219,4 +219,5 @@ class GigController extends Controller
         });
         return redirect()->back()->with('success', 'Application sent!');
     }
+
 }
