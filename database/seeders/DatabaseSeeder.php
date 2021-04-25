@@ -77,7 +77,8 @@ class DatabaseSeeder extends Seeder
                 'role' => 'artist',
                 'zipcode' => $address[$i][1],
                 'city' => $address[$i][2],
-
+                'latitude' => $address[$i][3],
+                'longitude' => $address[$i][4],
                 'genre_description' => 'Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Etiam scelerisque tortor diam, vel aliquam leo vestibulum in. Suspendisse consectetur lacus et justo egestas consequat. Nulla id risus massa. Donec eu eleifend nunc.',
                 'coverphoto' => 'src/img/artist/cover/cover-' . $i . '.jpg',
                 'vimeo_id' => '529663747',

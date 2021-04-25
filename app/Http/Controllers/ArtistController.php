@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Classes\CalcDistance;
 use App\Models\Bandmember;
 use App\Models\Microphone;
 use App\Models\Genre;
@@ -30,7 +30,11 @@ class ArtistController extends Controller
             'microphones' => $microphones,
             'r_pas' => [],
             'r_microphones' => [],
-            'r_genres' => []
+            'r_genres' => [],
+            'r_location' => '',
+            'r_latitude' => '',
+            'r_longitude' => '',
+            'r_distance' => '',
         ]);
     }
     // Filter artists
@@ -43,6 +47,16 @@ class ArtistController extends Controller
         $microphones = Microphone::all();
         $genres = Genre::orderBy('name')->get();
         $pas = Pa::all();
+
+        // filter distance
+        if($r->distance > 0) {
+            foreach ($artists as $key => $artist) {
+                $distanceInKM = CalcDistance::vincentyGreatCircleDistance($r->latitude, $r->longitude, $artist->latitude, $artist->longitude) / 1000;
+                if($distanceInKM > $r->distance) {
+                    unset($artists[$key]);
+                }
+            }
+        }
 
         // Filter the genres
         if($r->genres > 0) {
@@ -105,6 +119,10 @@ class ArtistController extends Controller
             'r_pas' => $r->pas,
             'r_microphones' => $r->microphones,
             'r_genres' => $r->genres,
+            'r_location' => $r->location,
+            'r_distance' => $r->distance,
+            'r_latitude' => $r->latitude,
+            'r_longitude' => $r->longitude,
         ]);
     }
 
