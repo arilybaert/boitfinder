@@ -20,9 +20,9 @@ class BandmemberUploader extends Component
             'photo' => 'image|max:2624', // 2MB Max
         ]);
         $user_id = Auth::id();
-        $this->photo->store('img/bandmembers/' . $user_id . '/', 'public');
+        $this->photo->storePublicly('img/bandmembers/' . $user_id . '/', env('STORAGE'));
 
-        $this->photo_path = 'storage/img/bandmembers/' . $user_id . '/' . $this->photo->hashname();
+        $this->photo_path = 'img/bandmembers/' . $user_id . '/' . $this->photo->hashname();
     }
 
     public function render()

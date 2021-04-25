@@ -131,18 +131,10 @@ class ArtistController extends Controller
         // get songs from db
         $song_files = Storage::disk(env('STORAGE'))->allFiles('songs/' . $artist->id);
 
-        // get photos from db
-        $photo_files = [
-            "src/img/event/cover/cover-0.jpg",
-            "src/img/event/cover/cover-1.jpg",
-            "src/img/event/cover/cover-2.jpg",
-            "src/img/event/cover/cover-3.jpg",
-        ];
-        // UNCOMMENT TO USE DB PICTURES
-        // $photo_files = Storage::disk('s3')->allFiles('photos/' . $artist->id);
+        // // get photos from db
 
-        // dd($photo_files);
-        // $photo_files = [];
+        $photo_files = Storage::disk(env('STORAGE'))->allFiles('photos/' . $artist->id);
+
         return view('pages.artist-detail', [
             'artist' => $artist,
             'song_files' => $song_files,
@@ -154,7 +146,7 @@ class ArtistController extends Controller
     {
         // dd($artist->rider);
 
-        return Storage::download('public/' . $artist->rider);
+        return Storage::disk(env('STORAGE'))->download($artist->rider);
     }
     // show events where the user has applied for
     public function getEvents()

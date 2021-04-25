@@ -8,9 +8,13 @@ x-on:livewire-upload-progress="progress = $event.detail.progress"
     <div class="o-photo-uploader">
         @error('photo') <span class="error">{{ $message }}</span> @enderror
 
-        {{ var_dump($photo_path) }}
         @if(strlen($photo_path) > 0)
-            <img src="{{asset($photo_path)}}">
+            @if (env('STORAGE') == 'public')
+                <img src="{{asset($photo_path)}}">
+            @endif
+            @if (env('STORAGE') == 's3')
+                <img src="{{env('AWS_URL') . $photo_path}}">
+            @endif
             <input type="hidden" value="{{ $photo_path }}" name="profile_picture">
 
         @else

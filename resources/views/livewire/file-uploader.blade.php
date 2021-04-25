@@ -37,7 +37,12 @@ x-on:livewire-upload-progress="progress = $event.detail.progress"
         @foreach ($photo_files as $photo_file)
             <div class="col-3 o-photos">
 
-                <img src="{{env('AWS_URL') . $photo_file}}">
+                @if(env('STORAGE') === 'public')
+                    <img src="{{asset($photo_file)}}">
+                @endif
+                @if(env('STORAGE') === 's3')
+                    <img src="{{env('AWS_URL') . $photo_file}}">
+                @endif
                 <button wire:click.prevent="remove('{{$photo_file}}')" class="a-button-remove">
                     <i class="fas fa-minus-circle"></i>
                 </button>
@@ -112,7 +117,12 @@ x-on:livewire-upload-progress="progress = $event.detail.progress"
         <div class="row">
                 <div class="col-6 o-photos">
                     @if ($rider_file !== '')
-                        <img src="{{asset($rider_file)}}" alt="">
+                        @if (env('STORAGE') === 'public')
+                            <img src="{{asset($rider_file)}}" alt="">
+                        @endif
+                        @if (env('STORAGE') === 's3')
+                            <img src="{{env('AWS_URL') . $rider_file}}" alt="">
+                        @endif
                     </div>
                     <div class="col-3 offset-3 m-song-remove">
                         <button wire:click.prevent="removeRider('{{$rider_file}}')" class="a-button-remove">

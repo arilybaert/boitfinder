@@ -101,6 +101,7 @@ class FileUploader extends Component
         $song_files = [];
 
         // $photo_files = Storage::disk('s3')->allFiles('photos/' . $user_id);
+        $photo_files = Storage::disk(env('STORAGE'))->allFiles('photos/' . $user_id);
         // $song_files = Storage::disk('s3')->allFiles('songs/' . $user_id);
         $song_files = Storage::disk(env('STORAGE'))->allFiles('songs/' . $user_id);
 
