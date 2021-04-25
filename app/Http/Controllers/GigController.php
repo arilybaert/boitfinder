@@ -158,6 +158,15 @@ class GigController extends Controller
     // Find event detail
     public function getEvent(Event $event)
     {
+        // get photos from db
+        $photo_files = [
+            "src/img/event/cover/cover-0.jpg",
+            "src/img/event/cover/cover-1.jpg",
+            "src/img/event/cover/cover-2.jpg",
+            "src/img/event/cover/cover-3.jpg",
+        ];
+        // UNCOMMENT TO USE DB PICTURES
+        // $photo_files = Storage::disk('s3')->allFiles('photos/' . $artist->id);
         $applied = false;
 
         if (!Auth::guest()){
@@ -172,7 +181,8 @@ class GigController extends Controller
 
         return view('pages.event-detail', [
             'event' => $event,
-            'applied' => $applied
+            'applied' => $applied,
+            'photo_files' => $photo_files
         ]);
     }
 

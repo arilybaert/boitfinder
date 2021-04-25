@@ -230,6 +230,7 @@
   padding: 0;
   position: relative;
   background-color: #E75124;
+  cursor: pointer;
 }
 .o-event-detail-cover .a-event-detail-cover {
   width: 100%;
@@ -247,6 +248,14 @@
   color: white;
   font-size: 41pt;
   font-family: "Cooper Black";
+}
+.o-event-detail-cover i {
+  position: absolute;
+  right: 20px;
+  bottom: 16px;
+  margin: 0;
+  color: white;
+  font-size: 19pt;
 }
 
 .m-event-details {
@@ -1407,6 +1416,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  display: none;
 }
 .o-gallery .m-gallery {
   width: 70vw;

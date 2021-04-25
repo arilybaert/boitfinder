@@ -1,11 +1,37 @@
 @extends('layouts.app')
 @section('content')
 
+<div class="o-gallery" id="o-gallery">
+    <div class="m-gallery" id="m-gallery">
+        <h2>Gallery</h2>
+        <div class="m-photo" id="m-photo">
+            @foreach ($photo_files as $photo_file)
+                {{-- uncomment to use db pictures --}}
+                <img src="{{asset($photo_file) }}" alt="gallery picture" class="a-gallery-picture">
+                {{-- <img src="{{env('AWS_URL') . $photo_file}}" alt="gallery picture" class="a-gallery-picture"> --}}
+                @endforeach
+                <div class="a-left a-image-button" id="a-left">
+                    <i class="fas fa-arrow-left"></i>
+                </div>
+                <div class="a-right a-image-button" id="a-right">
+                    <i class="fas fa-arrow-right"></i>
+                </div>
+        </div>
+        <div class="m-gallery-video" id="o-gallery-video">
+            <iframe class="a-gallery-video" src="{{env('VIMEO_URL') . $event->user->vimeo_id}}" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen=""></iframe>
+        </div>
+        <i class="fas fa-video a-video" id="a-photo-video-btn"></i>
+        <i class="fas fa-camera a-video" id="a-photo-video-btn_photo"></i>
+    </div>
+</div>
+
 {{-- image --}}
 <div class="row">
-    <div class="col-10 offset-1 o-event-detail-cover">
+    <div class="col-10 offset-1 o-event-detail-cover" id="a-gallery-open">
         <img src="{{ asset($event->user->coverphoto) }}" alt="" class="a-event-detail-cover">
         <h2>{{$event->user->name}}</h2>
+        <i class="fas fa-camera"></i>
+
     </div>
 </div>
 

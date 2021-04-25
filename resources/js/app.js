@@ -326,7 +326,7 @@ const togglePhotoGallery = () => {
             galleryContainer.style.display = "none";
         }
     });
-    galleryContainer.style.display = 'flex';
+    galleryContainer.style.display = 'none';
 
     openGallery.addEventListener("click", () => {
         galleryContainer.style.display = 'flex';

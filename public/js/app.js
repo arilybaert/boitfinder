@@ -4139,7 +4139,7 @@ var togglePhotoGallery = function togglePhotoGallery() {
       galleryContainer.style.display = "none";
     }
   });
-  galleryContainer.style.display = 'flex';
+  galleryContainer.style.display = 'none';
   openGallery.addEventListener("click", function () {
     galleryContainer.style.display = 'flex';
   });
