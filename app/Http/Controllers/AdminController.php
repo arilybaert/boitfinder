@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Microphone;
+use App\Models\MicrophonesUser;
 use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -61,6 +63,29 @@ class AdminController extends Controller
             'deleted_at' => null,
         ];
         $user->update($data);
+        return back();
+    }
+
+    // microphones
+    public function getMicrophones()
+    {
+        return view('admin.microphones', [
+            "microphones" => Microphone::all(),
+        ]);
+    }
+    public function postMicrophones(Request $r)
+    {
+        $data = [
+            "name" => $r->name
+        ];
+        Microphone::where('id', $r->id)->update($data);
+        return back();
+    }
+    public function deleteMicrophones(Microphone $microphone)
+    {
+        MicrophonesUser::where('microphone_id', $microphone->id)->delete();
+        // dd($microphone);
+        $microphone->delete();
         return back();
     }
 }

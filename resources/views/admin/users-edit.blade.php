@@ -52,7 +52,7 @@
         <div class="form-row">
             <div class="form-group col-md-6">
                 <label for="description">Description</label>
-                <textarea type="text" class="form-control" id="description" name="description">{{ $user ? $user->description : '' }}</textarea>
+                <textarea type="text" class="form-control" id="description" name="description" rows="15">{{ $user ? $user->description : '' }}</textarea>
             </div>
             <button type="submit" class="btn btn-primary">Save</button>
         </form>

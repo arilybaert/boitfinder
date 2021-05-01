@@ -21,7 +21,9 @@ Route::post('/admin/users/save', [AdminController::class, 'postUsers'])->name('a
 Route::get('/admin/users/delete/{user}', [AdminController::class, 'deleteUsers'])->name('admin.users.delete')->middleware('admin');
 Route::get('/admin/users/activate/{user}', [AdminController::class, 'activateUsers'])->name('admin.users.activate')->middleware('admin');
 
-Route::get('/admin/microphones', [AdminController::class, 'getIndex'])->name('admin.microphones')->middleware('admin');
+Route::get('/admin/microphones', [AdminController::class, 'getMicrophones'])->name('admin.microphones')->middleware('admin');
+Route::post('/admin/microphones/save', [AdminController::class, 'postMicrophones'])->name('admin.microphones.save')->middleware('admin');
+Route::get('/admin/microphones/delete/{microphone}', [AdminController::class, 'deleteMicrophones'])->name('admin.microphones.delete')->middleware('admin');
 Route::get('/admin/pas', [AdminController::class, 'getIndex'])->name('admin.pas')->middleware('admin');
 
 /*
