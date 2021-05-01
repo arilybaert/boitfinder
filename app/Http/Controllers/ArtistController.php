@@ -7,6 +7,7 @@ use App\Models\Microphone;
 use App\Models\Genre;
 use App\Models\Pa;
 use App\Models\Event;
+use App\Models\SavedQuery;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
@@ -230,5 +231,11 @@ class ArtistController extends Controller
         return view('pages.profile.profile-artist.queries', [
             'queries' => $user->savedQueries
         ]);
+    }
+    public function deleteQuerie(SavedQuery $querie)
+    {
+        $querie->delete();
+        return back();
+
     }
 }

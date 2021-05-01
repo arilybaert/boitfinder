@@ -13,6 +13,7 @@ class SavedQuery extends Model
         'date_to',
         'pas',
         'microphones',
+        'city',
         'latitude',
         'longitude',
         'distance',
