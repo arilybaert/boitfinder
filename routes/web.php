@@ -15,17 +15,18 @@ Route::get('/admin', [AdminController::class, 'getIndex'])->name('admin')->middl
 Route::get('/admin', [AdminController::class, 'getIndex'])->name('admin.profile.events')->middleware('admin');
 // Admin users
 Route::get('/admin/users', [AdminController::class, 'getUsers'])->name('admin.users')->middleware('admin');
-Route::get('/admin/users/deleted', [AdminController::class, 'getDeletedUsers'])->name('admin.users.deleted')->middleware('admin');
 Route::get('/admin/users/edit/{user}', [AdminController::class, 'editUsers'])->name('admin.users.edit')->middleware('admin');
 Route::post('/admin/users/save', [AdminController::class, 'postUsers'])->name('admin.users.save')->middleware('admin');
 Route::get('/admin/users/delete/{user}', [AdminController::class, 'deleteUsers'])->name('admin.users.delete')->middleware('admin');
 Route::get('/admin/users/activate/{user}', [AdminController::class, 'activateUsers'])->name('admin.users.activate')->middleware('admin');
-
+// Microphone
 Route::get('/admin/microphones', [AdminController::class, 'getMicrophones'])->name('admin.microphones')->middleware('admin');
 Route::post('/admin/microphones/save', [AdminController::class, 'postMicrophones'])->name('admin.microphones.save')->middleware('admin');
 Route::get('/admin/microphones/delete/{microphone}', [AdminController::class, 'deleteMicrophones'])->name('admin.microphones.delete')->middleware('admin');
-Route::get('/admin/pas', [AdminController::class, 'getIndex'])->name('admin.pas')->middleware('admin');
-
+// Pas
+Route::get('/admin/pas', [AdminController::class, 'getPas'])->name('admin.pas')->middleware('admin');
+Route::post('/admin/pas/save', [AdminController::class, 'postPas'])->name('admin.pas.save')->middleware('admin');
+Route::get('/admin/Pas/delete/{pa}', [AdminController::class, 'deletePas'])->name('admin.pas.delete')->middleware('admin');
 /*
 *** Event Profile Routes
 */

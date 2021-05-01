@@ -22,9 +22,6 @@
                     <li class="nav-item active">
                     <a class="nav-link" href="{{ route('admin.users') }}">Users</a>
                     </li>
-                    <li class="nav-item active">
-                        <a class="nav-link" href="{{ route('admin.users.deleted') }}">Deleted</a>
-                        </li>
                     <li class="nav-item">
                     <a class="nav-link" href="{{ route('admin.microphones') }}"">Microphones</a>
                     </li>

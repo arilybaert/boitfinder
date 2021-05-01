@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\EventsGenre;
+use App\Models\Pa;
 use App\Models\Microphone;
 use App\Models\MicrophonesUser;
 use App\Models\User;
@@ -18,12 +20,6 @@ class AdminController extends Controller
     {
         return view('admin.users', [
             'users' => User::where('deleted_at', '=', null)->get()
-        ]);
-    }
-    public function getDeletedUsers()
-    {
-        return view('admin.users', [
-            'users' => User::where('deleted_at', '!=', null)->get()
         ]);
     }
     public function editUsers(User $user)
@@ -51,10 +47,23 @@ class AdminController extends Controller
     }
     public function deleteUsers(User $user)
     {
-        $data = [
-            'deleted_at' => Carbon::now(),
-        ];
-        $user->update($data);
+        $microphones_users = MicrophonesUser::where('user_id', $user->id)->get();
+        foreach ($microphones_users as $microphones_user) {
+            $microphones_user->delete();
+        }
+        foreach ($user->events as $event) {
+            $events_genres = EventsGenre::where('event_id', $event->id)->get();
+            foreach ($events_genres as $events_genre) {
+                $events_genre->delete();
+            }
+
+            foreach ($event->applicants as $applicant) {
+                $applicant->delete();
+            }
+            $event->delete();
+        }
+        $user->delete();
+
         return back();
     }
     public function activateUsers(User $user)
@@ -84,8 +93,32 @@ class AdminController extends Controller
     public function deleteMicrophones(Microphone $microphone)
     {
         MicrophonesUser::where('microphone_id', $microphone->id)->delete();
-        // dd($microphone);
+        // dd($mcrophone);
         $microphone->delete();
+        return back();
+    }
+    // pa
+    public function getPas()
+    {
+        return view('admin.pas', [
+            "pas" => Pa::all(),
+        ]);
+    }
+    public function postPas(Request $r)
+    {
+        $data = [
+            "name" => $r->name
+        ];
+        Pa::where('id', $r->id)->update($data);
+        return back();
+    }
+    public function deletePas(Pa $pa)
+    {
+        $users = User::where('pa_id', $pa->id)->get();
+        foreach ($users as $user) {
+            $user->update(['pa_id' => null]);
+        }
+        $pa->delete();
         return back();
     }
 }
