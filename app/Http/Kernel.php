@@ -64,6 +64,7 @@ class Kernel extends HttpKernel
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
         'admin' => \App\Http\Middleware\Admin::class,
         'artist' => \App\Http\Middleware\Artist::class,
-        'event' => \App\Http\Middleware\Event::class
+        'event' => \App\Http\Middleware\Event::class,
+        'artistEvent' => \App\Http\Middleware\ArtistEvent::class
     ];
 }

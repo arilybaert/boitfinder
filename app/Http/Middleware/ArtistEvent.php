@@ -1,11 +1,12 @@
 <?php
 
 namespace App\Http\Middleware;
-use Illuminate\Support\Facades\Auth;
+
 use Closure;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
-class Admin
+class ArtistEvent
 {
     /**
      * Handle an incoming request.
@@ -20,16 +21,13 @@ class Admin
             return redirect()->route('login');
         }
 
-        if (Auth::user()->role == 'event') {
-            return redirect()->route('forbidden');
+        if (Auth::user()->role == 'event' || Auth::user()->role == 'artist') {
+            return $next($request);
         }
 
-        if (Auth::user()->role == 'artist') {
-            return redirect()->route('forbidden');
-        }
 
         if (Auth::user()->role == 'admin') {
-            return $next($request);
+            return redirect()->route('forbidden');
         }
     }
 }

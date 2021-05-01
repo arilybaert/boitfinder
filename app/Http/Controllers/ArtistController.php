@@ -227,7 +227,8 @@ class ArtistController extends Controller
     }
     public function getQueries()
     {
-        $user = auth()->user();
+        $user = Auth::user();
+
         return view('pages.profile.profile-artist.queries', [
             'queries' => $user->savedQueries
         ]);
@@ -237,5 +238,10 @@ class ArtistController extends Controller
         $querie->delete();
         return back();
 
+    }
+
+    public function getForbidden()
+    {
+        return view('errors.forbidden');
     }
 }

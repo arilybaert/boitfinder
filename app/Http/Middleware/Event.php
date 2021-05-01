@@ -25,10 +25,10 @@ class Event
         }
 
         if (Auth::user()->role == 'artist') {
-            return redirect()->route('artist');
+            return redirect()->route('forbidden');
         }
 
         if (Auth::user()->role == 'admin') {
-            return redirect()->route('admin');
+            return redirect()->route('forbidden');
         }    }
 }

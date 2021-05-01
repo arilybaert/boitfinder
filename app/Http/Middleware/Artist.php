@@ -21,7 +21,7 @@ class Artist
         }
 
         if (Auth::user()->role == 'event') {
-            return redirect()->route('event');
+            return redirect()->route('forbidden');
         }
 
         if (Auth::user()->role == 'artist') {
@@ -29,7 +29,7 @@ class Artist
         }
 
         if (Auth::user()->role == 'admin') {
-            return redirect()->route('admin');
+            return redirect()->route('forbidden');
         }
     }
 }

@@ -3,7 +3,7 @@
 <div class="row o-profile-events" >
     @csrf
 
-    <x-sidebar type="members"/>
+    <x-sidebar type="queries"/>
     <div class="col-9">
         {{-- event header  --}}
         <div class="row o-events-header">
