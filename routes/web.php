@@ -8,21 +8,21 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\Auth\ChangePasswordController;
 use App\Http\Controllers\GigController;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
 
-// User Specific Routes
+// Admin
 Route::get('/admin', [AdminController::class, 'getIndex'])->name('admin')->middleware('admin');
-// Route::get('/artist', [ArtistController::class, 'getIndex'])->name('artist')->middleware('artist');
-// Route::get('/event', [EventController::class, 'getIndex'])->name('event')->middleware('event');
+// Admin
+Route::get('/admin', [AdminController::class, 'getIndex'])->name('admin.profile.events')->middleware('admin');
+// Admin users
+Route::get('/admin/users', [AdminController::class, 'getUsers'])->name('admin.users')->middleware('admin');
+Route::get('/admin/users/deleted', [AdminController::class, 'getDeletedUsers'])->name('admin.users.deleted')->middleware('admin');
+Route::get('/admin/users/edit/{user}', [AdminController::class, 'editUsers'])->name('admin.users.edit')->middleware('admin');
+Route::post('/admin/users/save', [AdminController::class, 'postUsers'])->name('admin.users.save')->middleware('admin');
+Route::get('/admin/users/delete/{user}', [AdminController::class, 'deleteUsers'])->name('admin.users.delete')->middleware('admin');
+Route::get('/admin/users/activate/{user}', [AdminController::class, 'activateUsers'])->name('admin.users.activate')->middleware('admin');
+
+Route::get('/admin/microphones', [AdminController::class, 'getIndex'])->name('admin.microphones')->middleware('admin');
+Route::get('/admin/pas', [AdminController::class, 'getIndex'])->name('admin.pas')->middleware('admin');
 
 /*
 *** Event Profile Routes

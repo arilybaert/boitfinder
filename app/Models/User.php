@@ -40,6 +40,7 @@ class User extends Authenticatable
         'pa_id',
         'genre_description',
         'email_verified_at',
+        'deleted_at',
     ];
     public function pa(): BelongsTo
     {
@@ -48,6 +49,10 @@ class User extends Authenticatable
     public function microphones(): HasMany
     {
         return $this->hasMany(MicrophonesUser::class);
+    }
+    public function events(): HasMany
+    {
+        return $this->hasMany(Event::class);
     }
     public function genres(): HasMany
     {
