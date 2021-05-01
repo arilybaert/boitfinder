@@ -128,6 +128,7 @@ class GigController extends Controller
                 'date_to' => Carbon::parse($r->date_to)->toDatetimeString(),
                 'pas' => serialize($r->pas),
                 'microphones' => serialize($r->microphones),
+                'city' => $r->location,
                 'latitude' => $r->latitude,
                 'longitude' => $r->longitude,
                 'distance' => $r->distance,

@@ -19,6 +19,7 @@ class CreateSavedQueriesTable extends Migration
             $table->dateTime('date_to')->nullable();
             $table->string('pas')->nullable();
             $table->string('microphones')->nullable();
+            $table->string('city')->nullable();
             $table->string('latitude')->nullable();
             $table->string('longitude')->nullable();
             $table->string('distance')->nullable();

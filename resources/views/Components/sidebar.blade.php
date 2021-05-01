@@ -14,6 +14,9 @@
             <a href="{{route('artist.members')}}">
                 <h3><span class="{{$type === 'members' ? 'a-active-event' : ''}}">Members</span></h3>
             </a>
+            <a href="{{route('artist.queries')}}">
+                <h3><span class="{{$type === 'queries' ? 'a-active-event' : ''}}">Queries</span></h3>
+            </a>
         @endif
         <a href="{{route('edit.profile.event')}}">
             <h3><span class="{{$type === 'profile' ? 'a-active-event' : ''}}">Edit profile</span></h3>

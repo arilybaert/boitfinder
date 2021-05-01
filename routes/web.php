@@ -48,6 +48,9 @@ Route::get('/artist/profile/events', [ArtistController::class, 'getEvents'])->na
 Route::get('/artist/members', [ArtistController::class, 'getMembers'])->name('artist.members');
 Route::get('/artist/members/{user}', [ArtistController::class, 'deleteMembers'])->name('artist.members.delete');
 Route::post('/artist/members', [ArtistController::class, 'postMembers'])->name('artist.members.save');
+Route::get('/artist/queries/', [ArtistController::class, 'getQueries'])->name('artist.queries');
+Route::get('/artist/queries/', [ArtistController::class, 'getQueries'])->name('artist.queries');
+Route::get('/artist/queries/delete/{querie}', [ArtistController::class, 'deleteQuerie'])->name('artist.queries.delete');
 
 /*
 *** Event + Artist Profile Routes

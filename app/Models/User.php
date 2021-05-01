@@ -57,6 +57,10 @@ class User extends Authenticatable
     {
         return $this->hasMany(Bandmember::class);
     }
+    public function savedQueries(): HasMany
+    {
+        return $this->hasMany(SavedQuery::class);
+    }
     /**
      * The attributes that should be hidden for arrays.
      *

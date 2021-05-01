@@ -224,4 +224,11 @@ class ArtistController extends Controller
         return back();
 
     }
+    public function getQueries()
+    {
+        $user = auth()->user();
+        return view('pages.profile.profile-artist.queries', [
+            'queries' => $user->savedQueries
+        ]);
+    }
 }

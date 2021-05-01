@@ -419,7 +419,7 @@
   align-items: center;
 }
 .o-apply-form .m-apply-form form {
-  background-color: #FFDFCF;
+  background-color: #FEDFCF;
   width: 100%;
   border-radius: 15px;
   overflow: hidden;
@@ -595,7 +595,7 @@
   text-decoration: none;
   border: 2px solid #FC9627;
   color: #FC9627;
-  background-color: #FFDFCF;
+  background-color: #FEDFCF;
 }
 .o-artist-detail .o-apply-button:hover {
   height: 140px;
@@ -1135,7 +1135,7 @@
 }
 .m-submit button:hover {
   border: 2px solid #FC9627;
-  background-color: #FFDFCF;
+  background-color: #FEDFCF;
   color: #FC9627;
 }
 
@@ -1427,7 +1427,7 @@
   display: flex;
   flex-direction: column;
   border-radius: 9px;
-  background-color: #FFDFCF;
+  background-color: #FEDFCF;
   overflow: hidden;
   position: relative;
 }
@@ -1555,8 +1555,27 @@
   font-size: 15pt;
 }
 
+.o-queries table {
+  width: 100%;
+  border-collapse: collapse;
+}
+.o-queries table th, .o-queries table td {
+  border-bottom: 1px solid #990000;
+  padding: 1rem;
+  color: #990000;
+}
+.o-queries table a,
+.o-queries table a:link {
+  background-color: #FC9627;
+  padding: 0.5rem 2rem;
+  color: #FEDFCF;
+  border-radius: 5px;
+  font-weight: bold;
+  text-decoration: none;
+}
+
 body {
-  background-color: #FFDFCF;
+  background-color: #FEDFCF;
   font-family: Arial, sans-serif;
 }
 /* @import 'tailwindcss/base';
