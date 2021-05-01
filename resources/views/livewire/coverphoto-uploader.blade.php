@@ -30,20 +30,38 @@
                         <label for="coverphoto">Preview</label>
                     </div>
                     <div class="col-8">
-                        @if(env('STORAGE') === 'public')
+                        @if(env('STORAGE') == 'public')
                             <img src="{{ asset($photo_path) }}" alt="" class="a-create-event-image">
                         @endif
-                        @if(env('STORAGE') === 's3')
+                        @if(env('STORAGE') == 's3')
                             <img src="{{ env('AWS_URL') . $photo_path }}" alt="" class="a-create-event-image">
                         @endif
                     </div>
                 </div>
             @endif
+            {{-- Tried checking if file exists but it alway returned false --}}
+            {{-- {{ var_dump(file_exists(public_path($coverphoto))) }}
+            {{ var_dump(file_exists(asset($coverphoto))) }}
+            {{ var_dump(file_exists(env('AWS_URL') . $coverphoto)) }} --}}
+            @if (strlen($photo_path) == null)
+                <div class="row m-form-group">
+                    <div class="col-4">
+                        <label for="coverphoto">Preview</label>
+                    </div>
+                    <div class="col-8">
+                        @if(env('STORAGE') == 'public')
+                            <img src="{{ asset($coverphoto) }}" alt="" class="a-create-event-image">
+                        @endif
+                        @if(env('STORAGE') == 's3')
+                            <img src="{{ env('AWS_URL') . $coverphoto }}" alt="" class="a-create-event-image">
+                        @endif
+                    </div>
+                </div>
+                @endif
         </div>
 
     </div>
 
 
 
-</div>
 

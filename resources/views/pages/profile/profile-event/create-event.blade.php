@@ -34,7 +34,10 @@
                     </div>
                 </div>
 
-            <livewire:coverphoto-uploader />
+                <livewire:coverphoto-uploader :coverphoto="$event->coverphoto"/>
+
+
+            </div>
 
             <div class="col-6">
                 <div class="row m-form-group">
