@@ -1,5 +1,10 @@
 .o-profile-events {
-
+    .a-gif {
+        width: 100%;
+        height: auto;
+        border-radius: $radius-small;
+        overflow: hidden;
+    }
     margin-top: 4rem;
 
     // evetn header

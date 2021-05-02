@@ -183,13 +183,15 @@ class EventController extends Controller
     }
     public function saveProfileEvent(Request $r)
     {
-        MicrophonesUser::where('user_id',$r->id)->delete();
-        foreach ($r->microphones as $microphone) {
-            $data = [
-                'user_id' => $r->id,
-                'microphone_id' => $microphone
-            ];
-            MicrophonesUser::create($data);
+        if($r->microphones !== null){
+            MicrophonesUser::where('user_id',$r->id)->delete();
+            foreach ($r->microphones as $microphone) {
+                $data = [
+                    'user_id' => $r->id,
+                    'microphone_id' => $microphone
+                ];
+                MicrophonesUser::create($data);
+            }
         }
         $arrLocation = explode(',', $r->location);
         $data = [

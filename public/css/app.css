@@ -1,3 +1,7 @@
+@font-face {
+  font-family: "Cooper Black";
+  src: url(/fonts/cooper-black.ttf?dbe0cbaa54b6ad6fa3960ca2be6dc5d7);
+}
 .o-filters {
   margin-top: 4rem;
 }
@@ -23,8 +27,25 @@
 }
 .o-filters .o-filter-item .a-filter-item-title {
   font-size: 17pt;
+  position: relative;
   margin-bottom: 0;
   font-family: "Cooper Black";
+}
+.o-filters .o-filter-item .a-filter-item-title .a-tip {
+  visibility: hidden;
+  width: 120px;
+  background-color: #E75124;
+  font-family: Arial, sans-serif;
+  color: #FEDFCF;
+  font-size: 11pt;
+  text-align: center;
+  padding: 5px 0;
+  border-radius: 6px;
+  position: absolute;
+  z-index: 1;
+}
+.o-filters .o-filter-item .a-filter-item-title:hover .a-tip {
+  visibility: visible;
 }
 .o-filters .o-filter-item .m-filter-input {
   display: flex;
@@ -990,6 +1011,12 @@
 .o-profile-events {
   margin-top: 4rem;
 }
+.o-profile-events .a-gif {
+  width: 100%;
+  height: auto;
+  border-radius: 5px;
+  overflow: hidden;
+}
 .o-profile-events .o-events-header {
   color: #990000;
   font-family: "Cooper Black";
@@ -1593,7 +1620,7 @@ footer .m-information {
 }
 footer .m-logo {
   display: flex;
-  justify-content: end;
+  justify-content: flex-end;
   align-items: flex-end;
 }
 footer .m-logo img {

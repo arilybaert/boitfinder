@@ -28,9 +28,28 @@
         }
         .a-filter-item-title {
             font-size: $font-large;
+            position: relative;
             margin-bottom: 0;
             font-family: $font-secondary;
+
         }
+        .a-filter-item-title .a-tip {
+            visibility: hidden;
+            width: 120px;
+            background-color: $secondary-color;
+            font-family: $font-primary;
+            color: $primary-bg-color;
+            font-size: $font-small;
+            text-align: center;
+            padding: 5px 0;
+            border-radius: 6px;
+
+            position: absolute;
+            z-index: 1;
+        }
+        .a-filter-item-title:hover .a-tip {
+            visibility: visible;
+          }
         .m-filter-input {
 
             .a-filter-input {

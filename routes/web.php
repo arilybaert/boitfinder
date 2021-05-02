@@ -40,8 +40,8 @@ Route::get('/event/create/event/{event?}', [EventController::class, 'createEvent
 Route::post('/event/create/event', [EventController::class, 'saveEvent'])->name('event.create.save')->middleware('event');
 
 // Edit event profile
-Route::get('/event/profile/edit', [EventController::class, 'editProfileEvent'])->name('edit.profile.event')->middleware('event');
-Route::post('/event/profile/edit', [EventController::class, 'saveProfileEvent'])->name('save.profile.event')->middleware('event');
+Route::get('/event/profile/edit', [EventController::class, 'editProfileEvent'])->name('edit.profile.event')->middleware('artistEvent');
+Route::post('/event/profile/edit', [EventController::class, 'saveProfileEvent'])->name('save.profile.event')->middleware('artistEvent');
 
 
 /*

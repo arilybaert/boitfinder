@@ -44,6 +44,7 @@
                     <div class="col-10">
                         <h3 class="a-filter-item-title">
                             PA System
+                            <span class="a-tip">Check the acoustic box if you only want to show events equipped with acoustic PA</span>
                         </h3>
                     </div>
                     <div class="col-10 offset-2 o-filter-input-checkbox">
@@ -66,6 +67,7 @@
                     <div class="col-10">
                         <h3 class="a-filter-item-title">
                             Microphones
+                            <span class="a-tip">Check the vocals box if you want to show events equipped with vocal microphones</span>
                         </h3>
                     </div>
                     <div class="col-10 offset-2 o-filter-input-checkbox">

@@ -140,6 +140,7 @@ class SendNewResults extends Command
                 "body" => $body,
                 "events" => $events
             ];
+            if(count($events) > 0){
 
 
             Mail::send('emails.new_results', $data, function($message) use ($to_name, $to_email) {
@@ -147,6 +148,8 @@ class SendNewResults extends Command
                         ->subject('New results!');
                 $message->from('gigfinder.ahs@gmail.com','Gigfinder');
             });
+        }
+
         }
     }
 

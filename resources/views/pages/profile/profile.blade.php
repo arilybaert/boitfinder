@@ -52,7 +52,14 @@
                         <input type="hidden" name="longitude" id="a-longitude" value="{{ old('longitude', ($user->longitude ? $user->longitude : '')) }}">
                     </div>
                 </div>
-
+                <div class="row m-form-group">
+                    <div class="col-4">
+                        <label for="description">Description</label>
+                    </div>
+                    <div class="col-8">
+                        <textarea name="description" id="">{{ old('description', ($user ? $user->description : '')) }}</textarea>
+                    </div>
+                </div>
                 @if($user->role === 'event')
                     <div class="row m-form-group">
                         <div class="col-4">
@@ -65,20 +72,6 @@
                                         <input type="checkbox" name="microphones[]" value="{{ $microphone->id }}" {{ in_array($microphone->id, $user_microphones) ? 'checked' : '' }} >
                                         <span class="checkmark"></span>
                                     </label>
-                            @endforeach
-                        </div>
-                    </div>
-                    <div class="row m-form-group">
-                        <div class="col-4">
-                            <label for="mic">Available PA</label>
-                        </div>
-                        <div class="col-8 o-filter-input-checkbox">
-                            @foreach ($pas as $pa)
-                                <label class="container">
-                                    {{$pa->name}}
-                                    <input type="radio" name="pa_id" value="{{$pa->id}}" {{ $pa->id === $user->pa_id ? 'checked' : '' }}>
-                                    <span class="checkmark"></span>
-                                </label>
                             @endforeach
                         </div>
                     </div>
@@ -109,14 +102,6 @@
                         <input type="text" name="capacity" value="{{ old('capacity', ($user ? $user->capacity : '')) }}">
                     </div>
                 </div>
-                <div class="row m-form-group">
-                    <div class="col-4">
-                        <label for="description">Description</label>
-                    </div>
-                    <div class="col-8">
-                        <textarea name="description" id="">{{ old('description', ($user ? $user->description : '')) }}</textarea>
-                    </div>
-                </div>
                 @if ($user->role === 'artist')
                     <div class="row m-form-group">
                         <div class="col-4">
@@ -127,12 +112,38 @@
                         </div>
                     </div>
                 @endif
+                @if($user->role === 'event')
+                    <div class="row m-form-group">
+                        <div class="col-4">
+                            <label for="mic">Available PA</label>
+                        </div>
+                        <div class="col-8 o-filter-input-checkbox">
+                            @foreach ($pas as $pa)
+                                <label class="container">
+                                    {{$pa->name}}
+                                    <input type="radio" name="pa_id" value="{{$pa->id}}" {{ $pa->id === $user->pa_id ? 'checked' : '' }}>
+                                    <span class="checkmark"></span>
+                                </label>
+                            @endforeach
+                        </div>
+                    </div>
+                @endif
                 <div class="row m-form-group">
                     <div class="col-4">
                         <label for="vimeo_id">Video</label>
                     </div>
                     <div class="col-8">
                         <input type="text" name="vimeo_id" value="{{ old('vimeo_id', ($user ? $user->vimeo_id : '')) }}" placeholder="vimeo video id">
+                    </div>
+                </div>
+            </div>
+            <div class="col-12">
+                <div class="row m-form-group">
+                    <div class="col-2">
+                        <label for="vimeo_id">How?</label>
+                    </div>
+                    <div class="col-10">
+                        <img class="a-gif" src="{{ asset('img/logo/how.gif') }}" alt="gif">
                     </div>
                 </div>
             </div>
