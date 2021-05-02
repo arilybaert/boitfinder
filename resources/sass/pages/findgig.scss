@@ -13,6 +13,9 @@
             width: 100%;
         }
     }
+    .m-filter-button:not(:last-child) {
+        margin-bottom: 1rem;
+    }
 
     .o-filter-item {
 
@@ -29,6 +32,7 @@
             font-family: $font-secondary;
         }
         .m-filter-input {
+
             .a-filter-input {
                 height: 33px;
             }
@@ -43,6 +47,7 @@
                 align-items: center;
                 font-size: $font-large;
                 cursor: pointer;
+            margin-bottom: 0.5rem;
             }
             .a-button__left {
                 border: 1px solid $secondary-color;

@@ -11,6 +11,9 @@
   font-size: 11pt;
   width: 100%;
 }
+.o-filters .m-filter-button:not(:last-child) {
+  margin-bottom: 1rem;
+}
 .o-filters .o-filter-item {
   color: #990000;
   margin-top: 2rem;
@@ -39,6 +42,7 @@
   align-items: center;
   font-size: 17pt;
   cursor: pointer;
+  margin-bottom: 0.5rem;
 }
 .o-filters .o-filter-item .m-filter-input .a-button__left {
   border: 1px solid #E75124;
