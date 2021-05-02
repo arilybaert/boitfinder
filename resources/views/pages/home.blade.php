@@ -139,7 +139,12 @@
                     <a class="col-12 col-md-6 col-lg-4 col-xl-3 o-event-card" href="{{route('event', $event->id)}}">
                         <div class="m-event-card">
                             <div class="m-event-card-image-container">
-                                <img src="{{ asset($event->coverphoto)}}" alt="" class="a-event-card-image">
+                                @if (env('STORAGE') === 'public')
+                                    <img src="{{ asset($event->coverphoto)}}" alt="" class="a-event-card-image">
+                                @elseif(env('STORAGE') === 's3')
+                                    <img src="{{ env('AWS_URL') . $event->coverphoto)}}" alt="" class="a-event-card-image">
+                                @endif
+
                             </div>
                             <h2>
                                 {{$event->name}}
