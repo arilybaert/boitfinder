@@ -1578,6 +1578,29 @@
   text-decoration: none;
 }
 
+footer {
+  width: 100%;
+  border-top-left-radius: 9px;
+  border-top-right-radius: 9px;
+  padding: 2rem;
+  margin-top: 3rem;
+  background-color: #FC9627;
+  font-family: "Cooper Black";
+  color: #990000;
+}
+footer .m-information {
+  text-align: center;
+}
+footer .m-logo {
+  display: flex;
+  justify-content: end;
+  align-items: flex-end;
+}
+footer .m-logo img {
+  height: 50px;
+  width: auto;
+}
+
 body {
   background-color: #FEDFCF;
   font-family: Arial, sans-serif;

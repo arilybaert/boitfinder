@@ -1,0 +1,22 @@
+footer {
+    width: 100%;
+    border-top-left-radius: $radius-medium;
+    border-top-right-radius: $radius-medium;
+    padding: 2rem;
+    margin-top: 3rem;
+    background-color: $primary-color;
+    font-family: $font-secondary;
+    color: $tertiary-color;
+    .m-information {
+        text-align: center;
+    }
+    .m-logo {
+        display: flex;
+        justify-content: end;
+        align-items: flex-end;
+        img {
+            height: 50px;
+            width: auto;
+        }
+    }
+}

@@ -1,5 +1,7 @@
+// colors
 @import 'variables/colors.scss';
 
+// pages
 @import 'pages/findgig.scss';
 @import 'pages/event-detail.scss';
 @import 'pages/artist-detail.scss';
@@ -7,6 +9,7 @@
 @import 'pages/login.scss';
 @import 'pages/404.scss';
 
+// components
 @import 'partials/header.scss';
 @import 'partials/profile-events.scss';
 @import 'partials/create-event.scss';
@@ -16,6 +19,7 @@
 @import 'partials/gallery-modal.scss';
 @import 'partials/members.scss';
 @import 'partials/queries.scss';
+@import 'partials/footer.scss';
 
 
 body {
