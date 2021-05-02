@@ -442,3 +442,10 @@ function closeAllSelect(elmnt) {
 /* If the user clicks anywhere outside the select box,
 then close all select boxes: */
 document.addEventListener("click", closeAllSelect);
+
+
+// if(document.getElementById("a-header-menu")) {
+//     document.getElementById("a-header-menu").addEventListener('click', ()=> {
+//         doc
+//     })
+// }

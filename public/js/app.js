@@ -4269,7 +4269,11 @@ function closeAllSelect(elmnt) {
 then close all select boxes: */
 
 
-document.addEventListener("click", closeAllSelect);
+document.addEventListener("click", closeAllSelect); // if(document.getElementById("a-header-menu")) {
+//     document.getElementById("a-header-menu").addEventListener('click', ()=> {
+//         doc
+//     })
+// }
 
 /***/ }),
 

@@ -22,7 +22,7 @@ class ApplicantFactory extends Factory
     public function definition()
     {
         return [
-            'message' => $this->faker->text($maxNbChars = 600)   ,
+            'message' => "Hey, we are a you frsh band thats looking for a new opportunity. Since your ad closely resambles our style we though to ourselfs why not take shot. We're looking forward to your response",
         ];
     }
 }
