@@ -104,8 +104,8 @@ class SendNewResults extends Command
                     array_push($event_mics, $microphone->microphone_id);
                 }
                 // delete events if it doesn't have the requested microphone
-                if($querie->microphones > 0) {
-                    foreach ($querie->microphones as $checkbox_microphone) {
+                if(count(unserialize($querie->microphones)) > 0) {
+                    foreach (unserialize($querie->microphones) as $checkbox_microphone) {
                         if(!in_array($checkbox_microphone, $event_mics)) {
                             unset($events[$key]);
                         }
