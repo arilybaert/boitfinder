@@ -130,6 +130,11 @@
         </div>
         <div class="col-6 col-sm-7 col-md-9 o-event-cards">
             <div class="row">
+                @if(count($events) < 1)
+                    <div class="col-12">
+                        No results... Try changing your requirements or save this querie to be notified once a new event matching your requirements is posted!
+                    </div>
+                @endif
                 @foreach ($events as $event)
                     <a class="col-12 col-md-6 col-lg-4 col-xl-3 o-event-card" href="{{route('event', $event->id)}}">
                         <div class="m-event-card">
