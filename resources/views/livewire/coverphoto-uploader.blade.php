@@ -11,7 +11,7 @@
                 <label for="coverphoto">Coverphoto</label>
             </div>
             <div class="col-8">
-                <input type="file" name="coverphoto" id="" wire:model="photo"  accept="image/*" required>
+                <input type="file" name="coverphoto" id="" wire:model="photo"  accept="image/*" >
                 @error('photo') <span class="error">{{ $message }}</span> @enderror
 
                 <input type="hidden" value="{{ $photo_path }}"name="coverphoto_path">

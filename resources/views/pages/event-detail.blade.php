@@ -7,8 +7,11 @@
         <div class="m-photo" id="m-photo">
             @foreach ($photo_files as $photo_file)
                 {{-- uncomment to use db pictures --}}
-                <img src="{{asset($photo_file) }}" alt="gallery picture" class="a-gallery-picture">
-                {{-- <img src="{{env('AWS_URL') . $photo_file}}" alt="gallery picture" class="a-gallery-picture"> --}}
+                @if (env('STORAGE') === 'public')
+                    <img src="{{asset($photo_file) }}" alt="gallery picture" class="a-gallery-picture">
+                @elseif(env('STORAGE') === 's3')
+                    <img src="{{ env('AWS_URL') . $photo_file}}" alt="gallery picture" class="a-gallery-picture">
+                @endif
                 @endforeach
                 <div class="a-left a-image-button" id="a-left">
                     <i class="fas fa-arrow-left"></i>
@@ -28,7 +31,12 @@
 {{-- image --}}
 <div class="row">
     <div class="col-10 offset-1 o-event-detail-cover" id="a-gallery-open">
-        <img src="{{ asset($event->user->coverphoto) }}" alt="" class="a-event-detail-cover">
+
+        @if (env('STORAGE') === 'public')
+            <img src="{{ asset($event->user->coverphoto) }}" alt="" class="a-event-detail-cover">
+        @elseif(env('STORAGE') === 's3')
+            <img src="{{ env('AWS_URL') . $event->user->coverphoto}}" alt="" class="a-event-detail-cover">
+        @endif
         <h2>{{$event->user->name}}</h2>
         <i class="fas fa-camera"></i>
 

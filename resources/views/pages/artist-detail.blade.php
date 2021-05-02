@@ -7,8 +7,11 @@
         <div class="m-photo" id="m-photo">
             @foreach ($photo_files as $photo_file)
                 {{-- uncomment to use db pictures --}}
-                <img src="{{asset($photo_file) }}" alt="gallery picture" class="a-gallery-picture">
-                {{-- <img src="{{env('AWS_URL') . $photo_file}}" alt="gallery picture" class="a-gallery-picture"> --}}
+                @if (env('STORAGE') === 'public')
+                    <img src="{{asset($photo_file) }}" alt="gallery picture" class="a-gallery-picture">
+                @elseif(env('STORAGE') === 's3')
+                <img src="{{env('AWS_URL') . $photo_file}}" alt="gallery picture" class="a-gallery-picture">
+                @endif
                 @endforeach
                 <div class="a-left a-image-button" id="a-left">
                     <i class="fas fa-arrow-left"></i>
@@ -28,7 +31,11 @@
 {{-- image --}}
 <div class="row">
     <div class="col-10 offset-1 o-artist-detail-cover" id="a-gallery-open">
-        <img src="{{ asset($artist->coverphoto) }}" class="a-artist-detail-cover">
+        @if (env('STORAGE') === 'public')
+            <img src="{{ asset($artist->coverphoto) }}" class="a-artist-detail-cover">
+        @elseif(env('STORAGE') === 's3')
+            <img src="{{env('AWS_URL') . $artist->coverphoto}}" class="a-artist-detail-cover">
+        @endif
         <h2>{{$artist->name}}</h2>
         <i class="fas fa-camera"></i>
     </div>
@@ -42,7 +49,11 @@
                 <div class="row">
                     @foreach($artist->bandmembers as $bandmember)
                         <div class="col-3 m-artist-members">
-                            <img src="{{ asset($bandmember->photo)}}" alt="">
+                            @if (env('STORAGE') === 'public')
+                                <img src="{{ asset($bandmember->photo)}}" alt="">
+                            @elseif(env('STORAGE') === 's3')
+                                <img src="{{env('AWS_URL') . $bandmember->photo}}">
+                            @endif
                             <h5>{{$bandmember->function}}</h5>
                             <h4>{{$bandmember->name}}</h4>
                         </div>

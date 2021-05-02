@@ -22,7 +22,16 @@
 @import 'partials/footer.scss';
 
 
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+
 body {
     background-color: $primary-bg-color;
     font-family:  $font-primary;
+    margin: 0 0 175px;
+    /* bottom = footer height */
+    padding: 25px;
 }

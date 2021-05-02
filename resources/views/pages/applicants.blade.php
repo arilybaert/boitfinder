@@ -38,7 +38,11 @@
                 <div class="col-4 o-applicant-card">
                     <div class="m-applicant-card {{$applicant->status === 'rejected' ? 'a-disable' : '' }}">
                         <div class="m-img-container">
-                            <img src="{{asset($applicant->user->coverphoto)}}" alt="">
+                            @if (env('STORAGE') === 'public')
+                                <img src="{{asset($applicant->user->coverphoto)}}" alt="">
+                            @elseif(env('STORAGE') === 's3')
+                                <img src="{{env('AWS_URL') . $applicant->user->coverphoto}}" alt="">
+                            @endif
                         </div>
                         <h2>{{$applicant->user->name}}</h2>
                         <h3>{{$applicant->user->city}}</h3>

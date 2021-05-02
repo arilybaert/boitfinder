@@ -143,7 +143,12 @@
                         <label for="vimeo_id">How?</label>
                     </div>
                     <div class="col-10">
-                        <img class="a-gif" src="{{ asset('img/logo/how.gif') }}" alt="gif">
+                        @if (env('STORAGE') === 'public')
+                            <img class="a-gif" src="{{ asset('img/logo/how.gif') }}" alt="gif">
+                        @elseif(env('STORAGE') === 's3')
+                            <img class="a-gif" src="{{ env('AWS_URL') . 'img/logo/how.gif' }}" alt="gif">
+                            @endif
+
                     </div>
                 </div>
             </div>

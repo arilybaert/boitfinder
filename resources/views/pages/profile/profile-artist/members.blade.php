@@ -36,7 +36,11 @@
                                 <input type="text" name="function[]" class="a-input a-input-function" value="{{ $member ? $member->function : '' }}" >
                             </td>
                             <td>
-                                <img src="{{asset($member->photo)}}">
+                                @if (env('STORAGE') === 'public')
+                                    <img src="{{asset($member->photo)}}">
+                                @elseif(env('STORAGE') === 's3')
+                                    <img src="{{env('AWS_URL') . $member->photo}}" alt="">
+                                @endif
                             </td>
                             <td class="m-action">
                                 <a href="{{route('artist.members.delete', $member->id)}}" class="a-delete">

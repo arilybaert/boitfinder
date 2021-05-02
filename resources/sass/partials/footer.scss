@@ -7,6 +7,11 @@ footer {
     background-color: $primary-color;
     font-family: $font-secondary;
     color: $tertiary-color;
+
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    overflow: hidden;
     .m-information {
         text-align: center;
     }

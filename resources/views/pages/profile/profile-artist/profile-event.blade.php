@@ -29,7 +29,11 @@
         @foreach ($future_events as $future_event)
             <div class="row o-event">
                 <div class="col-2 o-cover-img">
-                    <img src="{{ asset($future_event->coverphoto)}} " alt="">
+                    @if (env('STORAGE') === 'public')
+                        <img src="{{ asset($future_event->coverphoto)}} " alt="">
+                    @elseif(env('STORAGE') === 's3')
+                        <img src="{{env('AWS_URL') . $future_event->coverphoto}}" alt="">
+                    @endif
                 </div>
                 <div class="col-2">
                     <h4>{{$future_event->name}}</h4>

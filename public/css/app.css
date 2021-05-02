@@ -1506,6 +1506,8 @@
   box-sizing: border-box;
   padding: 1rem;
   display: none;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 .o-gallery .m-gallery .m-photo .a-left {
   left: 5%;
@@ -1614,6 +1616,10 @@ footer {
   background-color: #FC9627;
   font-family: "Cooper Black";
   color: #990000;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  overflow: hidden;
 }
 footer .m-information {
   text-align: center;
@@ -1628,9 +1634,17 @@ footer .m-logo img {
   width: auto;
 }
 
+html {
+  position: relative;
+  min-height: 100%;
+}
+
 body {
   background-color: #FEDFCF;
   font-family: Arial, sans-serif;
+  margin: 0 0 175px;
+  /* bottom = footer height */
+  padding: 25px;
 }
 /* @import 'tailwindcss/base';
 @import 'tailwindcss/components';

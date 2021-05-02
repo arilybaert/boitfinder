@@ -132,7 +132,11 @@
                 <a href="{{route('artist', $artist->id)}}" class="col-4 o-artist-card">
                     <div class="m-artist-card">
                         <div class="m-artist-card-image-container">
-                            <img src="{{ asset($artist->coverphoto)}} " alt="">
+                            @if (env('STORAGE') === 'public')
+                                <img src="{{ asset($artist->coverphoto)}} " alt="">
+                            @elseif(env('STORAGE') === 's3')
+                                <img src="{{ env('AWS_URL') . $artist->coverphoto}}" alt="">
+                            @endif
                         </div>
                         <h2>
                             {{$artist->name}}
