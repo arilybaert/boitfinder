@@ -142,7 +142,7 @@
                                 @if (env('STORAGE') === 'public')
                                     <img src="{{ asset($event->coverphoto)}}" alt="" class="a-event-card-image">
                                 @elseif(env('STORAGE') === 's3')
-                                    <img src="{{ env('AWS_URL') . $event->coverphoto)}}" alt="" class="a-event-card-image">
+                                    <img src="{{ env('AWS_URL') . $event->coverphoto}}" alt="" class="a-event-card-image">
                                 @endif
 
                             </div>
