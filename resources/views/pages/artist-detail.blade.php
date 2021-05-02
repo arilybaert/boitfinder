@@ -163,7 +163,7 @@
                                         @if(env('STORAGE') === 'public')
                                             <audio  classname="a-player" src="{{asset($song_file)}}"></audio>
                                         @endif
-                                        <img src="{{asset('src/audio/user-1/cover/cover-2.png')}}" alt="" class="a-spinning-cover">
+                                        <img src="{{asset('img/logo/songCover/cover-2.png')}}" alt="" class="a-spinning-cover">
                                         <i class="fas fa-play"></i>
                                         <i class="fas fa-pause"></i>
                                     </div>

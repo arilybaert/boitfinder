@@ -10,6 +10,7 @@ use App\Models\Microphone;
 use App\Models\SavedQuery;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
 
@@ -160,14 +161,8 @@ class GigController extends Controller
     public function getEvent(Event $event)
     {
         // get photos from db
-        $photo_files = [
-            "src/img/event/cover/cover-0.jpg",
-            "src/img/event/cover/cover-1.jpg",
-            "src/img/event/cover/cover-2.jpg",
-            "src/img/event/cover/cover-3.jpg",
-        ];
-        // UNCOMMENT TO USE DB PICTURES
-        // $photo_files = Storage::disk('s3')->allFiles('photos/' . $artist->id);
+
+        $photo_files = Storage::disk(env('STORAGE'))->allFiles('photos/' . $event->user->id);
         $applied = false;
 
         if (!Auth::guest()){

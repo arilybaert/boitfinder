@@ -10,6 +10,7 @@ use App\Models\MicrophonesUser;
 use App\Models\Genre;
 use App\Models\GenresUser;
 use App\Models\Event;
+use App\Models\Song;
 use App\Models\EventsGenre;
 use App\Models\Applicant;
 use Illuminate\Database\Seeder;
@@ -62,7 +63,7 @@ class DatabaseSeeder extends Seeder
                 'longitude' => $address[$i][4],
 
                 'vimeo_id' => '529663747',
-                'coverphoto' => 'src/img/event/cover/cover-' . $i . '.jpg',
+                'coverphoto' => 'img/event/cover/cover-' . $i . '.jpg',
 
                 'pa_id' => $i%2 == 0 ? 1 : 2
             ]);
@@ -73,6 +74,7 @@ class DatabaseSeeder extends Seeder
         //
 
         for($i=0; $i<10; $i++){
+            $id = $i + 11;
             $user = User::factory()->create([
                 'role' => 'artist',
                 'zipcode' => $address[$i][1],
@@ -80,9 +82,9 @@ class DatabaseSeeder extends Seeder
                 'latitude' => $address[$i][3],
                 'longitude' => $address[$i][4],
                 'genre_description' => 'Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Etiam scelerisque tortor diam, vel aliquam leo vestibulum in. Suspendisse consectetur lacus et justo egestas consequat. Nulla id risus massa. Donec eu eleifend nunc.',
-                'coverphoto' => 'src/img/artist/cover/cover-' . $i . '.jpg',
+                'coverphoto' => 'img/artist/cover/cover-' . $i . '.jpg',
                 'vimeo_id' => '529663747',
-                'rider' => 'src/img/artist/rider/rider-0',
+                'rider' => 'doc/rider/'. $id . '/rider.png',
 
                 'pa_id' => $i%2 == 0 ? 1 : 2
             ]);
@@ -175,31 +177,31 @@ class DatabaseSeeder extends Seeder
         //
         // Bandmembers
         //
-        for($i = 1 ; $i<5 ; $i++) {
+        // for($i = 1 ; $i<5 ; $i++) {
             $artists = User::where('role', 'artist')->get();
             foreach ($artists as $artist ) {
                 $bandmember_vocal = Bandmember::factory()->create([
                     'user_id' => $artist->id,
-                    'function' => 'vocals',
-                    'photo' => 'src/img/bandmembers/bandmember-1.jpg'
+                    'function' => 'Vocals',
+                    'photo' => 'img/bandmembers/'. $artist->id . '/1.jpg'
                 ]);
                 $bandmember_vocal = Bandmember::factory()->create([
                     'user_id' => $artist->id,
                     'function' => 'Lead guitar',
-                    'photo' => 'src/img/bandmembers/bandmember-2.jpg'
+                    'photo' => 'img/bandmembers/'. $artist->id . '/2.jpg'
                 ]);
                 $bandmember_vocal = Bandmember::factory()->create([
                     'user_id' => $artist->id,
                     'function' => 'Rytmic guitar',
-                    'photo' => 'src/img/bandmembers/bandmember-3.jpg'
+                    'photo' => 'img/bandmembers/'. $artist->id . '/3.jpg'
                 ]);
                 $bandmember_vocal = Bandmember::factory()->create([
                     'user_id' => $artist->id,
                     'function' => 'Drummer',
-                    'photo' => 'src/img/bandmembers/bandmember-4.jpg'
+                    'photo' => 'img/bandmembers/'. $artist->id . '/4.jpg'
                 ]);
             }
-        }
+        // }
 
 
         //
@@ -247,9 +249,9 @@ class DatabaseSeeder extends Seeder
         }
         for($i = 1; $i<11; $i++ ){
             $event = Event::factory()->create([
-                'coverphoto' => 'src/img/event/poster/event-' . $i . '.jpg',
+                'coverphoto' => 'img/event/poster/event-' . $i . '.jpg',
                 'genre_id' => $all_genres[array_rand($all_genres)],
-                'user_id' => $all_users[array_rand($all_users)],
+                'user_id' => $i,
 
             ]);
         }
@@ -285,6 +287,27 @@ class DatabaseSeeder extends Seeder
             $events_genre = EventsGenre::factory()->create([
                 'event_id' => $event->id,
                 'genre_id' => $all_genres[array_rand($all_genres)],
+            ]);
+        }
+
+        // songs
+        $users = User::where('role', 'artist')->get();
+        foreach ($users as $user) {
+            Song::factory()->create([
+                'url' => 'songs/' . $user->id . '/1.mp3',
+                'user_id' => $user->id,
+            ]);
+            Song::factory()->create([
+                'url' => 'songs/' . $user->id . '/2.mp3',
+                'user_id' => $user->id,
+            ]);
+            Song::factory()->create([
+                'url' => 'songs/' . $user->id . '/3.mp3',
+                'user_id' => $user->id,
+            ]);
+            Song::factory()->create([
+                'url' => 'songs/' . $user->id . '/4.mp3',
+                'user_id' => $user->id,
             ]);
         }
 
